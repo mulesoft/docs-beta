@@ -1,0 +1,32 @@
+= Until Successful Scope
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+:keywords: anypoint studio, studio, mule, until successful, reattempts, retry
+
+The Until Successful scope processes the components within it until they succeed or exhaust the maximum number of retries.
+
+Common processes that use Until Successful include:
+
+* Dispatching to outbound endpoints, for example, when calling a remote web service that might have availability issues.
+* Executing a component method, for example, when executing on a Spring bean that may depend on unreliable resources.
+* Using a sub-flow to re-execute several actions until they all succeed.
+
+The Until Successful scope provides fields described in this table:
+
+[%header,cols="1,3"]
+|===
+|Attribute |Description
+|Max Retries (`maxRetries`) |Specifies the maximum number of retries that are attempted. An error looks like this:  `Message: 'until-successful' retries exhausted.`
+|Milliseconds Between Retries (`millisBetweenRetries`) |Specifies the minimum interval between two attempts to process, in milliseconds. The actual interval depends on the previous execution, but should not exceed twice this number. The default value is 60000 milliseconds (one minute).
+|===
+
+This XML example allows for up to five retries each second.
+
+----
+<until-successful maxRetries="5"
+  doc:name="My Until Successful Component"
+  millisBetweenRetries="1000">
+    <!-- One or more processors here -->
+</until-successful>
+----

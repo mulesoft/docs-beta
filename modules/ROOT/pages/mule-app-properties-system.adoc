@@ -1,0 +1,36 @@
+= System Properties
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+You can use system properties to specify or override property placeholder values that a connector or component in a Mule app uses. MuleSoft recommends this practice when you are deploying your app to a new environment and need to override values in configuration property files for your Mule app.
+
+You can manage system properties in these ways:
+
+* From Anypoint Studio through the Run Configurations window for the project.
+* From the command line for a standalone Mule instance.
+
+== Set System Properties in Anypoint Studio
+
+You can add properties when you launch your project through the Package Explorer in Studio:
+
+. Right-click the project for your Mule app in Package Explorer.
+. Click Run As -> Run Configurations.
+. Pick the Arguments tab.
+. Add your arguments to the VM Arguments field, prepending the property names with `-D`
++
+image::arguments-tab.png[Arguments+Tab]
++
+When you deploy your app through Studio, the new values for property placeholders will take precedence over other values set for those placeholders:
+
+`<logger message="${propertyFromJVMArg}" doc:name="System Property Set in Studio through JVM args"/>`
+
+== Set Placeholder Values from JDK System Properties
+
+For the Mule standalone, you can set and change property placeholder values through a JDK system property from the command line, for example:
+
+`mule -M-Dsmtp.username=JSmith -M-Dsmtp.password=ChangeMe`
+
+== See Also
+
+* xref:configuring-properties.adoc[Mule Configuration Properties]

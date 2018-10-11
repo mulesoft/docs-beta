@@ -1,0 +1,122 @@
+= map
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+
+
+[[map1]]
+== map&#40;Array<T&#62;, &#40;item: T, index: Number&#41; &#45;&#62; R&#41;: Array<R&#62;
+
+Transforms items from the given list (array) into a new list using the
+specified mapper function.
+
+=== Parameters
+
+[%header, cols="1,3"]
+|===
+| Name   | Description
+| `items` | The list (`Array` type) to map.
+| `mapper` | Function used to transform each item in the list. It receives an `item` and optionally, an `index` and returns the transformed item.
+|===
+
+=== Example
+
+This example concatenates the index (plus 1) to each value of the array.
+
+==== Source
+
+[source,DataWeave, linenums]
+----
+%dw 2.0
+output application/json
+---
+['joe', 'pete', 'matt'] map ((item, index) -> (index + 1) ++ '_' ++ item)
+----
+
+==== Output
+
+[source,JSON,linenums]
+----
+[
+  "1_joe",
+  "2_pete",
+  "3_matt"
+]
+----
+
+=== Example
+
+This example creates an object with the array values, using the index (plus 1) as keys.
+
+==== Source
+
+[source,DataWeave, linenums]
+----
+%dw 2.0
+output application/json
+---
+{
+  (["joe", "pete", "matt"] map (item, index) -> {(index + 1): item})
+}
+----
+
+==== Output
+
+[source,JSON,linenums]
+----
+{
+  "1": "joe",
+  "2": "pete",
+  "3": "matt"
+}
+----
+
+
+=== Example
+
+If the parameters of the `mapper` function are not named, the index can be
+referenced with `&#36;&#36;`, and the value with `&#36;`.
+So the previous example can be written like this.
+
+==== Source
+
+[source,DataWeave, linenums]
+----
+%dw 2.0
+output application/json
+---
+["joe", "pete", "matt"] map (($$ + 1) ++ ":" ++ upper($))
+----
+
+
+=== Example
+
+This example shows how to turn an array of key-value pairs into an object.
+
+==== Source
+
+[source,DataWeave, linenums]
+----
+%dw 2.0
+output application/json
+---
+["joe", "pete", "matt"] map (($$ + 1) ++ ":" ++ upper($))
+
+==== Output
+
+[source,JSON,linenums]
+----
+[
+  "1:JOE",
+  "2:PETE",
+  "3:MATT"
+]
+
+
+
+[[map2]]
+== map&#40;Null, &#40;item: Nothing, index: Nothing&#41; &#45;&#62; Any&#41;: Null
+
+Helper function that allows `map` to work with null values.
+
