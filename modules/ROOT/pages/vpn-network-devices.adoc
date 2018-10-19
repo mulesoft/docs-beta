@@ -1,4 +1,7 @@
 = Supported Network Devices
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 The following table lists the network devices that are known to work with the Anypoint VPN.
 

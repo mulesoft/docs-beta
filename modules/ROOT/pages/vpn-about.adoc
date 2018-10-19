@@ -1,4 +1,7 @@
 = Anypoint VPN
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 The Anypoint VPN enables you to create a secure connection to systems within your network that are hosted outside Anypoint Platform. If required, you can create multiple VPNs to connect to different networks or different regions within a network.
 

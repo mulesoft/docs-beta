@@ -1,4 +1,7 @@
 = Troubleshooting Anypoint VPN
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
 
 This topic describes possible errors you may encounter when attempting to connect Anypoint VPN.
 
