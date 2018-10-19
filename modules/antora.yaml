@@ -1,0 +1,5 @@
+name: vpn-ea
+title: CloudHub VPN
+version: 'master'
+nav:
+- modules/ROOT/nav.adoc
