@@ -39,6 +39,6 @@ The Anypoint VPN supports two types of routing:
 
 * Static routing: Requires you to specify the routes that the Anypoint VPN uses to communicate with your network.
 
- == See Also
+== See Also
 
- xref:vpn-create-arm.adoc#vpn-create-arm[Create a CloudHub VPN from Runtime Manager]
+xref:vpn-create-arm.adoc#vpn-create-arm[Create a CloudHub VPN from Runtime Manager]
