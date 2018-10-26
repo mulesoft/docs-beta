@@ -408,7 +408,7 @@ remaining comments that contain WARN messages.
 +
 image::mmt-resulting-flow.png[Flow: Database To JSON]
 
-[test_app]
+[[test_app]]
 == Run and Test the Migrated App
 
 After completing all the manual migration steps for the app, you can run and
