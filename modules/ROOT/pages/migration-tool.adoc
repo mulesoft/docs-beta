@@ -83,7 +83,7 @@ You or your team will need to handle other migration gaps that are covered in th
 ////
 
 [[supported_migrations]]
-== Supported Migrations
+== Supported Components
 
 //TODO: FOR GA, REMOVE NOTE AND REVISE CONTENT, AS NEEDED
 *Note on the Beta release*: This list applies to the Beta and will expand over
@@ -114,13 +114,13 @@ additional items from Mule 3.x until you can migrate them:
 * `remove-session-variable`
 
 [[unsupported_migrations]]
-== Unsupported Migrations
+== Unsupported Components
 
 //TODO: FOR GA, REMOVE NOTE AND REVISE CONTENT, AS NEEDED
 *Note on the Beta release*: This list applies to the Beta and will change over
 time.
 
-The Mule Migration tool does not support the following migrations:
+The Mule Migration tool does not currently support the following components:
 
 * Custom Java code, either used directly or through any of the following:
 ** `<custom-transformer>`
@@ -142,7 +142,7 @@ See also:
 [[unsupported_connectors]]
 == Unsupported Connectors
 
-Connectors that are used in an app but not yet supported by the Mule Migration
+Connectors that are used in an app but not currently supported by the Mule Migration
 tool generate this ERROR in the Migration report:
 
 `The migration of some-connector is not supported`
