@@ -205,6 +205,14 @@ xref:mule-app-properties-to-configure.adoc[Configure Property Placeholders for M
 [[warning_2]]
 === Migrate the Attributes to Inbound Properties Component
 
+This component reads attributes of the Mule message and generates a Mule 3.x
+equivalent of inbound properties as a variable. Any use of an Inbound property
+in a migrated app requires you to replace references to an Inbound property
+with the Attributes object from the new Mule message. _However_, because there
+are no inbound properties in this app
+(`querying-a-mysql-database-1.4.0-mule-application-example`), you can safely
+remove the *Inbound Properties Component* component from it.
+
 The Migration report produces this warning for the
 *Attributes to Inbound Properties* component:
 
@@ -216,13 +224,6 @@ the attributes of the message. Remove this component when there are no
 remaining usages of inboundProperties in expressions or components that rely
 on inboundProperties (such as copy-properties).
 ----
-
-This compatibility processor reads attributes of the Mule message and generates
-a Mule 3.x equivalent of inbound properties as a variable. Each time an
-Inbound property, you need to use the Attributes object from the new Mule
-message. Because there are no inbound properties, you can remove this component.
-You can replace any future reference to an Inbound property with the attributes
-object.
 
 . Delete the *Attributes to Inbound Properties* component:
 +
