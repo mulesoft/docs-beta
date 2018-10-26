@@ -108,14 +108,16 @@ the app. For the sample app, the report looks like this:
 
 image::mmt-report.png[Mule Migration Tool Report]
 
-////
-The report identifies items that remain to complete the migration to Mule 4. The
+
+Note that the report identifies items that remain to complete the migration to Mule 4. The
 warnings (WARN messages) in this report are associated with components in the
 xref:migration-tool.adoc#compatibility_module[Compatibility module] that you
 need to migrate manually before using the app in a production environment.
 Reports can also contain errors (ERROR messages) that must be migrated manually
-before the app will work.
-////
+before the app will work. Additionally, the report will contain some INFO
+messages about Mule 3 components that were removed or changed to make use of some new
+features of Mule 4.
+
 
 . In a web browser, open the Migration report (`summary.html`) produced by the
 Migration tool.
