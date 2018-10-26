@@ -42,7 +42,7 @@ filename is `querying-a-mysql-database-1.4.0-mule-application-example.zip`.
 *Anypoint Studio/Anypoint Studio deployable archive (zip)*, selecting the zip, and
 then clicking *Finish*.
 +
-This process loads the app to a project into Studio 6. By default, the name of
+This process loads the app into a project in Studio 6. By default, the name of
 the project matches the zip filename (minus the file extension).
 +
 . Proceed to <<step_2>>.
