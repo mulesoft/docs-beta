@@ -100,7 +100,7 @@ image::mmt-migrated-app.png[Imported App]
 . Proceed to <<step_3>>.
 
 [[step_3]]
-== Complete the Migration
+== Perform Manual Migration Procedures
 
 Now you review the xref:migration-report.adoc[Mule Migration report], fix the
 issues it finds, and remove any unnecessary complexity that the tool adds to
@@ -456,8 +456,8 @@ successfully before proceeding to the next step.
 Notice that the URL includes query parameters defined in the HTTP listener
 configuration.
 
-Note that you can also create the same *Querying a MySQL Database* app for Mule 4
-from Exchange and compare your results.
+Note that you can also download and import the Mule 4 version of
+https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-database/2.1.4/[Querying a MySQL Database app for Mule 4] from Exchange and compare your results.
 
 == See Also
 
