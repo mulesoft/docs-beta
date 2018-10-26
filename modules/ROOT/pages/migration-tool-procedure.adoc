@@ -149,6 +149,7 @@ $ java -jar mule-migration-tool-runner-0.2.0.jar \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
 ----
 
+
 [[options]]
 == Command-line Options
 
