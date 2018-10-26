@@ -158,10 +158,12 @@ Because the Mule 3 sample app does not use the `statusCode` outbound property
 from the Mule 3 HTTP transport and because no outbound property is set in a
 flow, you can safely remove any use of the outbound property in this case.
 
+////
 For cases in other apps where you _do_ need to handle a `statusCode`
 or outbound property in a flow, it is important to notice that both the
 Migration report and the Configuration XML for the migrated app provide links
 to specific documentation on performing this migration, in this case to  xref:migration-tool-post-mig.adoc#outbound_properties[Outbound Properties (Manual Post-Migration Steps)].
+////
 
 //image::mmt-http-status-code.png[HTTP Status Code Warnings]
 
