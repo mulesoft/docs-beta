@@ -109,15 +109,15 @@ the app. For the sample app, the report looks like this:
 image::mmt-report.png[Mule Migration Tool Report]
 
 
-Note that the report identifies items that remain to complete the migration to Mule 4. The
-warnings (WARN messages) in this report are associated with components in the
+Note that the report identifies items that remain to complete the migration to
+Mule 4. The warnings (WARN messages) in this report are associated with
+components in the
 xref:migration-tool.adoc#compatibility_module[Compatibility module] that you
 need to migrate manually before using the app in a production environment.
 Reports can also contain errors (ERROR messages) that must be migrated manually
-before the app will work. Additionally, the report will contain some INFO
-messages about Mule 3 components that were removed or changed to make use of some new
-features of Mule 4.
-
+before the app will work. Additionally, the report can contain INFO messages
+about Mule 3 components that were removed or changed to make use of Mule 4
+improvements.
 
 . In a web browser, open the Migration report (`summary.html`) produced by the
 Migration tool.
@@ -418,18 +418,23 @@ After completing all the manual migration steps for the app, you can run and
 test that it works.
 
 .Prerequisites:
-To be able to test the migrated app, you need a MySQL server with the `employees` database that the app queries, and you need to make sure that your database and HTTP listener connections work.
+To be able to test the migrated app, you need a MySQL server with the `employees`
+database that the app queries, and you need to make sure that your database and
+HTTP listener connections work.
 
-. Import this script into your MySQL server: link:{attachmentsdir}/create.sample.db.sql[Sample MySQL Script]
+. Import this script into your MySQL server:
+link:{attachmentsdir}/create.sample.db.sql[Sample MySQL Script]
 +
 This script creates a database called `company` with an `employees` table that
 contains data needed to test the SELECT query defined in <<warning_5>>.
-One way to import the script is through the *Data Import/Restore* area of MySQLWorkbench, using the *Import from Self-Contained File* field to point to
+One way to import the script is through the *Data Import/Restore* area of
+MySQLWorkbench, using the *Import from Self-Contained File* field to point to
 the script.
 +
 . In Studio, test your *Connection* to the MySQL database.
 +
-You test the connection from dialog that opens when you click to edit the *Connector config* in the *Perform a query in MySQL* component.
+You test the connection from dialog that opens when you click to edit the
+*Connector config* in the *Perform a query in MySQL* component.
 +
 Make sure the connection is successful before proceeding to the next step.
 +
@@ -445,7 +450,9 @@ You can right-click the canvas in Studio and select *Run project* to run the app
 You need to check the *Console* in Studio to make sure the app deploys
 successfully before proceeding to the next step.
 +
-. In a web browser or app such as Postman, go to URL (such as `http://localhost:8080/?lastname=Howard`) that uses your HTTP listener configuration, and view the JSON results:
+. In a web browser or app such as Postman, go to URL (such as
+  `http://localhost:8080/?lastname=Howard`) that uses your HTTP listener
+  configuration, and view the JSON results:
 +
 [source,json,linenums]
 ----
