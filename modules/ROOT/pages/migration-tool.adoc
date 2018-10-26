@@ -72,7 +72,7 @@ You or your team will need to handle other migration gaps that are covered in th
 //TODO: QUESTION: API for the tool? Tool consists of an execution engine,
 //a proprietary API to allow extensions of it, and a reporting framework.
 
-
+////
 [[whats_migrated]]
 == What Is Migrated?
 
@@ -80,9 +80,10 @@ You or your team will need to handle other migration gaps that are covered in th
 * <<unsupported_migrations>>
 * <<unsupported_connectors>>
 * <<supported_future>>
+////
 
 [[supported_migrations]]
-=== Supported Migrations
+== Supported Migrations
 
 //TODO: FOR GA, REMOVE NOTE AND REVISE CONTENT, AS NEEDED
 *Note on the Beta release*: This list applies to the Beta and will expand over
@@ -113,7 +114,7 @@ additional items from Mule 3.x until you can migrate them:
 * `remove-session-variable`
 
 [[unsupported_migrations]]
-=== Unsupported Migrations
+== Unsupported Migrations
 
 //TODO: FOR GA, REMOVE NOTE AND REVISE CONTENT, AS NEEDED
 *Note on the Beta release*: This list applies to the Beta and will change over
@@ -139,7 +140,7 @@ See also:
 * <<unsupported_connectors>>
 
 [[unsupported_connectors]]
-=== Unsupported Connectors
+== Unsupported Connectors
 
 Connectors that are used in an app but not yet supported by the Mule Migration
 tool generate this ERROR in the Migration report:
@@ -151,7 +152,7 @@ Such connectors require manual migration.
 To manually migrate them, see xref:migration-tool-procedure#unsupported_projects[Migrating Unsupported Connectors].
 
 [[supported_future]]
-=== Supported in the Future
+== Supported in the Future
 
 *Note on the Beta Release:* This list might change over time.
 
@@ -172,6 +173,6 @@ For future releases, we will also support these:
 
 == See Also
 
-xref:migration-report.adoc[Mule Migration Report]
-
-xref:migration-tool-post-mig.adoc[Post-Migration Tasks]
+* xref:migration-tutorial.adoc[Mule Migration Tool Tutorial]
+* xref:migration-report.adoc[Mule Migration Report]
+* xref:migration-tool-post-mig.adoc[Post-Migration Tasks]

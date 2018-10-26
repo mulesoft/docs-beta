@@ -41,6 +41,10 @@ utility (packaged as an executable JAR file). After the Beta program, the
 Mule Migration tool will be released as part of Studio. You will then be able
 to perform migrations through Studio, rather than from the command line.
 
+Note that the xref:migration-tutorial.adoc[Mule Migration Tutorial] covers the
+use of this tool, as well as post-migration tasks, on a sample Mule 3
+application.
+
 //TODO: GET A JAR NAME THAT IS MORE LIKE WHAT CUSTOMERS WILL SEE
 //TODO: LINK OUT TO STUDIO IMPORT STEPS.
 To run the Mule Migration tool:
@@ -53,7 +57,7 @@ for example:
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.2.0.jar \
+$ java -jar mule-migration-tool-runner-0.3.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -muleVersion 4.1.3 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
@@ -131,7 +135,7 @@ For domains and applications included in that domain, a migrator execution is ne
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.2.0.jar \
+$ java -jar mule-migration-tool-runner-0.3.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
  -muleVersion 4.1.3 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-domain-project
@@ -142,7 +146,7 @@ $ java -jar mule-migration-tool-runner-0.2.0.jar \
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.2.0.jar \
+$ java -jar mule-migration-tool-runner-0.3.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -parentDomainBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
  -muleVersion 4.1.3 \
