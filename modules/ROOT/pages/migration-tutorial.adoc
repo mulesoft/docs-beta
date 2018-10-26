@@ -131,6 +131,7 @@ console output, for example:
 * <<warning_3>>
 * <<warning_4>>
 * <<warning_5>>
+* <<test_app>>
 
 When you complete the modifications, the flow will look like this:
 
@@ -157,10 +158,10 @@ Because the Mule 3 sample app does not use the `statusCode` outbound property
 from the Mule 3 HTTP transport and because no outbound property is set in a
 flow, you can safely remove any use of the outbound property in this case.
 
-Note that for cases in other apps where you _do_ need to handle a `statusCode`
+For cases in other apps where you _do_ need to handle a `statusCode`
 or outbound property in a flow, it is important to notice that both the
 Migration report and the Configuration XML for the migrated app provide links
-to specific documentation on performing this migration, in this case to  xref:migration-tool-post-mig.doc#outbound_properties[Outbound Properties (Manual Post-Migration Steps)].
+to specific documentation on performing this migration, in this case to  xref:migration-tool-post-mig.adoc#outbound_properties[Outbound Properties (Manual Post-Migration Steps)].
 
 //image::mmt-http-status-code.png[HTTP Status Code Warnings]
 
@@ -190,7 +191,7 @@ migrated app:
 ----
 <http:listener-config doc:name="HTTP Listener Configuration"
   name="HTTP_Listener_Configuration">
-    <http:listener-connection host="0.0.0.0" port="8080" />
+    <http:listener-connection host="localhost" port="8080" />
 </http:listener-config>
 ----
 +
@@ -336,7 +337,7 @@ reference to `attributes.queryParams.lastName`.
 +
 [source,sql,linenums]
 ----
-select first_name from employees where last_name = :lastname
+SELECT first_name FROM employees WHERE last_name = :lastName
 ----
 +
 . Specify the following *Input Parameters*:
@@ -405,12 +406,58 @@ remaining comments that contain WARN messages.
 +
 image::mmt-resulting-flow.png[Flow: Database To JSON]
 
-NOTE: Before deploying the app, you might need to set the HTTP port to an
-actual value to run it, as well as going through the Readme tasks to
-pre-populate the Database.
+[test_app]
+== Run and Test the Migrated App
 
-Now, you can also create the same Querying a MySQL Database app for Mule 4
-from Exchange and compare the result.
+After completing all the manual migration steps for the app, you can run and
+test that it works.
+
+To be able to test the migrated app, you need a MySQL server with the `employees` database that the app queries, and you need to make sure that your database and HTTP listener connections work.
+
+. Import this script into your MySQL server: link:{attachmentsdir}/create.sample.db.sql[Sample MySQL Script]
++
+This script creates a database called `company` with an `employees` table that
+contains data needed to test the SELECT query defined in <<warning_5>>.
+One way to import the script is through the *Data Import/Restore* area of MySQLWorkbench, using the *Import from Self-Contained File* field to point to
+the script.
++
+. In Studio, test your *Connection* to the MySQL database.
++
+You test the connection from dialog that opens when you click to edit the *Connector config* in the *Perform a query in MySQL* component.
++
+Make sure the connection is successful before proceeding to the next step.
++
+. Now test your *Connection* to the HTTP listener from the
+*Receive HTTP request* component.
++
+Make sure the connection is successful before proceeding to the next step.
++
+. Make sure your app is running in Studio.
++
+You can right-click the canvas in Studio and select *Run project* to run the app.
++
+You need to check the *Console* in Studio to make sure the app deploys
+successfully before proceeding to the next step.
++
+. In a web browser or app such as Postman, go to URL (such as `http://localhost:8080/?lastname=Howard`) that uses your HTTP listener configuration, and view the JSON results:
++
+[source,json,linenums]
+----
+[
+  {
+      "first_name": "Devin"
+  },
+  {
+      "first_name": "Luke"
+  }
+]
+----
++
+Notice that the URL includes query parameters defined in the HTTP listener
+configuration.
+
+Note that you can also create the same *Querying a MySQL Database* app for Mule 4
+from Exchange and compare your results.
 
 == See Also
 
