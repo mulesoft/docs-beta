@@ -140,9 +140,8 @@ image::mmt-resulting-flow.png[Flow: Database To JSON]
 [[warning_1]]
 === Migrate HTTP Listener Components
 
-In Mule 3, connectors and transports that need to send additional data, such
-as headers, must explicitly specify outbound properties, such as outgoing
-status code responses or headers for an HTTP listener.
+In Mule 3, connectors and transports that need to send outbound data must explicitly specify outbound properties, such as outgoing status code responses
+or headers for an HTTP listener.
 
 The Migration report produces this warning twice within the *HTTP listener*
 component:
