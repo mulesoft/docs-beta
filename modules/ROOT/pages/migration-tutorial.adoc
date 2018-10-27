@@ -50,7 +50,7 @@ the project matches the zip filename (minus the file extension).
 [[step_2]]
 == Create a Mule 4 App from the Mule 3 App
 
-Now, you run the Mule Migration tool on the Mule 3 app and import the migrated
+Now you run the Mule Migration tool on the Mule 3 app and import the migrated
 app into Studio 7. In subsequent sections, you will perform the manual steps
 needed to complete the migration to Mule 4.
 
@@ -67,9 +67,9 @@ $ java -jar mule-migration-tool-runner-0.3.0.jar -muleVersion 4.1.3 -projectBase
 +
 For details, see xref:migration-tool-procedure.adoc#options[Command-line Options].
 +
-* To discover the path to the Studio 6 project, you can navigate to
-*File* -> *Switch Workspace* -> *Other* in Studio. Then you append the name
-of the project to that path.
+* To discover the `-projectBasePath` to the Studio 6 project, you can navigate
+to *File* -> *Switch Workspace* -> *Other* in Studio. To that path, append
+the name of the project, as shown in the example above.
 * When the tool runs successfully, the console output looks something like this:
 +
 [souce,console,linenums]
@@ -305,9 +305,12 @@ image::mmt-db-mysql.png[Database Configuration: MySQL Connection]
 +
 . To add the recommended JDBC driver for this database, click the *Configure*
 button and use *Add recommended library* to replace the existing driver.
-. Specify the *Connection* settings.
+. If you have access to a MySQL server into which you can import a database, specify your *Connection* settings, and use `company` for the *Database*
+setting, for example:
 +
 image::mmt-db-add-recommended-lib.png[Database Configuration: Add Recommended Libraries]
++
+You can skip this step if you do not have access to a MySQL database server.
 +
 . Proceed to <<warning_5>>, also for the *Perform a query in MySQL* component.
 
