@@ -62,15 +62,14 @@ the sample directory paths_ set by the `-projectBasePath` and
 +
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.3.0.jar -muleVersion 4.1.3 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/home/myproject/querying-a-mysql-database-mule4
+$ java -jar mule-migration-tool-runner-0.3.0.jar -muleVersion 4.1.3 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
 ----
 +
-For details, see xref:migration-tool-procedure.adoc#options[Command-line Options].
+To discover the `-projectBasePath` to the Studio 6 project, you can navigate
+to *File* -> *Switch Workspace* -> *Other* in Studio. To that path, you also
+need to append the name of the project, as shown in the example above. The `-destinationProjectBasePath` can be any local path. For details, see xref:migration-tool-procedure.adoc#options[Command-line Options].
 +
-* To discover the `-projectBasePath` to the Studio 6 project, you can navigate
-to *File* -> *Switch Workspace* -> *Other* in Studio. To that path, append
-the name of the project, as shown in the example above.
-* When the tool runs successfully, the console output looks something like this:
+When the tool runs successfully, the console output looks something like this:
 +
 [souce,console,linenums]
 ----
@@ -143,9 +142,8 @@ image::mmt-resulting-flow.png[Flow: Database To JSON]
 === Migrate HTTP Listener Components
 
 In Mule 3, connectors and transports that need to send additional data, such
-as headers, must explicitly specify outbound properties. For example, with the
-HTTP listener, you might want to specify the outgoing status code response or
-headers.
+as headers, must explicitly specify outbound properties, such as outgoing
+status code responses or headers for an HTTP listener.
 
 The Migration report produces this warning twice within the *HTTP listener*
 component:
