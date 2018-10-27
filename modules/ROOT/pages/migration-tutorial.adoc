@@ -429,9 +429,9 @@ link:{attachmentsdir}/create.sample.db.sql[Sample MySQL Script]
 +
 This script creates a database called `company` with an `employees` table that
 contains data needed to test the SELECT query defined in <<warning_5>>.
-One way to import the script is through the *Data Import/Restore* area of
-MySQLWorkbench, using the *Import from Self-Contained File* field to point to
-the script.
+One way to import the script is through the *Data Import/Restore* area of the
+MySQL Workbench too using the *Import from Self-Contained File* field to point
+to the script.
 +
 . In Studio, test your *Connection* to the MySQL database.
 +
