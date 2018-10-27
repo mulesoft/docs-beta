@@ -408,6 +408,8 @@ remaining comments that contain WARN messages.
 . By the end of the migration, the flow should look like this:
 +
 image::mmt-resulting-flow.png[Flow: Database To JSON]
++
+. Proceed to <<test_app>>.
 
 [[test_app]]
 == Run and Test the Migrated App
