@@ -125,14 +125,13 @@ You can find the path to the report at the bottom of the Migration tool's
 console output, for example:
 `/Users/me/Downloads/querying-a-mysql-database-mule4/report/summary.html`.
 +
-. Address warnings and errors in the report:
+. Address warnings and other messages in the report by performing these tasks:
 +
 * <<warning_1>>
 * <<warning_2>>
 * <<warning_3>>
 * <<warning_4>>
 * <<warning_5>>
-* <<test_app>>
 
 When you complete the modifications, the flow will look like this:
 
