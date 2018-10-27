@@ -420,9 +420,9 @@ After completing all the manual migration steps for the app, you can run and
 test that it works.
 
 .Prerequisites:
-To be able to test the migrated app, you need a MySQL server with the `employees`
-database that the app queries, and you need to make sure that your database and
-HTTP listener connections work.
+To be able to test the migrated app, you need a MySQL server into which you can
+import and query the `employees` database, and you need working database and
+HTTP listener connections.
 
 . Import this script into your MySQL server:
 link:{attachmentsdir}/create.sample.db.sql[Sample MySQL Script]
