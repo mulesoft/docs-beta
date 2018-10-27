@@ -131,13 +131,15 @@ console output, for example:
 * <<warning_3>>
 * <<warning_4>>
 * <<warning_5>>
+* <<warning_6>>
+* <<warning_7>>
 
 When you complete the modifications, the flow will look like this:
 
 image::mmt-resulting-flow.png[Flow: Database To JSON]
 
 [[warning_1]]
-=== Migrate HTTP Listener Components
+== Migrate HTTP Listener Components
 
 In Mule 3, connectors and transports that need to send outbound data must explicitly specify outbound properties, such as outgoing status code responses
 or headers for an HTTP listener.
@@ -200,7 +202,7 @@ xref:mule-app-properties-to-configure.adoc[Configure Property Placeholders for M
 . Proceed to <<warning_2>>.
 
 [[warning_2]]
-=== Migrate the Attributes to Inbound Properties Component
+== Migrate the Attributes to Inbound Properties Component
 
 This component reads attributes of the Mule message and generates a Mule 3.x
 equivalent of inbound properties as a variable. Any use of an Inbound property
@@ -236,7 +238,7 @@ on inboundProperties (such as copy-properties).
 . Proceed to <<warning_3>>.
 
 [[warning_3]]
-=== Migrate Outbound Properties to var Component
+== Migrate Outbound Properties to var Component
 
 The migration report produces this warning for the two
 *Outbound Properties to var* components in the flow:
@@ -374,7 +376,7 @@ You do not need to perform any manual migration tasks in this case.
 . Proceed to <<warning_7>>.
 
 [[warning_7]]
-=== Replace the Convert Object to JSON Component
+== Replace the Convert Object to JSON Component
 
 The Beta version of the Mule Migration tool does not yet support the migration
 of the *Object to JSON* component to Mule 4.
