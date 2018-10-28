@@ -382,11 +382,14 @@ The Beta version of the Mule Migration tool does not yet support the migration
 of the *Object to JSON* component to Mule 4.
 
 To complete the migration, this procedure replaces the *Convert Object to JSON*
-transformer with a Transform Message component, sets the output type of the
-DataWeave script in the Transform Message component to JSON, and sets the
+transformer with a *Transform Message* component, sets the output type of the
+DataWeave script in the *Transform Message* component to JSON, and sets the
 script to the message `payload`.
 
 . Delete the *Convert Object to JSON* transformer from the flow.
++
+`<json:object-to-json-transformer doc:name="Convert Object to JSON" />`
++
 . In the Mule Palette, click *Core*, then locate and drag the
 *Transform Message* component to the same location in the flow.
 . Double-click the *Transform Message* component to open the configuration area.
@@ -453,7 +456,7 @@ You need to check the *Console* in Studio to make sure the app deploys
 successfully before proceeding to the next step.
 +
 . In a web browser or app such as Postman, go to URL (such as
-  `http://localhost:8080/?lastname=Howard`) that uses your HTTP listener
+  `+http://localhost:8080/?lastname=Howard+`) that uses your HTTP listener
   configuration, and view the JSON results:
 +
 [source,json,linenums]
