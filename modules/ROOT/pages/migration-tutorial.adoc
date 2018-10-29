@@ -21,8 +21,8 @@ If you do not have them already, you can download the Migration tool and
 Anypoint Studio applications from these links:
 
 * https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-tool-runner/0.3.0/mule-migration-tool-runner-0.3.0.jar[Mule Migration Tool (Jar file)]
-* https://mule-studio.s3.amazonaws.com/6.5.1-U1/AnypointStudio-for-macosx-64bit-6.5.1-201810012018.zip[Anypoint Studio 6 (Zip file)]
-* https://mule-studio.s3.amazonaws.com/7.3.0-GA/AnypointStudio-for-macosx-64bit-7.3.0-201810191800.zip[Anypoint Studio 7.3.0 (Zip file)]: The minimum requirement is version 7.3.0.
+* https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
+* https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
 
 [[step_1]]
 == Download and Import a Mule 3 App
