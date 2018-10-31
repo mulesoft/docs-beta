@@ -207,9 +207,9 @@ xref:mule-app-properties-to-configure.adoc[Configure Property Placeholders for M
 This component reads attributes of the Mule message and generates a Mule 3.x
 equivalent of inbound properties as a variable. Any use of an Inbound property
 in a migrated app requires you to replace references to an Inbound property
-with the Attributes object from the new Mule message. _However_, because there
-are no inbound properties in this app
-(`querying-a-mysql-database-1.4.0-mule-application-example`), you can safely
+with the Attributes object from the new Mule message.
+
+Because there are no inbound properties in the `querying-a-mysql-database-1.4.0-mule-application-example` app, you can safely
 remove the *Inbound Properties Component* component from it.
 
 The Migration report produces this warning for the
@@ -217,6 +217,7 @@ The Migration report produces this warning for the
 
 [source,txt,linenums]
 ----
+
 Migration WARN:
 Expressions that query inboundProperties from the message should instead query
 the attributes of the message. Remove this component when there are no
@@ -245,6 +246,7 @@ The migration report produces this warning for the two
 
 [source,txt,linenums]
 ----
+
 Migration WARN:
 Instead of using outbound properties in the flow, its values must be set
 explicitly in the operation/listener.
@@ -282,6 +284,7 @@ configuration element within *Perform a query in MySQL* component:
 
 [source,txt,linenums]
 ----
+
 Migration WARN:
 The config in Mule 3 is specific for an engine, but it contained an 'url'
 attribute. It will be made generic in order to keep the url.
@@ -319,6 +322,7 @@ settings within *Perform a query in MySQL* component:
 
 [source,txt,linenums]
 ----
+
 Migration WARN:
 Expressions that query inboundProperties from the message should instead query
 the attributes of the message. Remove this component when there are no
@@ -330,15 +334,16 @@ In this procedure, you replace the reference to the inbound property with a
 parameter called `:lastname`, then define a `lastName` input parameter as a
 reference to `attributes.queryParams.lastName`.
 
-. In the *General* tab of the *Perform a query in MySQL*, delete value of
+. In the *General* tab of the *Perform a query in MySQL*, delete the _value_ of
 `last_name` in the Mule 3 SQL *Query*:
 +
 [source,sql,linenums]
 ----
+
 #["select first_name from employees where last_name = '$(vars.compatibility_inboundProperties['http.query.params'].lastname)'"]
 ----
 +
-. Replace the deleted _value_ of `last_name` with a parameter called `:lastname`:
+. Replace the deleted value of `last_name` with a parameter called `:lastname`:
 +
 [source,sql,linenums]
 ----
@@ -349,6 +354,7 @@ SELECT first_name FROM employees WHERE last_name = :lastName
 +
 [source,sql,linenums]
 ----
+
 {'lastName' : attributes.queryParams.lastname}
 ----
 +
@@ -364,6 +370,7 @@ produces this message in the *Perform a query in MySQL* component:
 
 [source,txt,linenums]
 ----
+
 Streaming is enabled by default in Mule 4
 ----
 
@@ -398,6 +405,7 @@ curly braces (`{}`) with `application/json` and `payload`, like this:
 +
 [source,dataweave,linenums]
 ----
+
 %dw 2.0
 output application/json
 ---
@@ -461,6 +469,7 @@ successfully before proceeding to the next step.
 +
 [source,json,linenums]
 ----
+
 [
   {
       "first_name": "Devin"
