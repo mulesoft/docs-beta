@@ -276,12 +276,12 @@ in xref:connectors::web-service/web-service-consumer-consume.adoc[To Consume a W
 [[domain_connectors]]
 == Domain Connectors (Manual Post-Migration Steps)
 
-On Mule 3, the inbound/outbound endpoins for some transports had configuration 
-that, in Mule 4, has been moved up to the connector. For instance, `http` and 
-`vm` transports are in this situation. When the connector is declared in the
-domain, since the migration tool run for the domain has no visibility of the 
-apps and its endpoins, it cannot complete the configuration of the connector 
-and it must be done manually after all the apps of the domain have been 
+In Mule 3, the inbound and outbound endpoints for some transports had configurations 
+that, in Mule 4, have been moved to the connector. The `http` and 
+`vm` transports are examples. When the connector is declared in the
+domain, the migration tool run for the domain has no visibility into the 
+app and its endpoints. So the tool cannot complete the configuration of the connector, 
+and the configuration must be completed manually after all the apps in the domain have been 
 migrated.
 
 .Example: Mule 3 Domain
@@ -298,7 +298,7 @@ migrated.
 <https:inbound-endpoint host="localhost" port="${port1}" connector-ref="pollingConnector"/>
 ----
 
-.Example: Mule 4Migrated Domain
+.Example: Mule 4 Migrated Domain
 [source,xml,linenums]
 ----
 <http:request-config name="pollingConnectorConfig">
@@ -315,17 +315,17 @@ migrated.
 ----
 <http:request-config name="pollingConnectorConfig">
     <http:request-connection protocol="HTTPS">
-<!-- the host and port are pulled up from the app, so they won't be available when just the domain is migrated -->
-        <http:request-connection protocol="HTTPS" host="localhost" port="${port1}"> -->
-        <tls:context>
-            <tls:trust-store path="trustStore" password="mulepassword"/>
-        </tls:context>
+<!-- The host and port are pulled up from the app, so they won't be available when just the domain is migrated. -->
+        <http:request-connection protocol="HTTPS" host="localhost" port="${port1}">
+            <tls:context>
+                <tls:trust-store path="trustStore" password="mulepassword"/>
+            </tls:context>
     </http:request-connection>
 </http:request-config>
 ----
 
-In the above example, in Mule 3 the `port` is configured on the endpoint, so 
-when the connector is in a domain, in Mule 4 that configuration has to be 
-migrated manually. Review the documentation of the equivalent Mule 3 and 
+In the Mule 3 example above, the `port` is configured on the endpoint, so 
+when the connector is in a domain, it is necessary to migrate the Mule 4 configuration 
+manually. Review the documentation of the equivalent Mule 3 and 
 Mule 4 connectors for details on how a specific configuration might be 
 migrated.
