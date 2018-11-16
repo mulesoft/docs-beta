@@ -62,7 +62,7 @@ the sample directory paths_ set by the `-projectBasePath` and
 +
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.3.0.jar -muleVersion 4.1.3 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
+$ java -jar mule-migration-tool-runner-0.4.0.jar -muleVersion 4.1.3 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
 ----
 +
 To discover the `-projectBasePath` to the Studio 6 project, you can navigate
@@ -71,6 +71,8 @@ need to append the name of the project, as shown in the example above. The `-des
 +
 When the tool runs successfully, the console output looks something like this:
 +
+////
+FOR 0.3.0 VERSION
 [souce,console,linenums]
 ----
 $ ...
@@ -83,6 +85,21 @@ Components migrated with errors:    0 %
 Total time: 5.326 s
 Migration report:
   /Users/me/Downloads/querying-a-mysql-database-mule4/report/summary.html
+----
++
+////
++
+[souce,console,linenums]
+----
+$ ...
+Executing migrator 0.4.0...
+===============================================================================
+MIGRATION TOOL RUN SUCCESSFULLY
+===============================================================================
+Components migrated successfully:  42 %
+Components migrated with errors:    0 %
+Total time: 9.405 s
+Migration report: /Users/ME/Downloads/querying-a-mysql-database-mule4/report/summary.html
 ----
 +
 . In Studio 7:
@@ -219,10 +236,10 @@ The Migration report produces this warning for the
 ----
 
 Migration WARN:
-Expressions that query inboundProperties from the message should instead query
-the attributes of the message. Remove this component when there are no
-remaining usages of inboundProperties in expressions or components that rely
-on inboundProperties (such as copy-properties).
+Expressions that query 'inboundProperties' from the message should instead
+query the message 'attributes'. Remove this component if there are no uses of
+'inboundProperties' in expressions or components that rely on
+'inboundProperties' (such as 'copy-properties').-->
 ----
 
 . Delete the *Attributes to Inbound Properties* component:
@@ -230,9 +247,13 @@ on inboundProperties (such as copy-properties).
 [source,XML,linenums]
 ----
 <compatibility:attributes-to-inbound-properties>
-  <!--Migration WARN: Expressions that query inboundProperties from the message should instead query the attributes of the message. Remove this component when there are no remaining usages of inboundProperties in expressions or components that rely on inboundProperties (such as 'copy-properties').-->
-  <!--    For more information refer to:-->
-  <!--        * https://docs.mulesoft.com/mule-user-guide/v/4.1/intro-mule-message#inbound-properties-are-now-attributes-->
+  <!--Migration WARN: Expressions that query 'inboundProperties' from the
+  message should instead query the message 'attributes'. Remove this
+  component if there are no uses of 'inboundProperties' in expressions or
+  components that rely on 'inboundProperties' (such as 'copy-properties').-->
+    <!--    For more information refer to:-->
+    <!--
+    https://docs.mulesoft.com/mule-runtime/4.1/intro-mule-message#inbound-properties-are-now-attributes-->
 </compatibility:attributes-to-inbound-properties>
 ----
 +
@@ -248,8 +269,9 @@ The migration report produces this warning for the two
 ----
 
 Migration WARN:
-Instead of using outbound properties in the flow, its values must be set
-explicitly in the operation/listener.
+Instead of using outbound properties in the flow, move the expression that
+sets the property into the XML attribute (such as 'method') of the operation
+or listener that accepts the expression.
 ----
 
 The XML element for the *Outbound Properties to var* component looks like this:
@@ -257,10 +279,13 @@ The XML element for the *Outbound Properties to var* component looks like this:
 [source,XML,linenums]
 ----
 <compatibility:outbound-properties-to-var>
-  <!--Migration WARN: Instead of using outbound properties in the flow,
-      its values must be set explicitly in the operation/listener.-->
-  <!-- For more information refer to:-->
-  <!--  https://beta.docs.stgx.mulesoft.com/beta-mule-migration-tool/mule-runtime/4.1/migration-tool-post-mig.html#outbound_properties-->
+    <!--Migration WARN: Instead of using outbound properties in the flow,
+      move the expression that sets the property into the XML attribute (such
+      as 'method') of the operation or listener that accepts the
+      expression.-->
+    <!--    For more information refer to:-->
+    <!--
+    https://beta.docs.stgx.mulesoft.com/beta-mule-migration-tool/mule-runtime/4.1/migration-tool-post-mig.html#outbound_properties-->
 </compatibility:outbound-properties-to-var>
 ----
 
@@ -285,9 +310,9 @@ configuration element within *Perform a query in MySQL* component:
 [source,txt,linenums]
 ----
 
-Migration WARN:
+Migration INFO:
 The config in Mule 3 is specific for an engine, but it contained an 'url'
-attribute. It will be made generic in order to keep the url.
+attribute. It will be made generic in order to keep the URL.
 ----
 
 The Migration tool set the global connector configuration to a *Generic* type
