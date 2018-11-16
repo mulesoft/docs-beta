@@ -20,7 +20,7 @@ runtimes.
 If you do not have them already, you can download the Migration tool and
 Anypoint Studio applications from these links:
 
-* https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-tool-runner/0.3.0/mule-migration-tool-runner-0.3.0.jar[Mule Migration Tool (Jar file)]
+* https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-tool-runner/0.4.0/mule-migration-tool-runner-0.4.0.jar[Mule Migration Tool (Jar file)]
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
 
@@ -99,7 +99,7 @@ MIGRATION TOOL RUN SUCCESSFULLY
 Components migrated successfully:  42 %
 Components migrated with errors:    0 %
 Total time: 9.405 s
-Migration report: /Users/ME/Downloads/querying-a-mysql-database-mule4/report/summary.html
+Migration report: /Users/me/Downloads/querying-a-mysql-database-mule4/report/summary.html
 ----
 +
 . In Studio 7:
