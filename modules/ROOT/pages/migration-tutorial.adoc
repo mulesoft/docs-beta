@@ -102,6 +102,11 @@ Total time: 9.405 s
 Migration report: /Users/me/Downloads/querying-a-mysql-database-mule4/report/summary.html
 ----
 +
+. Proceed to <<step_2b>>
+
+[[step_2b]]
+== Import the Migrated App to Studio 7
+
 . In Studio 7:
 +
 Import the generated Mule 4 app as a Studio project by going to
