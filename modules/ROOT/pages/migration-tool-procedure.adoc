@@ -218,7 +218,7 @@ migrate the connector manually:
 
 To manually migrate such a connector:
 
-. xref:connectors::common-add-module-task.adoc[Add the equivalent connector] for
+. xref:connectors::common/common-add-module-task.adoc[Add the equivalent connector] for
 Mule 4 to the app.
 . Refer to the connector documentation for both Mule 3 and Mule 4 to determine
 the correct mappings for the connector:
