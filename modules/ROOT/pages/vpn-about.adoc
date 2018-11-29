@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The Anypoint VPN enables you to create a secure connection to systems within your network that are hosted outside of Anypoint Platform. If required, you can create multiple VPNs to connect to different networks or different regions within a network.
+The Anypoint VPN feature enables you to create a secure connection to systems within your network that are hosted outside of Anypoint Platform. If required, you can create multiple VPNs to connect to different networks or different regions within a network.
 
 [NOTE]
 The number of VPNs you can create depends on the VPN capacity allocated to your account.
@@ -11,8 +11,8 @@ The number of VPNs you can create depends on the VPN capacity allocated to your 
 To create and maintain a secure connection with your external network, the Anypoint VPN provides the following features:
 
 * Route-based access via 2-byte and 4-byte Autonomous System Numbers (ASN). This defines the routing policies used to connect to your network through the VPN.
-* Reusable IP addresses
-* Tunnel configuration
+* Reusable IP addresses.
+* Tunnel configuration.
 
 [NOTE]
 Network Address Translation (NAT) is not supported.
@@ -36,7 +36,6 @@ Anypoint VPN only supports acting as a responder, so IPSEC connections should be
 The Anypoint VPN supports two types of routing:
 
 * Border Gateway Protocol (BGP) routing: Enables you to use dynamic routing. This allows the device you are connecting to broadcast routes to the VPN. We recommend using BGP routing if your device supports this protocol.
-
 * Static routing: Requires you to specify the routes that the Anypoint VPN uses to communicate with your network.
 
 == See Also
