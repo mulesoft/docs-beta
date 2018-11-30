@@ -43,7 +43,7 @@ You must configure two tunnels that connect between different endpoints. In the 
 . Enter the address range for the Point-To-Point CIDR. For example:
 +
 ----
-169.254.1.1/30
+169.254.1.0/30
 ----
 . Click *Create VPN*.
 

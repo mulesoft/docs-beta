@@ -1,5 +1,5 @@
-.xref:vpn-about.adoc[CloudHub VPN]
-* xref:vpn-about.adoc[CloudHub VPN]
-** xref:vpn-create-arm.adoc[Create a CloudHub VPN from Runtime Manager]
+.xref:vpn-about.adoc[Anypoint VPN]
+* xref:vpn-about.adoc[Anypoint VPN]
+** xref:vpn-create-arm.adoc[Create an Anypoint VPN from Runtime Manager]
 ** xref:vpn-network-devices.adoc[Supported Network Devices]
 ** xref:vpn-troubleshooting.adoc[Troubleshooting Anypoint VPN]
