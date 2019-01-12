@@ -61,6 +61,9 @@ That's it! You're ready to start building and deploying Mule 4 applications.
 
 You should review these topics to get an overview of the migration process and understand changes introduced in Mule 4:
 
-xref:migration-process.adoc[About the Migration Process]
+//Notes (internal):
+//Removing link for BETA. Migration process is different, so migration-process.adoc has been removed. 
+//Should also go away on prod once MMA released and remove link to migration-process.adoc from nav-migration.adoc
+//xref:migration-process.adoc[About the Migration Process]
 
 xref:intro-overview.adoc[Introduction to Mule 4]
