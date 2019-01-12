@@ -32,6 +32,7 @@
 **** xref:migration-patterns-reconnection-strategies.adoc[Migrate Reconnection Strategies]
 **** xref:migration-core-scatter-gather.adoc[Migrate the Scatter-Gather Router]
 **** xref:migration-secure-properties-placeholder.adoc[Migrate the Secure Properties Placeholder]
+**** xref:migration-security-filters.adoc[Migrate Security Filters]
 **** xref:migration-transformers.adoc[Migrate Transformers]
 **** xref:migration-transports.adoc[Migrate Transports]
 **** xref:migration-patterns-watermark.adoc[Migrate Watermarks]
