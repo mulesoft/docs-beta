@@ -1,0 +1,19 @@
+= Mule 4 for Mule 3 Users
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+// author: Dan D
+
+Mule 4 improvements make it easier to learn, develop, and manage than Mule 3. For an overview of these capabilities, you should read xref:mule-runtime-updates.adoc[What's New in Mule 4].
+
+These topics identify differences between Mule 3 and Mule 4, indicate when you should migrate to Mule 4, and explain what it takes to migrate apps manually. It includes information on these topics.
+
+* xref:intro-overview.adoc[Introduction to Mule 4]: An overview of Mule 4 for those who already know Mule 3.
+* xref:migration-prep.adoc[Preparing for a Migration]: Steps to think about before migrating a Mule app.
+* xref:migration-process.adoc[About the Migration Process]: An overview of the major steps involved in a migration.
+* xref:migration-cheat-sheet.adoc[Migration Cheat Sheet]: A quick index pointing to relevant articles about the most common migration tasks.
+
+Note that the topics should apply to all 3.x versions. However, the 3.x examples use Mule 3.9.
+
+IMPORTANT: MuleSoft is working towards the release of a Mule Migration Assistant (MMA) to help with the migration of Mule 3 applications to Mule 4. Unless you have an urgent need to migrate manually (without aid of the assistant), MuleSoft recommends that you use Mule 4 for new projects and only use this guide as a learning tool for existing Mule 3 users.
