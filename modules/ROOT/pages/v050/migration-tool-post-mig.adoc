@@ -55,6 +55,62 @@ manually migrate the expressions in the Output examples to Mule 4.
 
 See also, xref:migration-mel.adoc[Migrate from MEL to DataWeave].
 
+== Migrating Custom Metadata Types
+
+The Mule Migration Assistant (MMA) does not migrate the schema and example files
+you use when creating custom metadata types in Studio 6.
+
+To reproduce the custom data types in your migrated Studio 7 project:
+
+. Locate the schema or example files used by your Mule 3 app.
++
+People often store them in the Studio 6 `src/main/resources` directory for the
+project, though they might be stored other locations in your file system.
++
+. Open the migrated Mule 4 app in Studio 7.
+. Use the Transform Message component in your Studio 7 project to load the
+custom data type files. You can use these steps as a general guide to this
+process:
+.. Double-click a Transform Message component in your Mule 4 app to open the
+the *Transform Message* tab (located in the lower part of the default
+Studio window).
++
+The columned input on the left supports custom metadata for the *Payload*,
+*Variables*, or *Attributes*.
++
+.. Determine whether to add your custom metadata type for the payload,
+attributes, or variables.
++
+https://docs.mulesoft.com/mule-runtime/4.1/dataweave-quickstart#med_large_payload[This example] (starting in step 4) loads the content of an example JSON file as a
+custom metadata type.
++
+.. In the left-most column of the *Transform Message* tab, open the
+*Select metadata type* dialog for the payload, attributes, or variables.
++
+For example, you might click *Define metadata* for  *Payload* or *Attributes*,
+or you can simply right-click one of them, and then then click
+*Set Metadata* to open the *Select metadata type* dialog.
++
+For variables, you have to provide a variable name before the
+*Select metadata type* dialog opens.
++
+. Now, one by one, load your schema and example files using these steps for
+guidance with each custom date type:
++
+.. Click *+Add* to open the *Create new type* dialog.
+.. In the dialog, provide a *Type id* for the schema or example, and click
+*Create type*.
+.. Back in the *Select metadata type* dialog that opens, select the appropriate
+type from the *Type* drop-down menu (for example, *XML* or *JSON*).
+.. Below the new type, select *Schema* to *Example*, whichever applies to your
+custom metadata type.
+.. Use the navigation button with the ellipsis (*...*) to locate the schema
+or example file to use, and click *Open* to display the structure of the file
+schema or example in the *Select metadata type* window.
+.. Now click *Select* to load the example or schema file to use in this
+Transform Message component.
+.. Repeat these steps for each Transform Message component in your migrated app.
+
 === Using the Scripting Module to Migrate procedural MEL Expressions
 
 Some MEL expressions are not simply expressions but actually procedural scripts,
