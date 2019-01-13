@@ -10,12 +10,12 @@ After migrating a Mule 3 app to Mule 4, the
 xref:migration-tool#migration_tool.adoc[Mule Migration Assistant] (MMA) produces
 a Migration report
 that you can use to identify and perform any manual migration tasks that remain.
-When MMA detects something it cannot migrate, it provides feedback about the
+When the MMA detects something it cannot migrate, it provides feedback about the
 problem and links to information about the steps you need to take. The assistant also
-comments on and provides guidance for any cases that MMA is able to migrate
+comments on and provides guidance for any cases that the MMA is able to migrate
 without following the best practices.
 
-Inside each migrated project, MMA generates a report that
+Inside each migrated project, the MMA generates a report that
 contains a list of migration errors and warnings, for example:
 
 image::migrator-report.png[Mule Migration Assistant Report]

@@ -43,7 +43,7 @@ Mule Migration Assistant (MMA) will be released as part of Studio. You will then
 be able to perform migrations through Studio, rather than from the command line.
 
 Note that the xref:migration-tutorial.adoc[Mule Migration Tutorial] covers the
-use of MMA, as well as post-migration tasks, on a sample Mule 3 application.
+use of the MMA, as well as post-migration tasks, on a sample Mule 3 application.
 
 //TODO: GET A JAR NAME THAT IS MORE LIKE WHAT CUSTOMERS WILL SEE
 //TODO: LINK OUT TO STUDIO IMPORT STEPS.
@@ -57,14 +57,14 @@ for example:
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.5.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -muleVersion 4.1.3 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
 ----
 +
 Note that for `-destinationProjectBasePath` option, the folder (for example,
-`my-migrated-project`) in which to place the migrated must _not_ exist. MMA
+`my-migrated-project`) in which to place the migrated must _not_ exist. The MMA
 will create it. If you point to a folder that exists already, the migration will
 fail an error like this: `Exception: Destination folder already exists.`
 +
@@ -97,7 +97,7 @@ To understand errors and warnings in the Migration report, see
 xref:migration-report.adoc[Mule Migration Report].
 +
 Also note that the same information is provided as comments in the
-Mule Configuration XML files for your project that MMA outputs.
+Mule Configuration XML files for your project that the MMA outputs.
 +
 . Address the errors in the report, and address the warnings before deploying
 the migrated app to a production environment.
@@ -114,7 +114,7 @@ deploy your app to a production environment.
 For guidance with errors on unsupported connectors, see <<migrating_unsupported_connectors>>.
 +
 . Identify and consider additional migration steps where the automated migration
-by MMA can be improved. See
+by the MMA can be improved. See
 xref:migration-tool-post-mig.adoc[Post-Migration Tasks] and
 <<devkit>>.
 +
@@ -134,7 +134,7 @@ For domains and applications included in that domain, a migrator execution is ne
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.5.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
  -muleVersion 4.1.3 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-domain-project
@@ -145,7 +145,7 @@ $ java -jar mule-migration-tool-runner-0.5.0.jar \
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.5.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -parentDomainBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
  -muleVersion 4.1.3 \
@@ -163,7 +163,7 @@ Mule 3 project and target version and then output the results.
 |===
 | `-destinationProjectBasePath <arg>` | Required. Directory for the migrated
 project that includes a destination folder for the migrated project, for
-example, `/path/to/my/destination-folder`. MMA will create the
+example, `/path/to/my/destination-folder`. The MMA will create the
 `destination-folder`. It will produce an error if `destination-folder` already
 exists.
 | `-help` | For displaying the help.
@@ -179,7 +179,7 @@ to `-projectBasePath`, for example:
 `-projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project`
 |===
 
-Whenever MMA adds an entry to the report (ERROR, WARNING, or INO), the
+Whenever the MMA adds an entry to the report (ERROR, WARNING, or INO), the
 same information is also added as a comment in the Configuration XML file for
 the project.
 
@@ -193,7 +193,7 @@ performing on the original version of the app.
 
 In either case, expect some of these tests to fail. Manual intervention might
 be required to deal with additional details that are not automatically handled
-by MMA.
+by the MMA.
 
 [[datamapper]]
 == Migrating from the DataMapper to DataWeave
@@ -205,7 +205,7 @@ can use the DataWeave Migrator _prior to running MMA_.
 DataWeave using the
 xref:3.8@mule-runtime::dataweave-migrator.adoc[DataWeave Migrator]
 (available for Mule 3.7, 3.8, and 3.9).
-. Run MMA following instructions in <<run_tool>>.
+. Run the MMA following instructions in <<run_tool>>.
 
 [[migrating_unsupported_connectors]]
 == Migrating Unsupported Connectors

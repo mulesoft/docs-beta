@@ -16,4 +16,4 @@ These topics identify differences between Mule 3 and Mule 4, indicate when you s
 
 Note that the topics should apply to all 3.x versions. However, the 3.x examples use Mule 3.9.
 
-IMPORTANT: MuleSoft is working towards the release of a Mule Migration Assistant (MMA) to help with the migration of Mule 3 applications to Mule 4. Unless you have an urgent need to migrate manually (without aid of the assistant), MuleSoft recommends that you use Mule 4 for new projects and only use this guide as a learning tool for existing Mule 3 users.
+IMPORTANT: MuleSoft is working towards the release of a Mule Migration Assistant (MMA) to help with the migration of Mule 3 applications to Mule 4. Unless you have an urgent need to migrate manually (without aid of the assistant), MuleSoft recommends that you use Mule 4 for new projects and only use this guide as a learning aid for existing Mule 3 users.

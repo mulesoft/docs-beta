@@ -9,7 +9,7 @@ endif::[]
 The Mule Migration Assistant (MMA) performs migrations on individual components, connectors, and modules. In some cases, you can make improvements to the migrated app by taking into account the flow or project as a whole.
 
 This section focuses on *recommended* post-migration tasks to perform after
-using MMA, incorporating the Compatibility module (see
+using the MMA, incorporating the Compatibility module (see
 xref:migration-tool.adoc[Migration to Mule 4]) as needed, and
 performing any manual migration steps indicated in the Migration report.
 
@@ -215,7 +215,7 @@ operation where it is used.
 
 Note that in Mule 3, the outbound property can be set by any component or inside
 a referenced flow. This kind of complexity makes the manual step necessary
-because MMA does not have the full context to interpret the semantics of an
+because the MMA does not have the full context to interpret the semantics of an
 app.
 
 [[session_variables]]
@@ -334,7 +334,7 @@ In Mule 3, inbound and outbound endpoints for some transports had
 configurations that, in Mule 4, have moved to the connector. The `http`
 and `vm` transports are examples. When the connector is declared in the
 domain, the Mule Migration Assistant (MMA) that runs for the domain has no
-visibility into the app or its endpoints. So MMA cannot complete the
+visibility into the app or its endpoints. So the MMA cannot complete the
 configuration of the connector, and the configuration must be completed
 manually after all the apps in the domain have migrated.
 
