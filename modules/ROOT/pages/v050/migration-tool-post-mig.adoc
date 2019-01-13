@@ -85,10 +85,10 @@ https://docs.mulesoft.com/mule-runtime/4.1/dataweave-quickstart#med_large_payloa
 custom metadata type.
 +
 .. In the left-most column of the *Transform Message* tab, open the
-*Select metadata type* dialog for the payload, attributes, or variables.
+*Select metadata type* dialog for the payload, attributes, or variables:
 +
-For example, you might click *Define metadata* for  *Payload* or *Attributes*,
-or you can simply right-click one of them, and then then click
+You can click *Define metadata* for  *Payload* or *Attributes*, if they are
+present, or you can simply right-click one of them, and then click
 *Set Metadata* to open the *Select metadata type* dialog.
 +
 For variables, you have to provide a variable name before the
