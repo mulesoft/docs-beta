@@ -78,67 +78,110 @@ time.
 
 The Mule Migration Assistant (MMA) supports the following migrations:
 
-* Mule apps and domains only (no policies are supported)
-* MEL to DataWeave expressions (simple cases only)
+// (`<mule/>`)
+// APIKIT & SOAPKIT
+* APIKit and SOAPkit:
+** APIKit Console, APIKit Router
+// (`<apikit-soap:fault/>`),  (`<apikit-soap:router/>`)
+** APIKit for SOAP (also called SOAPkit): SOAP Fault,
+SOAP Router
+
+// CONNECTORS
 * Connectors:
-** HTTP (`<http:listener-config/>`)
-//TODO DB OPERATION AND CONFIGS FOR DIFF DBS
-** Database (`<db:derby-config/>`, `<db:generic-config/>`, `<db:mysql-config/>`, `<db:oracle-config/>`)
-// are we missing <ws:consumer?
-** Web Service Consumer (`<ws:consumer-config/>`)
-//TODO WHERE IS THIS?
-** ObjectStore
-* Modules:
-//SCHEMA validations, No operation selected?
-** Validations (`<validation:`)
-** Script (`<scripting:component>` DSL only, no migration of the script itself)
-** Validate JSON Schema (`<json:validate-schema/>`, validations only)
-* Transports:
-//<http:static-resource-handler?
-** HTTP (`<http:listener/>`, `<http:request/>`)
-** JMS (`<jms:inbound-endpoint/>`, `<jms:outbound-endpoint/>`)
-** File (`<file:inbound-endpoint/>`, `<file:outbound-endpoint/>`)
-** FTP (`<ftp:inbound-endpoint/>`, `<ftp:outbound-endpoint/>`)
-** SFTP (`<sftp:inbound-endpoint/>`, `<sftp:outbound-endpoint/>`)
-** VM (`vm:inbound-endpoint/>`, `<vm:outbound-endpoint/>`)
-** Email: IMAP (`<imap:inbound-endpoint/>`), SMTP (`<smtp:outbound-endpoint/>`), POP3 (`<pop3:inbound-endpoint/>`)
-** Quartz connector (`<quartz:inbound-endpoint/>`)
-* Components:
-** Async (`<async/>`)
-//TODO: WHICH FILTERS? ALL?
-** Batch
-** Cache (`<ee:cache/>`)
-** Choice (`<choice/>`)
-//TODO: WHICH FILTERS? ALL? AND TO WHAT?
-** Filters
-** First Successful (`<first-successful/>`)
-** For Each (`<foreach/>`)
-** Message Enricher scope (`<enricher/>`)
-** Poll scope (`<poll/>` )
-** Scatter-Gather flow control (`<scatter-gather/>`)
-** Transactional scope (`<transactional/>`)
-** Transform Message (`<dw:transform-message/>` for DataWeave 1.0 migrates to
-<`ee:transform`/> for DataWeave 2.0)
-** Until Successful (`<until-successful/>`)
-** Watermark
-* GZip transformers
-//which error handling? all?
+//DB OPERATION AND CONFIGS FOR DIFF DBS: (`<db:derby-config/>`, `<db:generic-config/>`, `<db:mysql-config/>`, `<db:oracle-config/>`)
+** Database
+//(`<http:listener-config/>`)
+** HTTP
+//(`<quartz:inbound-endpoint/>`, `<<quartz:outbound-endpoint/>`)
+** Quartz migrates to the Scheduler component for Mule 4
+// (`<ws:consumer-config/>`)
+** Web Service Consumer
+
+//TODO: CLARIFY AS NEEDED
 * Error Handling
-* Composite Source scope (`<composite-source/>`)
-* Watermark
-//Does this impact awhat the compatibility module does?
+
+* Filters (And, Custom, Exception, Expression, Indempotent Message, Message, Message Property, Not, Or, Payload, Regex, Schema Validation, and Wildcard global element configurations) migrate to validation operations in the Validations module for Mule 4
+
+//TODO: CLARIFY AS NEEDED
+* GZip transformers: GZip Compress and GZip Uncompress
+
+//FLOW CONTROL ROUTERS
+* Flow Control (Routers)
+// (`<choice/>`)
+** Choice
+// (`<first-successful/>`)
+** First Successful
+//(`<scatter-gather/>`)
+** Scatter-Gather
+
+* Mule apps and domains only (no policies are supported)
+
+* Mule Expression Language (MEL) to DataWeave 2.0 expressions (simple cases only)
+
+* xref:migration-tool-procedure#munit[MUnit tests]
+// (`<apikit:console/>`),  (`<apikit:router/>`)
+
+** ObjectStore (Mule Object Store configurations)
+
 * Properties and secure properties
-* Security-related:
-** OAuth Provider module `<oauth2-provider/>`
+
+//SCOPES:
+* Scopes
+// (`<async/>`)
+** Async scope
+// (`<ee:cache/>`)
+** Cache scope
+// (`<composite-source/>`)  TODO: RELATED TO ERROR HANDLING?
+** Composite Source scope
+// Which Batch, all?
+** Batch scopes (Batch, Batch Commit, Batch Execute, Batch Step only, but _not_ Batch-specific MEL functions)
+// (`<foreach/>`)
+** For Each scope
+//(`<enricher/>`)
+** Message Enricher scope (`<enricher>`) migrates to Target Variables (sometimes called Target Parameters) in Mule 4
+// (`<poll/>` )
+** Poll scope migrates to the Scheduler component for Mule 4
+// (`<transactional/>`) TODO: RELATED TO ERROR HANDLING?
+** Transactional scope
+// (`<until-successful/>`)
+** Until Successful scope
+
+* Script component (DSL only, no migration of the script itself) to the Scripting module for Mule 4
+
+* Security-related components:
+// `<oauth2-provider/>`
+** OAuth Provider module
 ** Security filters
 ** Checksum operations
-* Spring Beans definitions
-* xref:migration-tool-procedure#munit[MUnit tests]
-* APIKit: APIKit Console (`<apikit:console/>`), APIKit Router (`<apikit:router/>`)
-* APIKit for SOAP (also called SOAPkit): SOAP Fault (`<apikit-soap:fault/>`),
-SOAP Router (`<apikit-soap:router/>`)
 
-Note that the <<compatibility_module, Compatibility module>> supports some
+//TODO: CLARIFY AS NEEDED
+* Spring Beans definition
+
+* Transform Message component (`<dw:transform-message/>` for DataWeave 1.0 migrates to
+<`ee:transform`/> for DataWeave 2.0)
+
+* Transports:
+//`<http:listener/>`, `<http:request/>`,<http:static-resource-handler?
+** Email-related (IMAP, SMTP, POP3) transports migrate to the Email connector for Mule 4
+//(`<file:inbound-endpoint/>`, `<file:outbound-endpoint/>`)
+** File transports migrate to the File connector
+//(`<ftp:inbound-endpoint/>`, `<ftp:outbound-endpoint/>`)
+** FTP transports migrate to the FTP connector
+// (`<sftp:inbound-endpoint/>`, `<sftp:outbound-endpoint/>`)
+** HTTP transports migrate to the HTTP connector
+// (`<jms:inbound-endpoint/>`, `<jms:outbound-endpoint/>`)
+** JMS transports migrate to the JMS connector
+//(`<file:inbound-endpoint/>`, `<file:outbound-endpoint/>`)
+** SFTP transports migrate to the SFTP connector
+// (`vm:inbound-endpoint/>`, `<vm:outbound-endpoint/>`)
+** VM transports migrate to the VM connector
+//(`<imap:inbound-endpoint/>`), (`<smtp:outbound-endpoint/>`), (`<pop3:inbound-endpoint/>`)
+
+* Validation component (validations only) to the Validation module for Mule 4
+
+* Watermark configurations
+
+The <<compatibility_module, Compatibility module>> supports some
 additional items from Mule 3.x until you can migrate them:
 
 * `set-property`
@@ -200,8 +243,7 @@ For future releases, MuleSoft will also support these:
 
 ////
 * Documentation on how to migrate DataMapper transformations
-* `<first-successful>`
-* `<enricher>` elements
+*  elements
 * Security Module
 * Watermark
 * XML and JSON module
