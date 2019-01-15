@@ -353,8 +353,8 @@ present, or you can simply right-click *Payload* or *Attributes*, then click
 +
 For variables, you need to right-click *Variables*, click *New Variables*, then provide a variable name to open the *Select metadata type*.
 +
-. Now load your schema and example files for the custom date type (or types)
-used by the Transform Message component:
+. Now load your schema and example file (or files) for the custom date type
+(or types) to the Transform Message component:
 +
 .. Click *+Add* to open the *Create new type* dialog.
 .. In the dialog, provide a *Type id* for the schema or example, and click
