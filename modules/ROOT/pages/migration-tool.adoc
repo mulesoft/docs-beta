@@ -87,22 +87,23 @@ The Mule Migration Assistant (MMA) supports the following migrations:
 SOAP Router
 
 // CONNECTORS
-* Connectors:
+* Connectors and Modules:
 //DB OPERATION AND CONFIGS FOR DIFF DBS: (`<db:derby-config/>`, `<db:generic-config/>`, `<db:mysql-config/>`, `<db:oracle-config/>`)
 ** Database
 //(`<http:listener-config/>`)
 ** HTTP
 // `<oauth2-provider/>`
-** OAuth Provider module
+** OAuth Provider
 *** Security filters
 *** Checksum operations
+** ObjectStore (Mule Object Store configurations and operations)
 // (`<ws:consumer-config/>`)
 ** Web Service Consumer
 
 //TODO: CLARIFY AS NEEDED
 * Error Handling
 
-* Filters (And, Custom, Exception, Expression, Indempotent Message, Message, Message Property, Not, Or, Payload, Regex, Schema Validation, and Wildcard global element configurations) migrate to validation operations in the Validations module for Mule 4
+* Filters: And, Custom, Exception, Expression, Indempotent Message, Message, Message Property, Not, Or, Payload, Regex, Schema Validation, and Wildcard global element configurations migrate to validation operations in the Validations module for Mule 4
 
 //TODO: CLARIFY AS NEEDED
 * GZip transformers: GZip Compress and GZip Uncompress
@@ -114,12 +115,10 @@ SOAP Router
 * xref:migration-tool-procedure#munit[MUnit tests]
 // (`<apikit:console/>`),  (`<apikit:router/>`)
 
-** ObjectStore (Mule Object Store configurations and operations)
-
 * Properties and secure properties
 
 //FLOW CONTROL (ROUTERS) AND SCOPES:
-* Routers and Scopes
+* Flow Control (Routers) and Scopes
 // (`<async/>`)
 ** Async scope
 // (`<ee:cache/>`)
