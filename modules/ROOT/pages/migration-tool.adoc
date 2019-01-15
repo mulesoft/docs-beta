@@ -126,11 +126,11 @@ SOAP Router
 ** Batch scopes (Batch, Batch Commit, Batch Execute, Batch Step only, but _not_ Batch-specific MEL functions)
 ** Cache scope
 // (`<choice/>`)
-** Choice
+** Choice router
 // (`<composite-source/>`)
 ** Composite Source scope
 // (`<first-successful/>`)
-** First Successful
+** First Successful router
 // (`<foreach/>`)
 ** For Each scope
 // (`<poll/>` )
@@ -138,7 +138,7 @@ SOAP Router
 ** Message Enricher scope (`<enricher>`) migrates to Target Variables (sometimes called Target Parameters) in Mule 4
 ** Poll scope migrates to the Scheduler component for Mule 4
 //(`<scatter-gather/>`)
-** Scatter-Gather
+** Scatter-Gather router
 // (`<transactional/>`) TODO: RELATED TO ERROR HANDLING?
 ** Transactional scope
 // (`<until-successful/>`)
