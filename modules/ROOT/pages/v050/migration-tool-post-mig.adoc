@@ -221,21 +221,15 @@ app.
 [[session_variables]]
 == Session Properties (Manual Post-Migration Steps)
 
-Because transport barriers do not exist in Mule 4, Session properties are no longer needed and have been removed in Mule 4. After running the Mule Migration Assistant
-(MMA) on a Mule app that uses Session properties, you should store data in variables (`vars`).
+Transport barriers do not exist in Mule 4, so Session properties are no longer needed and have been removed from Mule 4. After running the
+Mule Migration Assistant (MMA) on a Mule app that uses Session properties, you should store data in Mule event variables (`vars`).
 
 To migrate Session properties to variables:
 
-* Migrate `compatibility:set-session-variable` processors to `set-variable`.
-* Migrate `compatibility:remove-session-variable` processors to `set-variable`.
-* Replace uses of the Session property in expressions with a variable.
-* In the connectors migrated from transports (for example, File, VM, JMS, HTTP connectors), make sure to pass these migrated variables to the operation or the response builder of the source.
+* Replace the Compatibility module's `compatibility:set-session-variable`
+processors with Set Variable (`set-variable`) components, for example:
 +
-The way to accomplish this varies by connector. For HTTP, you can use headers. For JMS, you can use message properties. For VM, you can use the body expression.
-+
-* For sources that receive Session information, read the information as it was set on the previous step and set the needed variables.
-
-.Example: MMA Output
+.Example: MMA Output with `compatibility:set-session-variable`
 [source,xml,linenums]
 ----
 <flow="sessionExampleFlow">
@@ -248,21 +242,15 @@ The way to accomplish this varies by connector. For HTTP, you can use headers. F
   </http:request>
   <compatibility:attributes-to-inbound-properties/>
 </flow>
-
-<flow="sessionExampleFlowListener">
-  <http:listener config-ref="flowListenerConfig" path="/">
-    <http:response statusCode="200">
-      <http:headers>#[migration::HttpListener::httpListenerResponseHeaders(vars)]</http:headers>
-    </http:response>
-  </http:listener>
-  <compatibility:attributes-to-inbound-properties/>
-  <logger message="#[mel:sessionVars['token']]"/>
-  <compatibility:remove-session-variable variableName="token" />
-  <compatibility:outbound-properties-to-var/>
-</flow>
 ----
-
-.Example: Manual Modification to MMA Output
++
+The following manual modification that replaces both
+`<compatibility:set-session-variable/>`
+and `<compatibility:outbound-properties-to-var/>` configurations with
+`<set-variable variableName="token" value="1234" />`. In the HTTP header (`<http:headers>`) setting `{'token': vars.token}` selects the value of that
+variable.
++
+.Example: Manual Modification with `set-variable`
 [source,XML,linenums]
 ----
 <flow="sessionExampleFlow">
@@ -275,7 +263,34 @@ The way to accomplish this varies by connector. For HTTP, you can use headers. F
     </http:headers>
   </http:request>
 </flow>
-
+----
++
+* Replace the Compatibility module's `compatibility:remove-session-variable` processors to `set-variable`, for example:
++
+.Example: MMA Output with `compatibility:remove-session-variable`
+[source,xml,linenums]
+----
+<flow="sessionExampleFlowListener">
+  <http:listener config-ref="flowListenerConfig" path="/">
+    <http:response statusCode="200">
+      <http:headers>#[migration::HttpListener::httpListenerResponseHeaders(vars)]</http:headers>
+    </http:response>
+  </http:listener>
+  <compatibility:attributes-to-inbound-properties/>
+  <logger message="#[mel:sessionVars['token']]"/>
+  <compatibility:remove-session-variable variableName="token" />
+  <compatibility:outbound-properties-to-var/>
+</flow>
+----
++
+The following manual modification replaces
+`<compatibility:remove-session-variable variableName="token" />` with
+`<set-variable variableName="token" value="1234" />` and uses the `token`
+variable in the HTTP header, `#[{'token': vars.token}]`.
++
+.Example: Manual Modification with `set-variable`
+[source,XML,linenums]
+----
 <flow="sessionExampleFlowListener">
   <http:listener config-ref="flowListenerConfig" path="/">
     <http:response statusCode="301">
@@ -287,6 +302,18 @@ The way to accomplish this varies by connector. For HTTP, you can use headers. F
   <remove-variable variableName="token" />
 </flow>
 ----
+* Replace uses of the Session property in expressions with a variable, for
+example, replacing `<logger message="#[mel:sessionVars['token']]"/>` with
+`<logger message="#[vars.token]"/>`, as shown above.
+* In the connectors migrated from transports (for example, File, VM, JMS, HTTP connectors), make sure to pass these migrated variables to the operation or the response builder (for example, within `<http:response/>`) of the source.
++
+//TODO: DO WE HAVE/SHOULD WE ADD EXAMPLES FOR MORE CONNECTORS?
+The way to accomplish this varies by connector. For HTTP, you can use headers
+(`<http:headers/>`). For JMS, you can use message properties. For VM, you can
+use the body expression.
++
+* For sources that receive Session information, read the information as it was set on the previous step and set the needed variables.
+
 
 [[inbound_attachments]]
 == Inbound Attachments (Manual Post-Migration Steps)
