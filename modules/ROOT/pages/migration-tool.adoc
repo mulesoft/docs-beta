@@ -92,8 +92,10 @@ SOAP Router
 ** Database
 //(`<http:listener-config/>`)
 ** HTTP
-//(`<quartz:inbound-endpoint/>`, `<<quartz:outbound-endpoint/>`)
-** Quartz migrates to the Scheduler component for Mule 4
+// `<oauth2-provider/>`
+** OAuth Provider module
+*** Security filters
+*** Checksum operations
 // (`<ws:consumer-config/>`)
 ** Web Service Consumer
 
@@ -105,15 +107,6 @@ SOAP Router
 //TODO: CLARIFY AS NEEDED
 * GZip transformers: GZip Compress and GZip Uncompress
 
-//FLOW CONTROL ROUTERS
-* Flow Control (Routers)
-// (`<choice/>`)
-** Choice
-// (`<first-successful/>`)
-** First Successful
-//(`<scatter-gather/>`)
-** Scatter-Gather
-
 * Mule apps and domains only (no policies are supported)
 
 * Mule Expression Language (MEL) to DataWeave 2.0 expressions (simple cases only)
@@ -121,38 +114,38 @@ SOAP Router
 * xref:migration-tool-procedure#munit[MUnit tests]
 // (`<apikit:console/>`),  (`<apikit:router/>`)
 
-** ObjectStore (Mule Object Store configurations)
+** ObjectStore (Mule Object Store configurations and operations)
 
 * Properties and secure properties
 
-//SCOPES:
-* Scopes
+//FLOW CONTROL (ROUTERS) AND SCOPES:
+* Routers and Scopes
 // (`<async/>`)
 ** Async scope
 // (`<ee:cache/>`)
-** Cache scope
-// (`<composite-source/>`)  TODO: RELATED TO ERROR HANDLING?
-** Composite Source scope
-// Which Batch, all?
+// Batch (all)
 ** Batch scopes (Batch, Batch Commit, Batch Execute, Batch Step only, but _not_ Batch-specific MEL functions)
+** Cache scope
+// (`<choice/>`)
+** Choice
+// (`<composite-source/>`)
+** Composite Source scope
+// (`<first-successful/>`)
+** First Successful
 // (`<foreach/>`)
 ** For Each scope
+// (`<poll/>` )
 //(`<enricher/>`)
 ** Message Enricher scope (`<enricher>`) migrates to Target Variables (sometimes called Target Parameters) in Mule 4
-// (`<poll/>` )
 ** Poll scope migrates to the Scheduler component for Mule 4
+//(`<scatter-gather/>`)
+** Scatter-Gather
 // (`<transactional/>`) TODO: RELATED TO ERROR HANDLING?
 ** Transactional scope
 // (`<until-successful/>`)
 ** Until Successful scope
 
 * Script component (DSL only, no migration of the script itself) to the Scripting module for Mule 4
-
-* Security-related components:
-// `<oauth2-provider/>`
-** OAuth Provider module
-** Security filters
-** Checksum operations
 
 //TODO: CLARIFY AS NEEDED
 * Spring Beans definition
@@ -171,6 +164,8 @@ SOAP Router
 ** HTTP transports migrate to the HTTP connector
 // (`<jms:inbound-endpoint/>`, `<jms:outbound-endpoint/>`)
 ** JMS transports migrate to the JMS connector
+//(`<quartz:inbound-endpoint/>`, `<<quartz:outbound-endpoint/>`)
+** Quartz migrates to the Scheduler component for Mule 4
 //(`<file:inbound-endpoint/>`, `<file:outbound-endpoint/>`)
 ** SFTP transports migrate to the SFTP connector
 // (`vm:inbound-endpoint/>`, `<vm:outbound-endpoint/>`)
