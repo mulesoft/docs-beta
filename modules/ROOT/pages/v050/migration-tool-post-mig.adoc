@@ -22,31 +22,35 @@ Beta period based on feedback and recommendations.
 
 Most MEL expressions are migrated to xref:dataweave.adoc[DataWeave] by the
 Mule Migration Assistant (MMA). However, some operators and MEL constructs are
-not supported by the migrator to generate the equivalent DataWeave automatically.
+not supported by the MMA to generate the equivalent DataWeave automatically.
 
-For example, the expressions in the next Output examples receive the `mel:` prefix
-from the migrator. The Compatibility module includes the MEL language from Mule 3,
-so these expressions still work. The Manual Modification examples show how to
-manually migrate the expressions in the Output examples to Mule 4.
+For example, the expressions in the next Output examples receive the `mel:` prefix from the MMA. The Compatibility module supports the MEL language from
+Mule 3, so these expressions still work. The Manual Modification examples show
+how to manually migrate the expressions in the Output examples to Mule 4.
 
+* MEL `flowVars` become Mule event variables (`vars`) in DataWeave expressions.
++
 .Example 1: MMA Output
 [source]
 ----
 #[mel:flowVars.booleanVar ? 1 : 0]
 ----
-
++
 .Example 2: Manual Modification to MMA Output
 [source]
 ----
 #[if (vars.booleanVar) 1 else 0]
 ----
-
++
+* The MEL map is a `HashMap` that contains a key-value pair. In DataWeave,
+the same pair is a simple JSON object:
++
 .Example 1: MMA Output
 [source]
 ----
 #[mel:Map m = new HashMap<>(); m.put(“key”, “value”); return m;]
 ----
-
++
 .Example 2: Manual Modification MMA Output
 [source]
 ----
