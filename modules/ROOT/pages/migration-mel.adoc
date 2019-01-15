@@ -50,23 +50,16 @@ remain the same in DataWeave except for the new `attributes` variables and the f
 |===
 | MEL | DataWeave
 
-|`flowVars`
-|Renamed to `vars`
-
-|`sessionVars`
-|Removed: See xref:intro-mule-message.adoc#session-properties[Session Properties].
+a|`flowVars` (Flow variables)
+  Example: `#[flowVars.myVar]`
+a|`vars` (Variables)
+  Example: `#[vars.myVar]`
 
 |`exception`
-|Replaced: exceptions within a flow are now represented by a xref:error-handling.adoc[Mule Error] you can access with the `error` variable.
-
-|`message.inboundProperties`
-|Removed: See xref:intro-mule-message.adoc#inbound-properties-are-now-attributes[Inbound Properties Are Now Attributes].
-
-|`message.outboundProperties`
-|Removed: See xref:intro-mule-message.adoc#outbound-properties[Outbound Properties].
-
-|`message.inboundAttachments` and `message.outboundAttachments`
-|Removed: See xref:intro-mule-message.adoc#attachments[Attachments].
+a|`error`
+   Exceptions within a flow are now represented by a
+   xref:error-handling.adoc[Mule Error] that you access with the `error`
+   variable.
 
 //This section will only make sense once the aggregators module is out
 //|`message.correlationId`
@@ -78,15 +71,45 @@ remain the same in DataWeave except for the new `attributes` variables and the f
 //|`message.correlationGroupSize`
 //|Renamed: `itemSequenceInfo.sequenceSize`
 
+|`message.dataType`
+|`dataType`
+
 |`message.id`, `message.rootId` and `message.replyTo`
 |Removed.
 
-|`message.dataType`
-|Renamed to `dataType`.
+|`message.inboundAttachments` (Inbound attachments)
+a|Replaced by multipart data formats:
+  See xref:migration-tool-post-mig.html#inbound_attachments[Inbound Attachments]
+  and xref:intro-mule-message.adoc#attachments[Attachments].
+
+a|`message.inboundProperties` (Inbound properties)
+  Examples: `#[inboundProperties.'http.query.params']`, `#[inboundProperties]` (for HTTP headers)
+a|`attributes` (Attributes for message metadata)
+  Examples: `#[attributes.queryParams]`, `#[attributes.headers]` (for HTTP headers)
+  See xref:intro-mule-message.adoc#inbound-properties-are-now-attributes[Inbound Properties Are Now Attributes].
+
+|`message.outboundAttachments` (Outbound attachments)
+a|Replaced by multipart data formats:
+  See xref:migration-tool-post-mig.html#outbound_attachments[Outbound Attachments]
+  and xref:intro-mule-message.adoc#attachments[Attachments].
+
+|`message.outboundProperties` (Outbound properties)
+a|Removed:
+  See xref:intro-mule-message.adoc#outbound-properties[Outbound Properties].
+
+a|`recordVars` (Record variables)
+  Example: `#[recordVars.myVar]`
+a|`var`
+
+a|`sessionVars` (Session Variables)
+  Example: `#[sessionVars.myVar]`
+a|Removed:
+  Transport barriers do not exist in Mule 4 (see
+  xref:intro-mule-message.adoc#session-properties[Session Properties]).
 
 |`server.dateTime`
-|Removed: use DataWeave's xref:dw-core-functions-now.adoc[`now`] function
-
+a|Removed:
+  Use the DataWeave xref:dw-core-functions-now.adoc[`now`] function.
 |===
 
 [[extract_data]]
