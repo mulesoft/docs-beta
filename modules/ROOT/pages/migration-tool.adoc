@@ -119,26 +119,32 @@ SOAP Router
 
 //FLOW CONTROL (ROUTERS) AND SCOPES:
 * Flow Control (Routers) and Scopes
+** Aggregators: Collection Aggregator, Custom Aggregator, _but not_ Message Chunk Aggregator (`<message-chunk-aggregator/>`)
 // (`<async/>`)
 ** Async scope
-// (`<ee:cache/>`)
 // Batch (all)
 ** Batch scopes (Batch, Batch Commit, Batch Execute, Batch Step only, but _not_ Batch-specific MEL functions)
+// (`<ee:cache/>`)
 ** Cache scope
 // (`<choice/>`)
 ** Choice router
+// (`<collection-splitter/>`)
+** Collection Splitter
 // (`<composite-source/>`)
 ** Composite Source scope
 // (`<first-successful/>`)
 ** First Successful router
 // (`<foreach/>`)
 ** For Each scope
-// (`<poll/>` )
-//(`<enricher/>`)
+// (`<map-splitter/>`)
 ** Message Enricher scope (`<enricher>`) migrates to Target Variables (sometimes called Target Parameters) in Mule 4
+// (`<poll/>` )
 ** Poll scope migrates to the Scheduler component for Mule 4
 //(`<scatter-gather/>`)
 ** Scatter-Gather router
+// (`<splitter/>`)
+** Splitters: Splitter, Collection Splitter, and Map Splitter (`<map-splitter/>`) to a Mule 4 For Each collection `<foreach collection="#[]"/>`, where the `collection` contains a DataWeave expression, _but not_ Message Chunk Splitter `<message-chunk-splitter/>`
+//(`<enricher/>`)
 // (`<transactional/>`) TODO: RELATED TO ERROR HANDLING?
 ** Transactional scope
 // (`<until-successful/>`)
@@ -153,19 +159,19 @@ SOAP Router
 <`ee:transform`/> for DataWeave 2.0)
 
 * Transports:
-//`<http:listener/>`, `<http:request/>`,<http:static-resource-handler?
+** AMQP transport to the AMQP connector
 ** Email-related (IMAP, SMTP, POP3) transports migrate to the Email connector for Mule 4
 //(`<file:inbound-endpoint/>`, `<file:outbound-endpoint/>`)
 ** File transports migrate to the File connector
 //(`<ftp:inbound-endpoint/>`, `<ftp:outbound-endpoint/>`)
 ** FTP transports migrate to the FTP connector
-// (`<sftp:inbound-endpoint/>`, `<sftp:outbound-endpoint/>`)
+//`<http:listener/>`, `<http:request/>`,<http:static-resource-handler?
 ** HTTP transports migrate to the HTTP connector
 // (`<jms:inbound-endpoint/>`, `<jms:outbound-endpoint/>`)
 ** JMS transports migrate to the JMS connector
 //(`<quartz:inbound-endpoint/>`, `<<quartz:outbound-endpoint/>`)
 ** Quartz migrates to the Scheduler component for Mule 4
-//(`<file:inbound-endpoint/>`, `<file:outbound-endpoint/>`)
+// (`<sftp:inbound-endpoint/>`, `<sftp:outbound-endpoint/>`)
 ** SFTP transports migrate to the SFTP connector
 // (`vm:inbound-endpoint/>`, `<vm:outbound-endpoint/>`)
 ** VM transports migrate to the VM connector
@@ -233,7 +239,6 @@ For future releases, MuleSoft will also support these:
 * Encryption/Decryption components
 * Tracking component
 * XML module
-* Splitter and aggregator pattern
 
 ////
 * Documentation on how to migrate DataMapper transformations
