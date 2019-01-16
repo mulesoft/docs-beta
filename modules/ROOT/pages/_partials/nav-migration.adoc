@@ -14,7 +14,7 @@
 *** xref:intro-programming-model.adoc[Mule 4 Programming Model]
 *** xref:intro-engine.adoc[Execution Engine, Threads, and Concurrency]
 ** xref:migration-tool.adoc[Migration to Mule 4]
-*** xref:migration-tutorial.adoc[Mule Migration Tool Tutorial]
+*** xref:migration-tutorial.adoc[Mule Migration Assistant Tutorial]
 *** xref:migration-prep.adoc[Prepare to Migrate]
 *** xref:migration-cheat-sheet.adoc[Mule 3 to Mule 4 Cheat Sheet]
 *** xref:migration-tool-procedure.adoc[Perform a Migration]
