@@ -1,26 +1,26 @@
-= Mule Migration Tool Tutorial
+= Mule Migration Assistant Tutorial
 ifndef::env-site,env-github[]
 include::_attributes[]
 endif::[]
 
 //TODO: FOR GA, REMOVE *Beta* FROM GA VERSION
-*Beta Release: Mule Migration tool and Compatibility Module*
+*Beta Release: Mule Migration Assistant (MMA) and Compatibility Module*
 
 This tutorial walks you through the main steps for migrating a Mule 3 app to
-Mule 4. It covers use of the Mule Migration tool, the Migration report, and
-the Compatibility module.
+Mule 4. It covers use of the MMA, the Migration report, and the Compatibility
+module.
 
 == Prerequisites
 
-In addition to using the Mule Migration tool, which initiates the migration to
-Mule 4, you also need to use two versions of Anypoint Studio. Studio 6 is
-compatible with Mule 3.x runtime versions. Studio 7 is compatible with Mule 4.x
-runtimes.
+In addition to using the MMA, which initiates the
+migration to Mule 4, you also need to use two versions of Anypoint Studio.
+Studio 6 is compatible with Mule 3.x runtime versions. Studio 7 is compatible
+with Mule 4.x runtimes.
 
-If you do not have them already, you can download the Migration tool and
-Anypoint Studio applications from these links:
+If you do not have them already, you can download the MMA and Anypoint Studio
+applications from these links:
 
-* https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-tool-runner/0.4.0/mule-migration-tool-runner-0.4.0.jar[Mule Migration Tool (Jar file)]
+* https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/0.5.0/mule-migration-assistant-runner-0.5.0.jar[Mule Migration Assistant (Jar file)]
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
 
@@ -50,54 +50,34 @@ the project matches the zip filename (minus the file extension).
 [[step_2]]
 == Create a Mule 4 App from the Mule 3 App
 
-Now you run the Mule Migration tool on the Mule 3 app and import the migrated
-app into Studio 7. In subsequent sections, you will perform the manual steps
-needed to complete the migration to Mule 4.
+Now you run the MMA on the Mule 3 app and import
+the migrated app into Studio 7. In subsequent sections, you will perform the
+manual steps needed to complete the migration to Mule 4.
 
 . In a command console:
 +
-Run the Mule Migration tool, making sure to _revise
-the sample directory paths_ set by the `-projectBasePath` and
-`-destinationProjectBasePath` options.
+Run the MMA, making sure to _revise the sample directory paths_ set by the
+`-projectBasePath` and `-destinationProjectBasePath` options.
 +
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.4.0.jar -muleVersion 4.1.3 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
+$ java -jar mule-migration-assistant-runner-0.5.0.jar -muleVersion 4.1.5 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
 ----
 +
 To discover the `-projectBasePath` to the Studio 6 project, you can navigate
 to *File* -> *Switch Workspace* -> *Other* in Studio. To that path, you also
-need to append the name of the project, as shown in the example above. The `-destinationProjectBasePath` can be any local path. For details, see xref:migration-tool-procedure.adoc#options[Command-line Options].
+need to append the name of the project, as shown in the example above. The `-destinationProjectBasePath` can be any local path. For details, see
+xref:migration-tool-procedure.adoc#options[Command-line Options].
 +
-When the tool runs successfully, the console output looks something like this:
-+
-////
-FOR 0.3.0 VERSION
-[souce,console,linenums]
-----
-$ ...
-Executing migrator 0.3.0...
-===============================================================================
-MIGRATION TOOL RUN SUCCESSFULLY
-===============================================================================
-Components migrated successfully:  33 %
-Components migrated with errors:    0 %
-Total time: 5.326 s
-Migration report:
-  /Users/me/Downloads/querying-a-mysql-database-mule4/report/summary.html
-----
-+
-////
+When the MMA runs successfully, the console output looks something like this:
 +
 [souce,console,linenums]
 ----
 $ ...
-Executing migrator 0.4.0...
+Executing migrator 0.5.0...
 ===============================================================================
-MIGRATION TOOL RUN SUCCESSFULLY
+MIGRATION ASSISTANT RUN SUCCESSFULLY
 ===============================================================================
-Components migrated successfully:  42 %
-Components migrated with errors:    0 %
 Total time: 9.405 s
 Migration report: /Users/me/Downloads/querying-a-mysql-database-mule4/report/summary.html
 ----
@@ -124,10 +104,10 @@ image::mmt-migrated-app.png[Imported App]
 == Perform Manual Migration Procedures
 
 Now you review the xref:migration-report.adoc[Mule Migration report], fix the
-issues it finds, and remove any unnecessary complexity that the tool adds to
+issues it finds, and remove any unnecessary complexity that the MMA adds to
 the app. For the sample app, the report looks like this:
 
-image::mmt-report.png[Mule Migration Tool Report]
+image::mmt-report.png[Mule Migration Assistant Report]
 
 
 Note that the report identifies items that remain to complete the migration to
@@ -140,10 +120,10 @@ before the app will work. Additionally, a report can contain INFO messages
 about Mule 3 components that were replaced by Mule 4 improvements or removed.
 
 . In a web browser, open the Migration report (`summary.html`) produced by the
-Migration tool.
+MMA.
 +
-You can find the path to the report at the bottom of the Migration tool's
-console output, for example:
+You can find the path to the report at the bottom of the MMA's console output,
+for example:
 `/Users/me/Downloads/querying-a-mysql-database-mule4/report/summary.html`.
 +
 . Address warnings and other messages in the report by performing these tasks:
@@ -178,15 +158,6 @@ Avoid using an outbound property to determine the status code.
 Because the Mule 3 sample app does not use the `statusCode` outbound property
 from the Mule 3 HTTP transport and because no outbound property is set in a
 flow, you can safely remove any use of the outbound property in this case.
-
-////
-For cases in other apps where you _do_ need to handle a `statusCode`
-or outbound property in a flow, it is important to notice that both the
-Migration report and the Configuration XML for the migrated app provide links
-to specific documentation on performing this migration, in this case to  xref:migration-tool-post-mig.adoc#outbound_properties[Outbound Properties (Manual Post-Migration Steps)].
-////
-
-//image::mmt-http-status-code.png[HTTP Status Code Warnings]
 
 . In Studio 7, delete these elements from the Configuration XML for the
 migrated app:
@@ -320,7 +291,7 @@ The config in Mule 3 is specific for an engine, but it contained an 'url'
 attribute. It will be made generic in order to keep the URL.
 ----
 
-The Migration tool set the global connector configuration to a *Generic* type
+The MMA sets the global connector configuration to a *Generic* type
 to preserve the `url` attribute used in the Mule 3 app. However, because
 the app is using a MySQL database, you can change the global connection type
 and its settings to a *MySQL Connection*.
@@ -415,8 +386,8 @@ You do not need to perform any manual migration tasks in this case.
 [[warning_7]]
 == Replace the Convert Object to JSON Component
 
-The Beta version of the Mule Migration tool does not yet support the migration
-of the *Object to JSON* component to Mule 4.
+The Beta version of the Mule Migration Assistant (MMA) does not yet support the
+migration of the *Object to JSON* component to Mule 4.
 
 To complete the migration, this procedure replaces the *Convert Object to JSON*
 transformer with a *Transform Message* component, sets the output type of the

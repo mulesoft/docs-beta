@@ -1,10 +1,10 @@
-= Perform a Migration to Mule 4
+muleVersion 4.1.5= Perform a Migration to Mule 4
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
 //TODO: FOR GA, REMOVE *Beta* FROM GA VERSION
-*Beta Release: Mule Migration Tool and Compatibility Module*
+*Beta Release: Mule Migration Assistant (MMA) and Compatibility Module*
 
 MuleSoft recommends that you follow this migration path from Mule 3 to Mule 4.
 
@@ -18,7 +18,8 @@ Minimum requirements for a migrated app:
 You can check your Studio version by navigating to
 *Anypoint Studio -> About Anypoint Studio*.
 
-The tool migrates Mule apps that use these versions of the Mule runtime:
+The Mule Migration Assistant helps migrate Mule apps that use these versions
+of the Mule runtime:
 
 * 3.9.x
 * 3.8.x
@@ -30,24 +31,23 @@ See also, <<unsupported_projects>>.
 == Pre-Migration Tasks
 
 If your app is using DataMapper, MuleSoft recommends that you migrate to DataWeave
-before running the Mule Migration tool. See <<datamapper>>.
+_before_ running the Mule Migration Assistant. See <<datamapper>>.
 
 [[run_tool]]
-== Running the Mule Migration Tool
+== Running the Mule Migration Assistant
 
 //TODO: FOR GA, REMOVE NOTE AND REVISE CONTENT TO DESCRIBE STUDIO WORKFLOW
 *Note on the Beta release*: For the Beta release, the migrator is a command-line
 utility (packaged as an executable JAR file). After the Beta program, the
-Mule Migration tool will be released as part of Studio. You will then be able
-to perform migrations through Studio, rather than from the command line.
+Mule Migration Assistant (MMA) will be released as part of Studio. You will then
+be able to perform migrations through Studio, rather than from the command line.
 
 Note that the xref:migration-tutorial.adoc[Mule Migration Tutorial] covers the
-use of this tool, as well as post-migration tasks, on a sample Mule 3
-application.
+use of the MMA, as well as post-migration tasks, on a sample Mule 3 application.
 
 //TODO: GET A JAR NAME THAT IS MORE LIKE WHAT CUSTOMERS WILL SEE
 //TODO: LINK OUT TO STUDIO IMPORT STEPS.
-To run the Mule Migration tool:
+To run the Mule Migration Assistant:
 
 . Make sure that the required software is installed
 (see <<min_reqs, Requirements>>).
@@ -57,14 +57,14 @@ for example:
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.3.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
- -muleVersion 4.1.3 \
+ -muleVersion 4.1.5 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
 ----
 +
 Note that for `-destinationProjectBasePath` option, the folder (for example,
-`my-migrated-project`) in which to place the migrated must _not_ exist. The tool
+`my-migrated-project`) in which to place the migrated must _not_ exist. The MMA
 will create it. If you point to a folder that exists already, the migration will
 fail an error like this: `Exception: Destination folder already exists.`
 +
@@ -97,8 +97,7 @@ To understand errors and warnings in the Migration report, see
 xref:migration-report.adoc[Mule Migration Report].
 +
 Also note that the same information is provided as comments in the
-Mule Configuration XML files for your project that the Mule Migration tool
-outputs.
+Mule Configuration XML files for your project that the MMA outputs.
 +
 . Address the errors in the report, and address the warnings before deploying
 the migrated app to a production environment.
@@ -115,7 +114,7 @@ deploy your app to a production environment.
 For guidance with errors on unsupported connectors, see <<migrating_unsupported_connectors>>.
 +
 . Identify and consider additional migration steps where the automated migration
-by the tool can be improved. See
+by the MMA can be improved. See
 xref:migration-tool-post-mig.adoc[Post-Migration Tasks] and
 <<devkit>>.
 +
@@ -135,9 +134,9 @@ For domains and applications included in that domain, a migrator execution is ne
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.3.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
- -muleVersion 4.1.3 \
+ -muleVersion 4.1.5 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-domain-project
 ----
 +
@@ -146,25 +145,24 @@ $ java -jar mule-migration-tool-runner-0.3.0.jar \
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-tool-runner-0.3.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -parentDomainBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
- -muleVersion 4.1.3 \
+ -muleVersion 4.1.5 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
 ----
-
 
 [[options]]
 == Command-line Options
 
-The migrator is a command-line tool. You simply input a Mule 3 project and
-target version and then output the results.
+The Mule Migration Assistant (MMA) is a command-line tool. You simply input a
+Mule 3 project and target version and then output the results.
 
 .Command-line Options
 |===
 | `-destinationProjectBasePath <arg>` | Required. Directory for the migrated
 project that includes a destination folder for the migrated project, for
-example, `/path/to/my/destination-folder`. The tool will create the
+example, `/path/to/my/destination-folder`. The MMA will create the
 `destination-folder`. It will produce an error if `destination-folder` already
 exists.
 | `-help` | For displaying the help.
@@ -180,33 +178,33 @@ to `-projectBasePath`, for example:
 `-projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project`
 |===
 
-Whenever the tool adds an entry to the report (either error or warning), the
-same information is also added as a comment in the Configuration XML file for the
-project.
+Whenever the MMA adds an entry to the report (ERROR, WARNING, or INFO), the
+same information is also added as a comment in the Configuration XML file for
+the project.
 
 [[munit]]
 === Testing the Migrated App
 
-Automatic migration of MUnit tests is supported by this tool, so the first step
-should be to run those migrated tests. Once those tests are all passing, you
-can perform any additional testing that you were already performing on the
-original version of the app.
+Automatic migration of MUnit tests is supported the Mule Migration Assistant
+(MMA), so the first step should be to run those migrated tests. Once those tests
+are all passing, you can perform any additional testing that you were already
+performing on the original version of the app.
 
-In either case, do expect some of these tests to fail. Manual intervention might
+In either case, expect some of these tests to fail. Manual intervention might
 be required to deal with additional details that are not automatically handled
-by the tool.
+by the MMA.
 
 [[datamapper]]
 == Migrating from the DataMapper to DataWeave
 
-DataMapper is not supported by the Mule Migration tool. However, you can
-use the DataWeave Migrator tool.
+DataMapper is not supported by the Mule Migration Assistant (MMA). However, you
+can use the DataWeave Migrator _prior to running MMA_.
 
 . Before migrating to Mule 4, migrate your DataMapper transformations to
 DataWeave using the
-xref:3.8@mule-runtime::dataweave-migrator.adoc[DataWeave Migrator Tool]
+xref:3.8@mule-runtime::dataweave-migrator.adoc[DataWeave Migrator]
 (available for Mule 3.7, 3.8, and 3.9).
-. Run the Mule Migration tool.
+. Run the MMA following instructions in <<run_tool>>.
 
 [[migrating_unsupported_connectors]]
 == Migrating Unsupported Connectors
@@ -237,24 +235,27 @@ For custom connectors built with DevKit, see <<devkit, Migrating Custom DevKit C
 [[devkit]]
 == Migrating Custom DevKit Connectors
 
-Mule apps might contain custom-made DevKit connectors. Though the
-tool cannot migrate them, the xref:1.1@mule-sdk::dmt.adoc[DevKit Migration tool]
-is available to convert these DevKit projects to Mule 4 SDK ones. After
+Mule apps might contain custom-made DevKit connectors. Though the Mule Migration
+Assistant (MMA) cannot migrate them, the
+xref:1.1@mule-sdk::dmt.adoc[DevKit Migrator]
+is available to convert DevKit projects to Mule 4 SDK projects. After
 migrating them, you then need to:
 
-* Manually add the migrated modules to the app's `pom.xml`.
-* Manually adapt all the uses of such connectors.
+* Manually add the migrated modules to the Mule 4 app's `pom.xml`.
+* Manually adapt all the uses of these migrated connectors.
 
 [[unsupported_projects]]
 == Migrating from Unsupported Runtime Versions
 
 If you want to migrate apps that are currently running on unsupported
-runtime versions such as 3.7.x, 3.6.x or before, you can still use the migrator. However, a greater ratio of migration errors, unsupported patterns, or
+runtime versions such as 3.7.x, 3.6.x or before, you can still use the migrator.
+However, a greater ratio of migration errors, unsupported patterns, or
 incorrect code generation is to be expected.
 
 Although MuleSoft will not officially support these cases, it is probably a
-good idea to try the tool on them anyway. Dealing with limitations is likely
-to be much easier than dealing with a completely unaided migration.
+good idea to try the Mule Migration Assistant on them anyway. Dealing
+with limitations is likely to be easier than performing a completely unaided
+migration.
 
 == See Also
 

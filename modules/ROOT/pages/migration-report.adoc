@@ -4,20 +4,21 @@ include::_attributes.adoc[]
 endif::[]
 
 //TODO: FOR GA, REMOVE *Beta* FROM GA VERSION
-*Beta Release: Mule Migration tool and Compatibility Module*
+*Beta Release: Mule Migration Assistant and Compatibility Module*
 
 After migrating a Mule 3 app to Mule 4, the
-xref:migration-tool#migration_tool.adoc[Mule Migration tool] produces a Migration report
+xref:migration-tool#migration_tool.adoc[Mule Migration Assistant] (MMA) produces
+a Migration report
 that you can use to identify and perform any manual migration tasks that remain.
-When the tool detects something it cannot migrate, it provides feedback about the
-problem and links to information about the steps you need to take. The tool also
-comments on and provides guidance for any cases that the tool is able to migrate
+When the MMA detects something it cannot migrate, it provides feedback about the
+problem and links to information about the steps you need to take. The assistant also
+comments on and provides guidance for any cases that the MMA is able to migrate
 without following the best practices.
 
-Inside each migrated project, the Mule Migration tool generates a report that
+Inside each migrated project, the MMA generates a report that
 contains a list of migration errors and warnings, for example:
 
-image::migrator-report.png[Mule Migration Tool Report]
+image::migrator-report.png[Mule Migration Assistant Report]
 
 * Warning (`WARN`): For these issues, the Compatibility module can serve as a
 temporary workaround until you migrate them manually.
@@ -69,7 +70,7 @@ migrated Choice router:
 The Migration report links to information on any post-migration steps you need
 to perform, for example:
 
-image::migrator-issue-found.png[Mule Migration Tool Report - Issue Found]
+image::migrator-issue-found.png[Mule Migration Assistant Report - Issue Found]
 
 == See Also
 
