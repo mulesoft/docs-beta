@@ -92,8 +92,8 @@ SOAP Router
 ** Database
 //(`<http:listener-config/>`)
 ** HTTP
-// `<oauth2-provider/>`
-** OAuth Provider
+** Security module
+*** OAuth Provider
 *** Security filters
 *** Checksum operations
 ** ObjectStore (Mule Object Store configurations and operations)
