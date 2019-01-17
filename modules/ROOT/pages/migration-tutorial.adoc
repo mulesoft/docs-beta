@@ -78,8 +78,6 @@ Executing migrator 0.5.0...
 ===============================================================================
 MIGRATION ASSISTANT RUN SUCCESSFULLY
 ===============================================================================
-Components migrated successfully:  42 %
-Components migrated with errors:    0 %
 Total time: 9.405 s
 Migration report: /Users/me/Downloads/querying-a-mysql-database-mule4/report/summary.html
 ----
