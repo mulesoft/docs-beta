@@ -178,7 +178,7 @@ to `-projectBasePath`, for example:
 `-projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project`
 |===
 
-Whenever the MMA adds an entry to the report (ERROR, WARNING, or INO), the
+Whenever the MMA adds an entry to the report (ERROR, WARNING, or INFO), the
 same information is also added as a comment in the Configuration XML file for
 the project.
 
