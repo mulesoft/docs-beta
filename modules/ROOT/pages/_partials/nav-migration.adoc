@@ -1,6 +1,6 @@
 * xref:index-migration.adoc[Mule 4 for Mule 3 Users]
 ** xref:mule-runtime-updates.adoc[What's New in Mule 4]
-** xref:intro-overview.adoc[Introduction to Mule 4]
+** xref:intro-overview.adoc[Mule 4]
 *** xref:intro-studio.adoc[Studio 7]
 *** xref:intro-mule-message.adoc[Mule Message]
 *** xref:intro-expressions.adoc[DataWeave Expression Language]

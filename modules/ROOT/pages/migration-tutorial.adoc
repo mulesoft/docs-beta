@@ -10,6 +10,7 @@ This tutorial walks you through the main steps for migrating a Mule 3 app to
 Mule 4. It covers use of the MMA, the Migration report, and the Compatibility
 module.
 
+[[prereqs]]
 == Prerequisites
 
 In addition to using the MMA, which initiates the
@@ -55,6 +56,12 @@ Now you run the MMA on the Mule 3 app and import
 the migrated app into Studio 7. In subsequent sections, you will perform the
 manual steps needed to complete the migration to Mule 4.
 
+. Unzip the MMA `mule-migration-assistant-runner-0.5.1.zip` file you downloaded
+in <<prereqs>>.
++
+The Zip file contains `mule-migration-assistant-runner-0.5.1.jar` and a `libs`
+subdirectory with a number of MMA-related JAR files that provide MMA resources.
++
 . In a command console:
 +
 Run the MMA, making sure to _revise the sample directory paths_ set by the
@@ -67,7 +74,8 @@ $ java -jar mule-migration-assistant-runner-0.5.1.jar -muleVersion 4.1.5 -projec
 +
 To discover the `-projectBasePath` to the Studio 6 project, you can navigate
 to *File* -> *Switch Workspace* -> *Other* in Studio. To that path, you also
-need to append the name of the project, as shown in the example above. The `-destinationProjectBasePath` can be any local path. For details, see
+need to append the name of the project, as shown in the example above. The
+`-destinationProjectBasePath` can be any local path. For details, see
 xref:migration-tool-procedure.adoc#options[Command-line Options].
 +
 When the MMA runs successfully, the console output looks something like this:
