@@ -57,7 +57,7 @@ for example:
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.1.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -muleVersion 4.1.5 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
@@ -134,7 +134,7 @@ For domains and applications included in that domain, a migrator execution is ne
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.1.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
  -muleVersion 4.1.5 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-domain-project
@@ -145,7 +145,7 @@ $ java -jar mule-migration-assistant-runner-0.5.0.jar \
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.0.jar \
+$ java -jar mule-migration-assistant-runner-0.5.1.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -parentDomainBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
  -muleVersion 4.1.5 \
