@@ -51,8 +51,9 @@ To run the Mule Migration Assistant:
 
 . Make sure that the required software is installed
 (see <<min_reqs, Requirements>>).
-. Unzip the MMA `mule-migration-assistant-runner-0.5.1.zip` file you downloaded
-in <<prereqs>>.
+. Unzip the MMA `mule-migration-assistant-runner-0.5.1.zip` file.
++
+See the download URL in xref:migration-tutorial.adoc#prereqs[Prerequisites].
 +
 The Zip file contains `mule-migration-assistant-runner-0.5.1.jar` and a `libs`
 subdirectory with a number of MMA-related JAR files that provide MMA resources.
