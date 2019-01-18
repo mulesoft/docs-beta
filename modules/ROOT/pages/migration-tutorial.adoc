@@ -10,6 +10,7 @@ This tutorial walks you through the main steps for migrating a Mule 3 app to
 Mule 4. It covers use of the MMA, the Migration report, and the Compatibility
 module.
 
+[[prereqs]]
 == Prerequisites
 
 In addition to using the MMA, which initiates the
@@ -20,7 +21,10 @@ with Mule 4.x runtimes.
 If you do not have them already, you can download the MMA and Anypoint Studio
 applications from these links:
 
-* https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/0.5.0/mule-migration-assistant-runner-0.5.0.jar[Mule Migration Assistant (Jar file)]
+* https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/0.5.1/mule-migration-assistant-runner-0.5.1.zip[Mule Migration Assistant (Zip file)]
++
+You will unzip this file to a folder. All runs of the MMA in this docs must be run from inside this folder.
++
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
 
@@ -54,6 +58,12 @@ Now you run the MMA on the Mule 3 app and import
 the migrated app into Studio 7. In subsequent sections, you will perform the
 manual steps needed to complete the migration to Mule 4.
 
+. Unzip the MMA `mule-migration-assistant-runner-0.5.1.zip` file you downloaded
+in <<prereqs>>.
++
+The Zip file contains `mule-migration-assistant-runner-0.5.1.jar` and a `libs`
+subdirectory with a number of MMA-related JAR files that provide MMA resources.
++
 . In a command console:
 +
 Run the MMA, making sure to _revise the sample directory paths_ set by the
@@ -61,12 +71,13 @@ Run the MMA, making sure to _revise the sample directory paths_ set by the
 +
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.0.jar -muleVersion 4.1.5 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
+$ java -jar mule-migration-assistant-runner-0.5.1.jar -muleVersion 4.1.5 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
 ----
 +
 To discover the `-projectBasePath` to the Studio 6 project, you can navigate
 to *File* -> *Switch Workspace* -> *Other* in Studio. To that path, you also
-need to append the name of the project, as shown in the example above. The `-destinationProjectBasePath` can be any local path. For details, see
+need to append the name of the project, as shown in the example above. The
+`-destinationProjectBasePath` can be any local path. For details, see
 xref:migration-tool-procedure.adoc#options[Command-line Options].
 +
 When the MMA runs successfully, the console output looks something like this:
@@ -74,7 +85,7 @@ When the MMA runs successfully, the console output looks something like this:
 [souce,console,linenums]
 ----
 $ ...
-Executing migrator 0.5.0...
+Executing migrator 0.5.1...
 ===============================================================================
 MIGRATION ASSISTANT RUN SUCCESSFULLY
 ===============================================================================
