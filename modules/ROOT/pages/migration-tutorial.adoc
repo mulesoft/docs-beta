@@ -79,6 +79,7 @@ need to append the name of the project, as shown in the example above. The
 `-destinationProjectBasePath` can be any local path. For details, see
 xref:migration-tool-procedure.adoc#options[Command-line Options].
 +
+//WORKAROUND FOR 0.5.1:
 Note that if you are on a Windows machine and receive the message
 `Exception: Cannot read mule project.`, try using forward slashes (`/`)
 for paths set in the `projectBasePath` and `destinationProjectBasePath`
