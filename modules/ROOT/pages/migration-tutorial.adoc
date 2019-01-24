@@ -41,7 +41,6 @@ asset from Exchange.
 +
 Note that the 1.4.0 asset is a Mule 3 app that runs on Mule Runtime 3.x. Its
 filename is `querying-a-mysql-database-1.4.0-mule-application-example.zip`.
-+
 . In Studio 6, import the downloaded zip file by going to *File* -> *Import* ->
 *Anypoint Studio/Anypoint Studio deployable archive (zip)*, selecting the zip, and
 then clicking *Finish*.
@@ -79,6 +78,11 @@ to *File* -> *Switch Workspace* -> *Other* in Studio. To that path, you also
 need to append the name of the project, as shown in the example above. The
 `-destinationProjectBasePath` can be any local path. For details, see
 xref:migration-tool-procedure.adoc#options[Command-line Options].
++
+Note that if you are on a Windows machine and receive the message
+`Exception: Cannot read mule project.`, try using forward slashes (`/`)
+for paths set in the `projectBasePath` and `destinationProjectBasePath`
+options.
 +
 When the MMA runs successfully, the console output looks something like this:
 +
