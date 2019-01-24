@@ -82,7 +82,8 @@ xref:migration-tool-procedure.adoc#options[Command-line Options].
 Note that if you are on a Windows machine and receive the message
 `Exception: Cannot read mule project.`, try using forward slashes (`/`)
 for paths set in the `projectBasePath` and `destinationProjectBasePath`
-options.
+options. You should also try running the command through a standard Windows
+console.
 +
 When the MMA runs successfully, the console output looks something like this:
 +
