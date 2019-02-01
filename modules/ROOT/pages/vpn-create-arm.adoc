@@ -32,7 +32,7 @@ Border Gateway Protocol (BGP) routing is recommended when possible.
 .. To use static routing:
 ... Select *Static Routing*.
 ... Click *Add New Rule*.
-... Enter a Classless Inter-Domain Routing (CIDR) address. For example: + ---- 10.0.0.0/8 ----
+... Enter a Classless Inter-Domain Routing (CIDR) address. For example: `10.0.0.0/8`
 . Configure the tunnel used to connect between Anypoint Platform and your network.
 +
 You must configure two tunnels that connect between different endpoints. In the case of a custom configuration, you can use the same PSK value for both connections, but you must use different point-to-point CIDR ranges.
