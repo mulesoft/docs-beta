@@ -23,8 +23,7 @@ When creating or configuring a VPN, you must provide the following information:
 . Enter a name for your VPN.
 . Select a Virtual Private Cloud from the drop-down list.
 . Enter the remote IP address used to connect to your VPN.
-. Select the routing type you want to use for your VPN. +
-Border Gateway Protocol (BGP) routing is recommended when possible.
+. Select the routing type you want to use for your VPN. Border Gateway Protocol (BGP) routing is recommended when possible.
 .. To use BGP routing:
 ... Select *BGP Routing*.
 ... Enter the ASN corresponding to your backend under Remote ASN. The default value is 65001.
@@ -35,8 +34,8 @@ Border Gateway Protocol (BGP) routing is recommended when possible.
 ... Enter a Classless Inter-Domain Routing (CIDR) address. For example: `10.0.0.0/8`
 . Configure the tunnel used to connect between Anypoint Platform and your network.
 +
-You must configure two tunnels that connect between different endpoints. In the case of a custom configuration, you can use the same PSK value for both connections, but you must use different point-to-point CIDR ranges.
-. Select the type of tunnel configuration for your VPN: +
+You must configure two tunnels that connect between different endpoints. In the case of a custom configuration, you can use the same PSK value for both connections, but you must use different point-to-point CIDR ranges. Select the type of tunnel configuration for your VPN: 
++
 .. *Automatic*: Automatically configures the required tunnels for your VPN using the default values.
 .. *Custom*: Enables you to manually configure the tunnels used by your VPN.
 ... Enter a value for the PSK.
@@ -58,4 +57,4 @@ You cannot modify tunnel options after you create the VPN connection. To change 
 
 == Result
 
-After creating the VPN, it appears in the list of VPNs. Initially, the *Status* column displays PENDING and both VPN tunnels display DOWN. Once your VPN connection is successful, the status changes to AVAILABLE and UP.
+After creation, the new VPN appears in the list of VPNs. Initially, the *Status* column displays PENDING and both VPN tunnels display DOWN. Once your VPN connection is successful, the status changes to AVAILABLE and UP.
