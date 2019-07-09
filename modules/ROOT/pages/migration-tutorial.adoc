@@ -23,10 +23,11 @@ If you do not have them already, you can download the MMA and Anypoint Studio
 applications from these links:
 
 * https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/0.5.1/mule-migration-assistant-runner-0.5.1.zip[Mule Migration Assistant (Zip file)]
-////
 
 You will unzip this file to a folder. All runs of the MMA in this docs must be run from inside this folder.
-+
+////
+
+* MMA: Currently unavailable.  
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
 
