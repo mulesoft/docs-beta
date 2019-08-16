@@ -96,6 +96,171 @@ In Mule 4, once the policy behavior is defined, the policy has to be packaged in
 Just like before, once the policy template JAR is in Exchange, it will appear in API Manager for APIs that belong
 to the same organization where the JAR was uploaded.
 
+[[performing_migration]]
+== Performing Migration
+
+In order to perform a policy migration, we will be using Mule Migration Assistant (MMA), the download URL can be found in xref:migration-tutorial.adoc#prereqs[Prerequisites].
+
+The command expected by the MMA has to comply with the required xref:migration-tool-procedure.adoc#options[Command-line Options], for example:
+
+.Command-line Invocation
+[source,console,linenums]
+----
+$ java -jar mule-migration-assistant-runner-0.5.1.jar \
+ -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-mule3-policy/src/main/policy \
+ -muleVersion 4.1.5 \
+ -destinationProjectBasePath /Users/me/my-dir/my-migrated-policy
+----
+
+When attempting to migrate policies, MMA command differs slightly than the usual mule application migration. MMA expects the `-projectBasePath` to have both the policy XML and YAML files in the same directory.
+
+Therefore, if policy files are under `src/main/policy` directory structure in the project, the `-projectBasePath` flag value will look like the previous example.
+
+Note that for `-destinationProjectBasePath` option, the folder (for example,
+`my-migrated-policy`) in which to place the migrated must _not_ exist. The MMA
+will create it. If you point to a folder that exists already, the migration will
+fail an error like this: `Exception: Destination folder already exists.`
+
+When the migrator runs successfully, you will see a message something like this:
+
+.Successful Migration
+[source,console,linenums]
+----
+Executing migration...
+...
+========================================================
+MIGRATION SUCCESS
+========================================================
+Total time: 11.335 s
+Migration report:
+/Users/me/my-dir/my-migrated-policy/report/summary.html
+----
+
+After migration has been performed, when opening the destination folder, the user will find:
+
+* A policy POM file
+* The policy YAML file, which will be renamed to the `artifactId` value found in the POM file.
+* The `report` directory containing the xref:migration-report.adoc[Mule Migration Report] (`summary.html`). Note that the same information provided in the report can be found as comments in the policy XML file.
+* The `mule-artifact.json` file which will have the `minMuleVersion` set to the `-muleVersion` flag value set in the command to execute the MMA.
+* The `src` directory where we can find the migrated content.
+
+The `src` directory contains directories `main` and `test`. Inside `main`, the `mule` directory, which contains the policy XML file renamed to `template.xml`, can be found. At the same level as the `mule` directory, MMA might create a `resources` directory containing DataWeave files or other files the migrated policy needs. Regarding the `test` directory, the test configuration files can be found there.
+
+On a successful migration, the POM file needs to be modified as explained in <<pom_migration>>. Once the POM file has the correct organization ID it can be compiled with `mvn clean install`. On a successful compilation it can be later uploaded to Exchange using `maven clean deploy`. A more detailed explanation on how to upload a custom policy can be found in the xref:api-manager::custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange] article.
+
+[[pom_migration]]
+=== POM Migration
+
+The POM file will be modified in order to include the necessary elements for the uploading of the custom policy to Exchange.
+
+The following elements must be modified in order to upload the policy. `{orgId}` must be replaced both in `<groupId>` and `<exchange.url>` with the organization ID found in Anypoint Platform. For more information on how to obtain the organization ID please check the xref:api-manager::custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange] article.
+
+Exchange URL is set by default to prod environment, if the url needed belongs to EU it must be set manually after migration. URL template for EU is: `https://maven.eu1.anypoint.mulesoft.com/api/v1/organizations/{orgId}/maven`
+
+[source,xml]
+----
+<groupId>{orgId}</groupId>
+
+<properties>
+ <exchange.url>https://maven.anypoint.mulesoft.com/api/v1/organizations/{orgId}/maven</exchange.url>
+</properties>
+----
+
+If no POM was found for the policy, MMA will create a new POM file. In this file, `artifactId` for the policy will be the name of the parent directory for the policy XML file. For example, if our policy lies in `src/main/mytestpolicy/policy.xml`, `artifactId` will be set to `mytestpolicy`.
+
+[[dependency_and_plugin_versions]]
+=== Dependency and Plugin versions
+
+Dependency and plugin versions are set by default by the Migration Tool and can be changed manually by the user.
+
+[[not_migrated_elements]]
+=== Not Migrated Elements
+
+Several elements are not migrated from mule3 to mule4, said elements are the following:
+
+[cols="2,5",options="header"]
+|===
+|Element                    | Reason
+
+|policy:before-exception    | Unable to recreate the behaviour in mule 4.
+|policy:pointcut            | The behaviour is resolved by mule runtime automatically.
+|policy:data                | The behaviour is resolved by mule runtime automatically.
+
+|===
+
+For each and every one of these elements, the child elements are removed as well.
+
+[[elements_migrated_to_other_structures]]
+=== Elements migrated to other structures
+
+Throttling element `fixed-time-frame-algorithm` is migrated to the Rate Limit format if multiple `rate-limit` elements are found as child elements of the `delay-response` element.
+
+In a similar way, since Throttling SLA policy is no longer supported, if a `delay-response` element is found as a child of a `sla-based-algorithm` element the policy will be migrated to Rate Limit SLA format.
+
+[[common_migration_issues]]
+=== Common Migration Issues
+When executing the migration command, if policy files are not found, MMA will print a message like this one:
+
+.Unsuccessful Migration
+[source,console,linenums]
+----
+Executing migration...
+...
+===============================================================================
+MIGRATION FAILED
+===============================================================================
+Total time: 3.008 s
+Exception: Cannot read mule project. Is it a Mule Studio project?
+com.mulesoft.tools.migration.engine.exception.MigrationJobException: Cannot read mule project. Is it a Mule Studio project?
+	at com.mulesoft.tools.migration.engine.project.MuleProjectFactory.getMuleProject(MuleProjectFactory.java:50)
+	at com.mulesoft.tools.migration.engine.MigrationJob.generateSourceApplicationModel(MigrationJob.java:116)
+	at com.mulesoft.tools.migration.engine.MigrationJob.execute(MigrationJob.java:80)
+	at com.mulesoft.tools.migration.MigrationRunner.main(MigrationRunner.java:83)
+
+===============================================================================
+----
+
+[[pom_migration_issues]]
+=== POM Migration Issues
+
+A possible error that can arise while migrating a policy is not finding the pom model for the policy. The pom model for a policy is either generated from an existing pom in mule 3 or from scratch if none is found. On the one hand, if an existing pom is used, a possible issue can be a wrong pom definition which causes pom model creation to fail. On the other hand, the user should check if a previous step that modified the pom model failed.
+
+[[yaml_migration_issues]]
+=== YAML migration issues
+
+[cols="2,5",options="header"]
+|===
+|Case                   | Reason
+
+|Error editing YAML     | Use stack trace in Mule Migration Tool for more information.
+|Multiple YAMLs found   | Mule Migration Tool expects only one YAML file in the project base path, which is interpreted as the policy YAML. Therefore, if there is need for more than one YAML in the project, the extra YAML files must be stored in another directory.
+|No YAML found          | Mule Migration Tool expects a YAML file in the project base path when migration has started, if none is found it is possible a previous error arose during migration.
+
+|===
+
+[[threat_protection_migration_issues]]
+=== Threat Protection Migration Issues
+
+[cols="2,5",options="header"]
+|===
+|Case                   | Reason
+
+|Could not determine if policy is XML or JSON threat protection type     | In threat protection policies, elements `xml-policy` and `json-policy` determine which type of threat protection is being migrated. Just one of them needs to be present, if none of them is, the error message will present itself in the migration report.
+|Element `structure` could not be found     | In threat protection policies, `xml-policy` element needs to have child element `structure`
+|Element `values` could not be found     | In threat protection policies, `xml-policy` element needs to have child element `values`
+
+|===
+
+[[client_id_enforcement_migration_issues]]
+=== Client Id Enforcement Migration Issues
+
+[cols="2,5",options="header"]
+|===
+|Case                   | Reason
+
+|Client Id Enforcement invalid migration element     | If `basicAuthEnabled` attribute in `validate-client` tag is either not present or equal to `false`, Mule Migration Tool expects `clientSecret` or `clientId` attributes to be present in `validate-client` element.
+
+|===
 
 == See Also
 
@@ -106,3 +271,9 @@ xref:migration-api-gateways-autodiscovery.adoc[Migrating API Gateways: Autodisco
 xref:migration-api-gateways-runtime-config.adoc[Migrating API Gateways: Mule Runtime Configuration]
 
 xref:migration-core.adoc[Core Components Migration]
+
+https://docs.mulesoft.com/api-manager/2.x/rate-limiting-and-throttling[Rate Limit and Throttling Policy]
+
+https://docs.mulesoft.com/api-manager/2.x/rate-limiting-and-throttling-sla-based-policies[Rate Limit SLA Based Policies]
+
+https://docs.mulesoft.com/api-manager/2.x/custom-policy-uploading-to-exchange[Uploading a Custom Policy to Exchange]
