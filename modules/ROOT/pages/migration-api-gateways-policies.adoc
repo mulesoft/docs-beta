@@ -100,7 +100,9 @@ to the same organization where the JAR was uploaded.
 == Performing a Policy Migration
 
 To perform a policy migration, this example uses the Mule Migration Assistant
-(MMA). See xref:migration-tutorial.adoc#prereqs[Prerequisites].
+(MMA). 
+//TODO for GA: We'll link out to this page so people can download MMA if they need to:
+// xref:migration-tutorial.adoc#prereqs[Prerequisites].
 
 The MMA command for migrating policies differs from the typical
 xref:migration-tool-procedure.adoc#options[command-line options] for migrating
