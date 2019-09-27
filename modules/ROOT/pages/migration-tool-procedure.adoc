@@ -51,11 +51,11 @@ To run the Mule Migration Assistant:
 
 . Make sure that the required software is installed
 (see <<min_reqs, Requirements>>).
-. Unzip the MMA `mule-migration-assistant-runner-0.5.1.zip` file.
+. Unzip the MMA `mule-migration-assistant-runner-0.5.2.zip` file.
 +
 See the download URL in xref:migration-tutorial.adoc#prereqs[Prerequisites].
 +
-The Zip file contains `mule-migration-assistant-runner-0.5.1.jar` and a `libs`
+The Zip file contains `mule-migration-assistant-runner-0.5.2.jar` and a `libs`
 subdirectory with a number of MMA-related JAR files that provide MMA resources.
 +
 . In your console, provide a command that specifies all the required <<options>>,
@@ -64,9 +64,9 @@ for example:
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.1.jar \
+$ java -jar mule-migration-assistant-runner-0.5.2.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
- -muleVersion 4.1.5 \
+ -muleVersion 4.2.1 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
 ----
 +
