@@ -335,6 +335,12 @@ The following issue is possible:
 
 |===
 
+
+[[spring_limitations]]
+=== Spring Limitations
+
+You must perform a manual migration of your Spring Beans even though MMA migrates `spring:bean` elements in Mule 3 policies to a `template-beans.xml` file in the `resources` directory and even though it adds to the custom policy a `spring-module:config` element that references `template-beans.xml`. Declaring the beans in a policy is unsupported in Mule 4 and causes the policy to fail to deploy. 
+
 == See Also
 
 xref:migration-api-gateways.adoc[Migrating API Gateways]
