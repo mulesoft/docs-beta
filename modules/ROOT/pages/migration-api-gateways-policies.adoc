@@ -339,7 +339,23 @@ The following issue is possible:
 [[spring_limitations]]
 === Spring Limitations
 
-You must perform a manual migration of your Spring Beans even though MMA migrates `spring:bean` elements in Mule 3 policies to a `template-beans.xml` file in the `resources` directory and even though it adds to the custom policy a `spring-module:config` element that references `template-beans.xml`. Declaring the beans in a policy is unsupported in Mule 4 and causes the policy to fail to deploy. 
+You must perform a manual migration of your Spring Beans even though MMA migrates `spring:bean` elements in Mule 3 policies to a `template-beans.xml` file in the `resources` directory and even though it adds to the custom policy a `spring-module:config` element that references `template-beans.xml`. Declaring the beans in a policy is unsupported in Mule 4 and causes the policy to fail to deploy.
+
+[[known_issues]]
+=== Known Issues
+
+Known issues for MMA are:
+
+* Policies that have policy YAML files with the `.yml` extension are not detected.
+* Policy YAML files are not autocompleted with mandatory fields.
+* The migration report fails when migrating an `HttpConnectorRequestConfig` element.
+* `mule:processor` element is not migrated.
+* `byte-array-to-string-transformer` element is not migrated.
+* `expression-component` element is not migrated.
+* `expression-transformer` element is not migrated.
+* `mulexml:object-to-xml-transformer` element is not migrated.
+* The migrated element `ee:transform` does not add a schema location URI.
+* DataWeave expressions that start with an underscore are not quoted, which causes the policy to fail.
 
 == See Also
 
