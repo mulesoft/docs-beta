@@ -61,6 +61,7 @@
 *** xref:migration-api-gateways.adoc[Migrating API Gateways]
 **** xref:migration-api-gateways-autodiscovery.adoc[Migrate API Gateways: Autodiscovery]
 **** xref:migration-api-gateways-policies.adoc[Migrate API Policies]
+**** xref:migration-api-gateways-proxies.adoc[Migrate API Proxies]
 **** xref:migration-api-gateways-runtime-config.adoc[Migrate Mule Runtime Configurations for API Gateways]
 *** xref:migration-mel.adoc[Migrating from MEL to DataWeave]
 *** xref:migration-dataweave.adoc[Migrating from DataWeave 1.0 to 2.x]
