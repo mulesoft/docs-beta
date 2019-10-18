@@ -56,10 +56,10 @@ in the proxy XML file.
 `-muleVersion` value set in the MMA command.
 * The `src` directory, which contains the migrated content.
 
-The `src` directory contains directories `main` and `test`. Inside `main`, the `mule` directory
-contains the proxy XML file. At the same level as the `mule` directory, MMA might create a
-`resources` directory that contains DataWeave files or other files that the migrated proxy needs.
-Note that configuration file defined in the proxy XML must be present in the `resources` directory
+The `src` directory contains subdirectories `main` and `test`. Inside `main`, the `mule` directory
+is the proxy XML file. At the same level as the `mule` directory, MMA will create a
+`resources` directory for any DataWeave files or other files that the migrated proxy needs.
+Note that the configuration file defined in the proxy XML must be present in the `resources` directory
 for the artifact to be deployed correctly. The `test` directory contains test configuration files.
 
 After a successful migration, you need to modify the POM file as explained in
@@ -99,7 +99,7 @@ after the migration:
 `+https://maven.eu1.anypoint.mulesoft.com/api/v1/organizations/{orgId}/maven+`
 
 If the MMA does not find a POM file for the proxy, MMA will create a new POM
-file. In this file, the `artifactId` for the proxy will be the name of the
+file. In this file, the `artifactId` for the proxy is the name of the
 base directory for the proxy app. For example, for a proxy in
 `mytestproxy/src/main/app/proxy.xml`, the `artifactId` is `mytestproxy`.
 
@@ -107,7 +107,7 @@ base directory for the proxy app. For example, for a proxy in
 === Dependency and Plugin Versions
 
 Dependency and plugin versions are set by default by the MMA, and you can change
-manually, as needed.
+them manually, as needed.
 
 [[not_migrated_elements]]
 === Un-Migrated Elements
@@ -118,8 +118,8 @@ Several elements are not migrated from Mule 3 to Mule 4:
 |===
 |Element                    | Reason
 
-| `api-platform-gw:tags`        | API auto create is disabled in Mule 4.
-| `api-platform-gw:description` | API auto create is disabled in Mule 4.
+| `api-platform-gw:tags`        | API auto-create is disabled in Mule 4.
+| `api-platform-gw:description` | API auto-create is disabled in Mule 4.
 
 |===
 
@@ -162,17 +162,17 @@ check for any preceding error messages regarding MMA steps on modifying the
 POM model.
 
 [[raml_proxy_migration]]
-=== RAML proxy migration
+=== RAML Proxy Migration
 
 Currently, RAML proxy migration is not supported.
 
 [[rest_proxy_migration]]
-=== REST proxy migration
+=== REST Proxy Migration
 
 Currently, REST proxy migration is not supported.
 
 [[wsdl_proxy_migration]]
-=== WSDL proxy migration
+=== WSDL Proxy Migration
 
 Currently, WSDL proxy migration is not supported.
 
