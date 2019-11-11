@@ -111,7 +111,11 @@ SOAP Router
 //TODO: CLARIFY AS NEEDED
 * GZip transformers: GZip Compress and GZip Uncompress
 
-* Mule apps and domains only (no policies are supported)
+* Mule apps and domains only
+
+* xref:migration-api-gateways-proxies.adoc[HTTP Proxy apps]
+
+* xref:migration-api-gateways-policies.adoc[Custom Policies]
 
 * Mule Expression Language (MEL) to DataWeave 2.0 expressions (simple cases only)
 
