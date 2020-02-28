@@ -217,7 +217,7 @@ Several elements are not migrated from Mule 3 to Mule 4:
 |Element                    | Reason
 
 | `policy:before-exception` | Unable to recreate the behavior in Mule 4.
-| `policy:pointcut`         | The behavior is resolved by the Mule runtime engine automatically.
+| `policy:pointcut`         | Resource and Api pointcuts are resolved by the Mule runtime engine automatically. App and Endpoint pointcuts do not have an equivalent in Mule 4.
 | `policy:data`             | The behavior is resolved by the Mule runtime engine automatically.
 
 |===
