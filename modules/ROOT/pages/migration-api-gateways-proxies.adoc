@@ -164,12 +164,34 @@ POM model.
 [[raml_proxy_migration]]
 === RAML Proxy Migration
 
-Currently, RAML proxy migration is not supported.
+RAML proxy elements are migrated to REST proxy elements:
 
-[[rest_proxy_migration]]
-=== REST Proxy Migration
+[cols="2,5",options="header"]
+|===
+|Mule 3                                  | Mule 4
 
-Currently, REST proxy migration is not supported.
+| `proxy:raml-proxy-config`.             | `rest-validator:config`.
+| `proxy:raml`.                          | `rest-validator:validate-request`.
+| `apikit:mapping-exception-strategy`.   | `error-handler` with `on-error-continue` elements in the flow containing the `rest-validator:validate-request` element.
+
+|===
+
+Element `error-handler` will contain the following types for
+`on-error-continue` elements:
+
+[cols="2,5",options="header"]
+|===
+|Type                                  | Status Code
+
+| REST-VALIDATOR:BAD_REQUEST             | 400
+| REST-VALIDATOR:RESOURCE_NOT_FOUND      | 404
+| REST-VALIDATOR:METHOD_NOT_ALLOWED      | 405
+| HTTP:TIMEOUT                           | 504
+
+|===
+
+Exceptions which are not found in the mule 3 element will be autocompleted
+by MMT.
 
 [[wsdl_proxy_migration]]
 === WSDL Proxy Migration
