@@ -462,6 +462,9 @@ resource operation.
 </flow>
 ----
 
+//TODO: If we host on github, do we want to link out to docs.mulesoft.com for more info?
+//See xref:setting-up-ldap-provider-for-spring-security.adoc[Configure LDAP Provider for Spring Security] for a complete configuration example. 
+
 [[http-mime-types]]
 == HTTP MIME Type Parsing
 The HTTP connector in Mule 3 featured options to parse requests and responses when
@@ -475,9 +478,9 @@ Below you can find details on how to migrate uses of the formerly parsed types.
 
 === application/x-www-form-urlencoded
 In Mule 3, a `Map` payload was used as a counterpart of `application/x-www-form-urlencoded`
-content. For outbound traffic that meant that if a `Map` payload was present then
-each key-value pair would be use to generate an `application/x-www-form-urlencoded`
-body. For inbound traffic it meant that each key-value pair of that body would be
+content. For outbound traffic, that meant that if a `Map` payload was present, then
+each key-value pair would be used to generate an `application/x-www-form-urlencoded`
+body. For inbound traffic, it meant that each key-value pair of that body would be
 put in a `Map`.
 
 Now, DataWeave can read and write `application/x-www-form-urlencoded` content,
@@ -570,7 +573,7 @@ acknowledging the order and a PDF receipt generated for it.
 ----
 
 .Mule 4 example
-All the complexity of handling the attachments is now gone and we just access the
+All the complexity of handling the attachments is now gone, and we just access the
 parts by name using the `content` keyword. The multipart response is generated
 in the HTTP response body using DataWeave, where you can easily customize headers.
 [source,xml,linenums]
