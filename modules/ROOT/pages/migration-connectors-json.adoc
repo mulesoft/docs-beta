@@ -104,6 +104,8 @@ In Mule 4:
 </flow>
 ----
 
+Note that in Mule 4 you can set the output format in the transformation. In this case, the expression defines the output as `application/json`, so the transformation function returns a JSON payload.
+
 [[xslt]]
 == Migrating XSLT Operations
 
