@@ -217,6 +217,7 @@ The MMA does not currently support the following components:
 * DataMapper: Use the DataWeave Migration tool. See
 xref:migration-tool-procedure#datamapper[Migrating from the DataMapper to DataWeave].
 * Custom types defined in Studio
+* `<expression-component>`
 
 See also:
 
