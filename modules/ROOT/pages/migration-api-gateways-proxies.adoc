@@ -176,7 +176,7 @@ RAML proxy elements are migrated to REST proxy elements:
 
 |===
 
-Element `error-handler` will contain the following types for
+The `error-handler` element contains the following types for
 `on-error-continue` elements:
 
 [cols="2,5",options="header"]
@@ -190,7 +190,7 @@ Element `error-handler` will contain the following types for
 
 |===
 
-Exceptions which are not found in the mule 3 element will be autocompleted
+Exceptions that are not found in the Mule 3 element are autocompleted
 by MMT.
 
 [[wsdl_proxy_migration]]
