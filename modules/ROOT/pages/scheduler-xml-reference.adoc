@@ -9,17 +9,39 @@ A XML for the Scheduler has these elements:
 * `scheduling-strategy` block inside `scheduler`.
 * `fixed-frequency` or `cron` element inside the `scheduling-strategy` block.
 
-== Properties of Fixed Frequency (`<fixed-frequency>`)
+== `<scheduler>` Properties
+[%header,cols="34,33,33"]
+|===
+|Attribute |Description |Example
+|`disallowedConcurrentExecution`
+|Skips the next scheduled flow execution if the last one has not ended. Next attempt to execute will be after another frequency period. Default value is `true`.
+|`disallowConcurrentExecution="true"`
+|===
+
+[source,xml,linenums]
+----
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns="http://www.mulesoft.org/schema/mule/core"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
+    <flow name="componentsFlow">
+      <scheduler doc:name="Scheduler" disallowConcurrentExecution="true">
+        <scheduling-strategy >
+          <fixed-frequency frequency="1000"/>
+        </scheduling-strategy>
+      </scheduler>
+    </flow>
+</mule>
+----
+
+== `<fixed-frequency>` Properties
 
 [%header,cols="34,33,33"]
 |===
 |Attribute |Description |Example
 |`frequency`
 |Triggering frequency, relative to time unit. When set to `0` or a negative value, it switches to the default (1 minute).
-|
-----
-frequency="1000"
-----
+|`frequency="1000"`
 
 | `timeUnit`
 | The time unit for the frequency and startDelay values:
@@ -51,7 +73,7 @@ MILLISECONDS, SECONDS, MINUTES, HOURS, DAYS
 </mule>
 ----
 
-== Properties of Cron (`<cron>`)
+== `<cron>` Properties
 
 For more complex scheduling strategies, you can use a cron expression.
 
@@ -61,18 +83,12 @@ For more complex scheduling strategies, you can use a cron expression.
 | `expression`
 | -
 | Use a cron expression for when to do a trigger.
-|
-----
-expression="1 1 1 1,7 * ?"
-----
+| `expression="1 1 1 1,7 * ?"`
 
 | `timeZone`
 | Time zone passed as system property, or in machine's operating system.
 | Timezone in https://docs.oracle.com/javase/7/docs/api/java/util/TimeZone.html[Java time zone] format
-|
-----
-timeZone="America/Argentina/Buenos_Aires"
-----
+| `timeZone="America/Argentina/Buenos_Aires"`
 |===
 
 Example that uses a cron expression:

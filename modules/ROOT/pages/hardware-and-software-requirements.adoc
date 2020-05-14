@@ -4,37 +4,43 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: mule, requirements, jdk, installation
 
-Recommended minimum hardware for running Mule Runtime:
+If you plan to install Mule and run it on premises, review these minimum hardware and software requirements before you install.
 
-* 2GHz CPU or 1 virtual CPU in virtualized environments
-* 1GB of RAM
-* 4GB of storage
+== Minimum Hardware Requirements
+
+* 2 GHz CPU or 1 virtual CPU in virtualized environments.
+* 1 GB of RAM.
+* 4 GB of storage.
 
 Adjust RAM to match your latency requirements and the size and number of simultaneous messages that applications process.
 
-Software requirements are:
+== Required Software
 
-* One of the following Java versions:
-+
-** Oracle JDK 1.8.0 (JDK 1.8.0_161 recommended)
-+
-[NOTE]
---
-If you are planning to run a Standalone instance of Mule Runtime Anypoint Studio freezes during start up if your installed JDK runtime is 1.8 Update 152 (1.8.0_152). It is recommended that you downgrade back to 1.8.0_151.
---
-** IBM JDK 1.8
-** OpenJDK 8 (JDK 1.8.0_162 recommended)
-+
-* For Microsoft Dynamics GP connector install Java Cryptography Extension (JCE) 8 after installing JRE or JDK.
+Verify that you use a supported version of Java before you install Mule.
 
-Mule Runtime runs as a standalone server on operating systems that support one of the required Java versions. An application server is not required; however, Mule Runtime can run under one. +
-Mule Runtime does not require a database unless you need to access a data store.
-
-[%header,cols="20a,75a"]
+[%header,cols="15a,85a"]
 |===
 |Software |Version
-|Operating systems |MacOS 10.11.4, HP-UX 11i V3, AIX 7.2, Windows 2012 R2 Server, Windows 8.1, Solaris 11.3, RHEL 7, Ubuntu Server 15.04 and 16.04, any other Linux distribution which runs a supported JDK and Linux kernel 3.13+
-|Application servers |Tomcat 7 and 8, WebLogic 12c, WebSphere 8, WildFly 8 and 9, Jetty 8 and 9
-|Databases |Oracle 11g, Oracle 12c, MySQL 5.5+, IBM DB2 10, PostgreSQL 9, Derby 10, Microsoft SQL Server 2014
-|Browsers for working on Anypoint Platform | Firefox or Chrome (latest), Internet Explorer 10 or later; minimum screen resolution of 1024x768
+| JDK | JDK 1.8.0 and JDK 11 (Recommended AdoptOpenJDK 1.8.0_212)
 |===
+
+== Supported Software
+
+Mule runs on any operating systems that runs a supported Java Runtime Environment (JRE). The Mule runtime engine passed functional testing against the following software and operating systems:
+
+|===
+|Software |Version
+| OS | MacOS 10.14, HP-UX 11i V3, AIX 7.2, Windows 2019 Server, Windows 10, Solaris 11.3, RHEL 7, Ubuntu Server 18.04
+| JDK | JDK 1.8.0, JDK 11
+|===
+
+[NOTE]
+Mule might work with other software and operating systems, but those have not been tested. MuleSoft recommends that you run Mule on tested software and operating systems versions.
+
+This version of Mule Runtime is bundled with the Runtime Manager agent plugin version 2.1.9.
+
+
+== See Also
+
+* xref:1.5@private-cloud::system-requirements.adoc[About Minimum System Requirements for Anypoint Private Cloud]
+//* http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html[Java Cryptography Extension (JCE) 8]

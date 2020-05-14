@@ -1,0 +1,134 @@
+= Examples: use of `+`
+
+
+== Use of bullet points
+
+FOR TERM LISTS:
+
+.asciidoc:
+----
+* some term: +
+Some definition goes here.
+* some term: +
+Some definition goes here.
+* some term: +
+Some definition goes here.
+----
+
+.html:
+
+* some term: +
+Some definition goes here.
+* some term: +
+Some definition goes here.
+* some term: +
+Some definition goes here.
+
+
+
+FOR MULTI-LINE BULLET POINTS AND MULTI-LINE STEPS:
+
+----
+* This is the first sentence of a bullet point. +
+This is the second sentence of a bullet point.
+* This is the first sentence of a bullet point.
++
+This is the second sentence of a bullet point.
+
+Some text in between to begin a procedure or whatever.
+
+. This is the first sentence of a bullet point. +
+This is the second sentence of a bullet point.
+. This is the first sentence of a bullet point.
++
+This is the second sentence of a bullet point.
+----
+
+* This is the first sentence of a bullet point. +
+This is the second sentence of a bullet point.
+* This is the first sentence of a bullet point.
++
+This is the second sentence of a bullet point.
+
+Some text in between to begin a procedure or whatever.
+
+. This is the first sentence of a bullet point. +
+This is the second sentence of a bullet point.
+. This is the first sentence of a bullet point.
++
+This is the second sentence of a bullet point.
+
+
+ALSO NOTICE WHAT HAPPENS if you have a leading sentence before a bulleted list
+and don't have an empty line before the bullet point.
+
+
+----
+Some sentence (causes formatting issue in HTML):
+* Bullet 1
+* Bullet 2
+----
+
+Some sentence (causes formatting issue in HTML):
+* Bullet 1
+* Bullet 2
+
+----
+Some sentence (correct formatting):
+
+* Bullet 1
+* Bullet 2
+----
+
+Some sentence (correct formatting):
+
+* Bullet 1
+* Bullet 2
+
+----
+Some sentence (causes formatting issue in HTML): +
+* Bullet 1
+* Bullet 2
+----
+
+Some sentence (causes formatting issue in HTML): +
+* Bullet 1
+* Bullet 2
+
+----
+Some sentence (causes formatting issue in HTML):
++
+* Bullet 1
+* Bullet 2
+----
+
+Some sentence (causes formatting issue in HTML):
++
+* Bullet 1
+* Bullet 2
+
+== Misuses of  `+`
+
+Don't do this in a normal paragraph (notice `+` on the third line so that 4th
+line doesn't wrap properly):
+
+.asciidoc:
+----
+Some sentence here that says something
+really important of course because we say
+really important things around here as we all know. +
+Some sentence here that is not a new paragraph and does
+not wrap at the end of the previous sentence.
+
+Start a normal paragraph here just for comparison purposes.
+----
+
+.html:
+
+Some sentence here that says something
+really important of course because we say
+really important things around here as we all know. +
+Some sentence here that is not a new paragraph and does
+not wrap at the end of the previous sentence.
+
+Start a normal paragraph here just for comparison purposes.

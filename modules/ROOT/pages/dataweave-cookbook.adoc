@@ -1,11 +1,13 @@
-= DataWeave Cookbook
+= DataWeave Examples
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
-:keywords: studio, anypoint, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
+:keywords: studio, anypoint, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping, examples
 
-This section links to examples that demonstrate common data extraction and transformation approaches.
 
+The examples demonstrate common data extraction and transformation approaches.
+//LINK TO DW 1.0 EXAMPLES:
+include::partial$dataweave1-links.adoc[tag=dataweave1Examples]
 
 [cols="2,5",options="header"]
 |===
@@ -14,16 +16,25 @@ This section links to examples that demonstrate common data extraction and trans
 |xref:dataweave-cookbook-extract-data.adoc[Extract Data]
 | Shows common selector expressions for extracting values from a data source, such as a Mule message.
 
+|xref:dataweave-cookbook-defaults.adoc[Set a Default Value]
+| Shows some common ways to set default values.
+
 | xref:dataweave-cookbook-perform-basic-transformation.adoc[Transform XML to JSON] | Uses selectors to perform a basic format transformation. It does not use any functions.
 
 | xref:dataweave-cookbook-map.adoc[Mapping Data]
 | Uses `map` to reorganize fields in a JSON array. It uses `as` to coerce a String into a Number.
+
+| xref:dataweave-cookbook-map-and-flatten.adoc[Map and Flatten an Array]
+| Uses `flatMap` to map objects in an array and flatten the resulting array.
 
 | xref:dataweave-cookbook-map-an-object.adoc[Map Objects]
 | Uses `mapObject` to go through the keys and values in each object, and set all the keys to upper case.
 
 | xref:dataweave-cookbook-map-object-elements-as-an-array.adoc[Map Object Elements as an Array]
 | Uses the multi-value selector to pick out the keys in an object that are named "book", these are returned as an array. It then uses `map` to iterate through the array this creates.
+
+| xref:dataweave-cookbook-xlsx-lookup.adoc[Look Up Data in an Excel (XLSX) File]
+| Uses `filter` to return rows that contain a specified value.
 
 | xref:dataweave-cookbook-rename-keys.adoc[Rename Keys]
 | Renames some keys in a JSON object while retaining the names of all other keys in the output. Uses `mapObject`, `if`, `as`, and `and`.
@@ -56,9 +67,15 @@ This section links to examples that demonstrate common data extraction and trans
 
 
 | xref:dataweave-cookbook-define-a-custom-addition-function.adoc[Define a Custom Addition Function]
-| Defines a function that obtains totals and subtotals through the `accumulator` function. Also performs additions, subtractions and multiplications of numeric values.
+| Defines a function that obtains totals and subtotals through the `accumulator` function. Also performs additions, subtractions, and multiplications of numeric values.
 
-| xref:dataweave-cookbook-define-function-to-flatten-list.adoc[Define a Function that Flattens Data in a List]
+| xref:dataweave-cookbook-flatten-arrays.adoc[Flatten Elements of Arrays]
+| Uses `flatten`, the object constructor braces (`{}`), and selectors to flatten subarrays and nested elements in arrays.
+Uses concatenation (`++`) to combine arrays before flattening them and uses
+the `..*` descendants selector on a key to select values from a flattened list.
+
+
+| xref:dataweave-cookbook-define-function-to-flatten-list.adoc[Define a Function That Flattens Data in a List]
 | Uses `reduce`, `map`, `if`, and `splitBy` to modify and conditionally output fields from a list.
 
 
@@ -80,7 +97,7 @@ This section links to examples that demonstrate common data extraction and trans
 | xref:dataweave-cookbook-reference-multiple-inputs.adoc[Reference Multiple Inputs]
 | References data on the payload, a message attribute and a variable. It then processes these through `map`, `filter` and multiplications.
 
-| xref:dataweave-cookbook-merge-multiple-payloads.adoc[Merge Multiple Payloads]
+| xref:dataweave-cookbook-merge-multiple-payloads.adoc[Merge Fields from Separate Objects]
 | Reference data that arrives in multiple separate payloads from one single Mule event. Filters the output based on a unique identifier. Uses `map`, `using`, `as`, and `filter` functions.
 
 
@@ -102,6 +119,8 @@ This section links to examples that demonstrate common data extraction and trans
 |  xref:dataweave-cookbook-pass-functions-as-arguments.adoc[Pass Functions as Arguments]
 | Defines a function that expects to receive two inputs: a function to apply and an element to apply it on. The function is also recursively applied to the element's children. It uses `mapObject` `lower` `is` `if/else`.
 
+|  xref:dataweave-cookbook-change-script-output-mime.adoc[Change Your Script Output Mime Type]
+| Shows how to customize the mime type of a given format output, including an example of a JSON output with `application/problem+json` mime type.
 
 |===
 
@@ -109,10 +128,6 @@ This section links to examples that demonstrate common data extraction and trans
 
 == See Also
 
-////
-* To step through basic DataWeave use cases and exercises in actual Mule applications, see the xref:dataweave-quickstart.adoc[DataWeave Tutorial].
-////
 * xref:dataweave.adoc[DataWeave Language]
 * xref:dataweave-language-introduction.adoc[DataWeave Scripts]
 * xref:dw-functions.adoc[DataWeave Reference]
-* xref:mule-concepts.adoc[Key Concepts]
