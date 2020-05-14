@@ -191,7 +191,7 @@ The `error-handler` element contains the following types for
 |===
 
 Exceptions that are not found in the Mule 3 element are autocompleted
-by MMT.
+by the Mule Migration Assistant.
 
 [[wsdl_proxy_migration]]
 === WSDL Proxy Migration
