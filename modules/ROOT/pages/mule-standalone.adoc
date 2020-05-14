@@ -1,21 +1,24 @@
-= Mule EE Standalone
+= Run Mule Runtime Engine On-Premises
 ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 :keywords: mule, studio, enterprise, ee, premium features, paid features, purchase, license, licensed
 
-//TODO: EXPLAIN WHAT IT IS.
+When you deploy applications on-premises, you have complete control over the Mule instance which enables you to take advantage of certain characteristics of the xref:mule-deployment-model.adoc[on-premises deployment model]
 
-The Mule standalone provides an enterprise-level runtime engine for the Anypoint Platform. Important features include:
+If you want to host Mule runtime engine in your own environment, first xref:hardware-and-software-requirements.adoc[verify that you meet all hardware and software requirements], and then xref:runtime-installation-task.adoc[download and install Mule].
 
-* Ability to connect data to apps in ESB patterns or build APIs.
-* Ability to access, query, and transform data through the DataWeave language.
-* High-availability, clustering, and performance management at scale.
-* Deployment as an integration worker, ESB or API gateway, on-premises or to the cloud.
-* A self-tuning, reactive engine that automatically manages thread pools.
-* An Error construct and Try scope for rapid debugging.
-* Classloader isolation that protects Mule apps from changes to the runtime or connectors.
+You don't need to install Mule in the following scenarios:
 
-== See Also
+* When you use Anypoint Studio (which contains Mule) for development and testing
+* When you deploy applications to CloudHub or Anypoint Runtime Fabric.
 
-* https://www.mulesoft.com/platform/mule[Mule Runtime Engine]
+After your installation of Mule is complete, xref:installing-an-enterprise-license.adoc[install an enterprise license] to enable all capabilities of Mule runtime engine.
+
+Learn how to xref:starting-and-stopping-mule-esb.adoc[start and stop Mule runtime engine] to deploy Mule applications.
+
+Follow the steps in xref:hardening-your-mule-installation.adoc[Hardening your Mule Installation] when you are ready to promote your Mule applications to production.
+
+If you want to manage your on-premises Mule instance using Runtime Manager, xref:runtime-manager::servers-create.adoc[register it using the Runtime Manager agent].
+
+Learn how to xref:choosing-the-right-clustering-topology.adoc[choose cluster runtime instances] to enhance availability, fault tolerance, and performance characteristics.
