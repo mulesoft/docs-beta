@@ -8,7 +8,7 @@ endif::[]
 [[upper1]]
 == upper&#40;String&#41;: String
 
-Returns the provided string in upper-case characters.
+Returns the provided string in uppercase characters.
 
 
 === Parameters
@@ -30,23 +30,19 @@ This example converts lowercase characters to uppercase.
 %dw 2.0
 output application/json
 ---
-{
-  "name" : upper("mulesoft")
-}
+{ "name" : upper("mulesoft") }
 ----
 
 ==== Output
 
 [source,JSON,linenums]
 ----
-{
-  "name": "MULESOFT"
-}
+{ "name": "MULESOFT" }
 ----
 
 
 [[upper2]]
 == upper&#40;Null&#41;: Null
 
-Helper function that allows *trim* to work with null values.
+Helper function that enables `upper` to work with a `null` value.
 

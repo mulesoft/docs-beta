@@ -4,12 +4,16 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: studio, anypoint, esb, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
 
-DataWeave is the primary data transformation language for Mule flows. You can write standalone DataWeave scripts in Transform Message components, or you can write inline DataWeave expressions to transform data _in-place_ and dynamically set the value of various properties, such as configuration fields in an event processor or global configuration element. Inline DataWeave expressions are enclosed in `&#35;[ ]` code blocks. For example, you can use a DataWeave expression to set conditions in a Choice router or to set the value of a Set Payload or Set Variable component.
+DataWeave is the primary data transformation language for use in Mule flows.
+//LINK TO DW 1.0 LANDING PAGE IN MULE 3.9 DOCS:
+include::partial$dataweave1-links.adoc[tag=dataweave1LandingPage]
+
+You can write standalone DataWeave scripts in Transform Message components, or you can write inline DataWeave expressions to transform data _in-place_ and dynamically set the value of various properties, such as configuration fields in an event processor or global configuration element. Inline DataWeave expressions are enclosed in `&#35;[ ]` code blocks. For example, you can use a DataWeave expression to set conditions in a Choice router or to set the value of a Set Payload or Set Variable component.
 
 The DataWeave code in this example sets a timestamp variable to the current time using the DataWeave `now()` function:
 
 .Example: Simple Inline DataWeave Script
-[source,dataweave,linenums]
+[source,xml,linenums]
 ----
 <set-variable value="#[now()]" variableName="timestamp" doc:name="Set timestamp" />
 ----
@@ -42,6 +46,7 @@ output application/xml
 }
 ----
 
+[[dw_header]]
 == DataWeave Header
 
 This example shows keywords (such as `import` and `var`) you can use for header directives.
@@ -73,7 +78,7 @@ Example: `%dw 2.0`
 +
 Example: `output application/xml`
 +
-Valid values: xref:dataweave-formats.adoc[Data Formats Supported by DataWeave].
+Valid values: xref:dataweave-formats.adoc[Data DataWeave Output Formats and Writer Properties].
 +
 Default: If no output is specified, the default output is determined by an algorithm that examines the inputs (payload, variables, and so on) used in the script:
 +
@@ -130,7 +135,7 @@ ns ns1 http://www.123.com
 ----
 %dw 2.0
 output application/json
-fun toUser = (user) -> {firstName: user.name, lastName: user.lastName}
+fun toUser(user) = {firstName: user.name, lastName: user.lastName}
 ---
 {
   user: toUser(payload)
@@ -144,7 +149,7 @@ You can include header directives when you write inline DataWeave scripts by fla
 For example, here is the Mule configuration XML to create the same valid XML output as the previous Transform Message component:
 
 .Example: Simple Inline DataWeave Script
-[source,dataweave,linenums]
+[source,xml,linenums]
 ----
 <set-payload value="#[output application/xml --- { myroot: payload } ]" doc:name="Set Payload" />
 ----
@@ -220,6 +225,7 @@ payload
 You can see that the script successfully produces `application/dw` output from the <<json_input, JSON input example>> above:
 
 .Example: application/dw Output
+[source,dataweave,linenums]
 ----
 {
   size: 1,
@@ -266,12 +272,190 @@ Comments that use a Java-like syntax are also accepted by DataWeave.
  */
 ----
 
+== Escape Special Characters
+
+In DataWeave, you use the backslash (`\`) to escape special characters that
+you are using in an input string.
+
+See xref:dataweave-types.adoc#escape-chars-string[Escaping Special Characters] for more details.
+
+The _input_ strings in the DataWeave scripts escape special characters, while
+the _output_ escapes in accordance with the requirements of the output format,
+which can vary depending on whether it is `application/json`, `application/xml`,
+`application/csv`, or some other format.
+
+This example escapes the internal double quotation mark that is surrounded
+by double quotation marks.
+
+.DataWeave Example
+[source,txt,linenums]
+----
+%dw 2.0
+output application/json
+---
+{
+    "a": "something",
+    "b": "dollar sign (\$)",
+    "c": 'single quote (\')',
+    "c": "double quote (\")",
+    "e": `backtick (\`)`
+}
+----
+
+Notice that the JSON output also escapes the double quotation marks to make the
+output valid JSON but does not escape the other characters:
+
+.JSON Output
+[source,json,linenums]
+----
+{
+  "a": "something",
+  "b": "dollar sign ($)",
+  "c": "single quote (')",
+  "c": "double quote (\")",
+  "e": "backtick (`)"
+}
+----
+
+The following example escapes the same characters but outputs to XML.
+
+.DataWeave Example
+[source,txt,linenums]
+----
+%dw 2.0
+output application/xml
+---
+{
+  xmlExample:
+  {
+     "a": "something",
+     "b": "dollar sign (\$)",
+     "c": 'single quote (\')',
+     "d": "double quote (\")",
+     "e": `backtick (\`)`
+   }
+}
+----
+
+The XML output (unlike JSON output) is valid without escaping the double
+quotation marks:
+
+.XML Output
+[source,xml,linenums]
+----
+<?xml version='1.0' encoding='UTF-8'?>
+<xmlExample>
+  <a>something</a>
+  <b>dollar sign ($)</b>
+  <c>single quote (')</c>
+  <d>double quote (")</d>
+  <e>backtick (`)</e>
+</xmlExample>
+----
+
+[[valid-identifiers]]
+== Rules for Declaring Valid Identifiers
+
+To declare a valid identifier, its name must meet the following requirements:
+
+* It must begin with a letter of the alphabet (a-z), either lowercase or uppercase.
+* After the first letter, the name can contain any combination of letters, numbers, and underscores (`_`).
+* The name cannot match any DataWeave reserved keyword (see <<reserved-keywords>> for a complete list).
+
+Here are some examples of valid identifiers:
+
+* `myType`
+* `abc123`
+* `a1_3BC_22`
+* `Z_______4`
+* `F`
+
+The following table provides examples of invalid identifiers and a description of what makes them invalid:
+
+[%header%autowidth.spread,cols="a,a"]
+|===
+| Identifier | Issue
+| `123456` | Cannot start with a number.
+| `value$` | Cannot contain special characters.
+| `_number` | Cannot start with an underscore.
+| `type` | Cannot be a reserved keyword.
+|===
+
+[[reserved-keywords]]
+=== Reserved Keywords
+
+Valid identifiers cannot match any of the reserved DataWeave keywords:
+
+* `and` +
+Reserved as a xref:dw-operators.adoc#logical_operators[logical operator]
+* `as` +
+Reserved for xref:dataweave-types-coercion.adoc[type coercion]
+* `async` +
+Reserved
+* `case` +
+Reserved for `case` statements, for example, to perform xref:dataweave-pattern-matching.adoc[pattern matching]
+or for use with the xref:dw-operators.adoc#update-operator[`update` operator]
+* `default` +
+Reserved for assigning xref:dataweave-cookbook-defaults.adoc[default values] for parameters
+* `do` +
+Reserved for xref:dataweave-flow-control.adoc[`do`] statements
+* `else` +
+Reserved for use in if-else and else-if statements
++
+See xref:dataweave-flow-control.adoc[Flow Control in DataWeave].
+* `enum` +
+Reserved
+* `false` +
+Reserved as a Boolean value
+* `for` +
+Reserved
+* `fun` +
+Reserved for function definitions in <<dw_header>>
+* `if` +
+Reserved for if-else and else-if statements
++
+See xref:dataweave-flow-control.adoc[Flow Control in DataWeave].
+* `import` +
+Reserved for the `import` directive in <<dw_header>>
+* `input` +
+Reserved
+* `is` +
+Reserved
+* `ns` +
+Reserved for namespace definitions in <<dw_header>>
+* `null` +
+Reserved as the value `null`
++
+See xref:dataweave-types.adoc#dw_type_null[Null (dw::Core Type)].
+* `or` +
+Reserved as a xref:dw-operators.adoc#logical_operators[logical operator]
+* `output` +
+Reserved for the `output` directive in <<dw_header>>
+* `private` +
+Reserved
+* `throw` +
+Reserved
+* `true` +
+Reserved as a Boolean value
+* `type` +
+Reserved for type definitions in <<dw_header>>
+* `unless` +
+Reserved
+* `using` +
+Reserved for backward compability and replaced by `do`
++
+See xref:dw-operators.adoc#scope-and-flow-control-operators[Scope and Flow Control Operators].
+* `var` +
+Reserved for variable definitions in the <<dw_header>>
+* `yield` +
+Reserved
+
 [[dwl_file]]
 == dwl File
 
 In addition to specifying DataWeave scripts in the Transform and other components, you can also specify the scripts in a `.dwl` file. In Studio projects, your script files are stored in `src/main/resources`.
 
-In the Mule app XML, you can use the `${file::filename}` syntax to send a script in a `dwl` file through any XML tag that expects an expression. For example, see the `when expression="${file::logic.dwl}"` in the Choice router here:
+In the Mule app XML, you can use the `${file::filename}` syntax to send a script in a `dwl` file through any XML tag that expects an expression. For example, see the `when expression="${file::someFile.dwl}"` in the Choice router here:
 
 [source,xml,linenums]
 ----
@@ -281,7 +465,7 @@ In the Mule app XML, you can use the `${file::filename}` syntax to send a script
   </http:response>
 </http:listener>
 <choice doc:name="Choice"  >
-  <when expression="${file::logic.dwl}" >
+  <when expression="${file::someFile.dwl}" >
     <set-payload value="It's greater than 4!" doc:name="Set Payload"  />
   </when>
   <otherwise >
@@ -290,16 +474,15 @@ In the Mule app XML, you can use the `${file::filename}` syntax to send a script
 </choice>
 ----
 
-
 [[see_also]]
 == See Also
 
-xref:dataweave-selectors.adoc[DataWeave Selectors]
+* xref:dataweave-selectors.adoc[DataWeave Selectors]
 
-xref:dw-functions.adoc[DataWeave Functions]
+* xref:dw-functions.adoc[DataWeave Functions]
 
-xref:dataweave-cookbook.adoc[DataWeave Cookbook]
+* xref:dataweave-cookbook.adoc[DataWeave Cookbook]
 
-xref:dataweave-formats.adoc[Formats Supported by DataWeave]
+* xref:dataweave-formats.adoc[DataWeave Output Formats and Writer Properties]
 
-xref:dataweave-types.adoc#functions-and-lambdas[Functions and Lambdas]
+* xref:dataweave-types.adoc#functions-and-lambdas[Functions and Lambdas]

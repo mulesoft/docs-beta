@@ -4,7 +4,9 @@ include::_attributes.adoc[]
 endif::[]
 :keywords: studio, anypoint, esb, transform, transformer, format, aggregate, rename, split, filter convert, xml, json, csv, pojo, java object, metadata, dataweave, data weave, datamapper, dwl, dfl, dw, output structure, input structure, map, mapping
 
-In DataWeave, types can be coerced from one type to other using the `as` operator. Type coercion takes place runtime.
+In DataWeave, types can be coerced from one type to other using the `as` operator. Type coercion takes place at runtime.
+//LINK TO DW 1.0 LANDING PAGE IN MULE 3.9 DOCS:
+include::partial$dataweave1-links.adoc[tag=dataweave1LandingPage]
 
 Note that when you provide an operator with properties that do not match the expected types, DataWeave automatically attempts to coerce the provided property to the required type.
 
@@ -44,7 +46,7 @@ books: payload.items.*item map
   "books": [
     {
       "book": {
-        "price": "22.44"
+        "price": "22.30"
       }
     },
     {
@@ -55,9 +57,6 @@ books: payload.items.*item map
   ]
 }
 ----
-
-//TODO: PROB RELATES TO R
-// In Anypoint Studio, you can define several more values, like separators, quotation marks, and escape characters.
 
 == Type Coercion Table
 
@@ -113,7 +112,7 @@ This table shows the possible combinations and the properties from the schema th
 
 === Properties for Type Coercion
 
-[cols="1,1,2", options="header"]
+[cols="1,2", options="header"]
 |===
 |Property | Description
 | `class`
@@ -129,8 +128,39 @@ This table shows the possible combinations and the properties from the schema th
 | Value can be `milliseconds` or `seconds`. These are used for Number to DateTime conversions.
 |===
 
-// (1) Returns an array with all the values of the object.
+
+== Using a Java Bridge
+
+DataWeave enables you to call any Java static function or constructor by using the Java bridge. This feature is useful when you need to reuse business logic written in Java or to instantiate any Java object that does not have an empty public constructor.
+
+To use a Java bridge, transform a fully qualified Java name to a DataWeave name:
+
+. Add the prefix `!java`.
+. Replace the dots in the fully qualified name with `::`.
+
+When invoking the Java function, DataWeave transforms each argument to the expected type in the function parameter.
+
+The following example shows how to create a new instance of a `java.lang.NullPointerException`:
+
+[source,weave,linenums]
+----
+%dw 2.0
+output application/json
+---
+java!java::lang::NullPointerException::new("foo")
+----
+
+The following example invokes the function `java.lang.String.valueOf`:
+
+[source,dataweave,linenums]
+----
+%dw 2.0
+output text/plain
+import valueOf from java!java::lang::String
+---
+valueOf(true)
+----
 
 == See Also
 
-xref:dataweave-formats.adoc[Formats Supported by DataWeave]
+xref:dataweave-formats.adoc[DataWeave Output Formats and Writer Properties]
