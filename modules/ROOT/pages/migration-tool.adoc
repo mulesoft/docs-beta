@@ -4,7 +4,7 @@ include::_attributes[]
 endif::[]
 
 //TODO: FOR GA, REMOVE *Beta* FROM GA VERSION
-*Beta Release: Mule Migration Assistant (MMA) and Compatibility Module*
+//*Beta Release: Mule Migration Assistant (MMA) and Compatibility Module*
 
 This section provides guidance on migrating a Mule 3 app to Mule 4 with the
 Mule Migration Assistant (MMA).
