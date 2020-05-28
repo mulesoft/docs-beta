@@ -16,7 +16,7 @@ MuleSoft recommends that you develop all *new* projects on Mule 4, provided that
 * You have the <<prepare_dev_environ, proper deployment environment>>.
 * You do not require all applications to be on a single version of Mule (see below).
 
-For projects that are deployed on Mule 3, MuleSoft recommends that you use the Mule Migration Assistant (MMA) to save the time and effort of re-creating the application from scratch in Mule 4.
+For projects that are deployed on Mule 3, you can use the Mule Migration Assistant (MMA) to save the time and effort of re-creating the application from scratch in Mule 4.
 
 Migrate your applications if any one of the following conditions is met:
 
