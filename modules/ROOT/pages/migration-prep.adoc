@@ -16,7 +16,7 @@ MuleSoft recommends that you develop all *new* projects on Mule 4, provided that
 * You have the <<prepare_dev_environ, proper deployment environment>>.
 * You do not require all applications to be on a single version of Mule (see below).
 
-For projects that are already in development or deployed on Mule 3 (whether a prospect or customer), MuleSoft recommends that you wait to migrate these applications until the Mule Migration Assistant (MMA) is available.
+For projects that are already in development or deployed on Mule 3 (whether a prospect or customer), MuleSoft recommends that you wait to migrate these applications until the Mule Migration Assistant (MMA) is available. Using the MMA tool, you would speed up the heavy lifting work of re-creating the application from scratch in Mule 4.
 
 Migrate your applications if any one of the following conditions is met:
 
@@ -28,7 +28,7 @@ Migrate your applications if any one of the following conditions is met:
 [[prepare_dev_environ]]
 == Setting up Your Local Development Environment
 
-First, you will need to download Studio 7 and install it. If you're deploying locally, you will also need to download the Mule 4 standalone runtime.
+First, you will need to download Studio 7 and install it. If you're deploying locally, you will also need to download the Mule 4 standalone runtime, if the one that comes with Studio does not match the one you want to use for runtime purposes.
 // TODO link to pages
 
 [[prepare_to_deploy]]
