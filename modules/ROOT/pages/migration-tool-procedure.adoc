@@ -51,11 +51,11 @@ To run the Mule Migration Assistant:
 
 . Make sure that the required software is installed
 (see <<min_reqs, Requirements>>).
-. Unzip the MMA `mule-migration-assistant-runner-0.5.2.zip` file.
+. Unzip the MMA `mule-migration-assistant-runner-1.0.0.zip` file.
 +
 See the download URL in xref:migration-tutorial.adoc#prereqs[Prerequisites].
 +
-The Zip file contains `mule-migration-assistant-runner-0.5.2.jar` and a `libs`
+The Zip file contains `mule-migration-assistant-runner-1.0.0.jar` and a `libs`
 subdirectory with a number of MMA-related JAR files that provide MMA resources.
 +
 . In your console, provide a command that specifies all the required <<options>>,
@@ -64,9 +64,9 @@ for example:
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.2.jar \
+$ java -jar mule-migration-assistant-runner-1.0.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
- -muleVersion 4.2.1 \
+ -muleVersion 4.3.0 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
 ----
 +
@@ -141,9 +141,9 @@ For domains and applications included in that domain, a migrator execution is ne
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.1.jar \
+$ java -jar mule-migration-assistant-runner-1.0.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
- -muleVersion 4.1.5 \
+ -muleVersion 4.3.0 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-domain-project
 ----
 +
@@ -152,10 +152,10 @@ $ java -jar mule-migration-assistant-runner-0.5.1.jar \
 .Command-line Invocation
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.1.jar \
+$ java -jar mule-migration-assistant-runner-1.0.0.jar \
  -projectBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-project \
  -parentDomainBasePath /Users/me/AnypointStudio/workspace-studio/my-v6-domain-project \
- -muleVersion 4.1.5 \
+ -muleVersion 4.3.0 \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-project
 ----
 
@@ -173,7 +173,7 @@ example, `/path/to/my/destination-folder`. The MMA will create the
 `destination-folder`. It will produce an error if `destination-folder` already
 exists.
 | `-help` | For displaying the help.
-| `-muleVersion <arg>` | Required. The Mule version to which you are migrating: `4.1.3`.
+| `-muleVersion <arg>` | Required. The Mule version to which you are migrating: `4.3.0`.
 | `-projectBasePath <arg>` a| Required. Directory of the project to migrate.
 
 To discover the path to your Mule 3 project from Studio, you can go to
@@ -193,8 +193,8 @@ the project.
 === Testing the Migrated App
 
 Automatic migration of MUnit tests is supported the Mule Migration Assistant
-(MMA), so the first step should be to run those migrated tests. Once those tests
-are all passing, you can perform any additional testing that you were already
+(MMA), so the first step is to run those migrated tests. Once all those tests
+pass, you can perform any additional testing that you were 
 performing on the original version of the app.
 
 In either case, expect some of these tests to fail. Manual intervention might
