@@ -28,7 +28,7 @@ Migrate your applications if any one of the following conditions is met:
 [[prepare_dev_environ]]
 == Setting up Your Local Development Environment
 
-First, you will need to download Studio 7 and install it. If you're deploying locally, you will also need to download the Mule 4 standalone runtime, if the one that comes with Studio does not match the one you want to use for runtime purposes.
+First, you need to download Studio 7 and install it. If you're deploying locally, you also need to download the Mule 4 standalone runtime, if the runtime that comes with Studio does not match the one you want to use for runtime purposes.
 // TODO link to pages
 
 [[prepare_to_deploy]]
