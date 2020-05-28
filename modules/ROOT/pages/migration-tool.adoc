@@ -3,19 +3,16 @@ ifndef::env-site,env-github[]
 include::_attributes[]
 endif::[]
 
-//TODO: FOR GA, REMOVE *Beta* FROM GA VERSION
-//*Beta Release: Mule Migration Assistant (MMA) and Compatibility Module*
-
 This section provides guidance on migrating a Mule 3 app to Mule 4 with the
 Mule Migration Assistant (MMA).
 
 The migration process is a multi-part procedure, where you:
 
 . Perform any pre-migration steps, such as migrating from the DataMapper to DataWeave.
-. Run the migrator on a Mule 3 project.
-. Import the migrator output into a supported version of Studio 7.
+. Run MMA on a Mule 3 project.
+. Import the MMA output into a supported version of Studio 7.
 . Review the Migration report.
-. Perform a manual migration on what the MMA does not migrate.
+. Perform a manual migration on what MMA does not migrate.
 . Remove uses of Compatibility module components.
 . Run any migrated MUnit tests.
 
@@ -38,7 +35,7 @@ code.
 * Providing guidance on how to manually migrate components and patterns that
 cannot be migrated automatically.
 
-The migrator helps with such heavy lifting, but it is not to be expected to
+MMA helps with such heavy lifting, but it is not to be expected to
 deliver a fully functional app. Some additional steps are required.
 Those steps include testing and can also include:
 
@@ -54,7 +51,7 @@ It is important to note that the MMA does not support incremental migrations.
 == Compatibility Module
 
 Some components or patterns cannot be migrated automatically by transforming
-the app's XML. For such cases, the migrator adds the Compatibility
+the app's XML. For such cases, MMA adds the Compatibility
 module to your project. The Compatibility module is a set of components that
 either adapts Mule 3 components into the Mule 4 architecture, or in some cases,
 enables some Mule 3 components to work in Mule 4.
@@ -64,7 +61,7 @@ Compatibility module can be dropped from your app and that you simply use the
 module as a bridge until the manual steps of the migration are complete.
 
 The Compatibility module does not cover every migration gap. Instead, it
-complements the MMA:
+complements MMA:
 
  * By providing MEL support for the cases where a MEL expression could not be
  migrated to DataWeave automatically.
@@ -227,7 +224,7 @@ See also:
 [[unsupported_connectors]]
 == Unsupported Connectors
 
-Connectors that are used in an app but not currently supported by the MMA
+Connectors that are used in an app but not currently supported by MMA
 generate this ERROR in the Migration report:
 
 `The migration of some-connector is not supported`
