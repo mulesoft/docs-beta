@@ -75,7 +75,7 @@ Note that for `-destinationProjectBasePath` option, the folder (for example,
 will create it. If you point to a folder that exists already, the migration will
 fail an error like this: `Exception: Destination folder already exists.`
 +
-When the migrator runs successfully, you will see a message something like this:
+When MMA runs successfully, you will see a message something like this:
 +
 .Successful Migration
 [source,console,linenums]
@@ -134,9 +134,9 @@ See <<munit, Testing the Migrated App>>.
 [[domains]]
 == Domains
 
-For domains and applications included in that domain, a migrator execution is needed for each artifact (the domain and each app).
+For domains and applications included in that domain, an MMA execution is needed for each artifact (the domain and each app).
 
-. For the migration of the domain, run the migrator as you would for an app:
+. For the migration of the domain, run MMA as you would for an app:
 +
 .Command-line Invocation
 [source,console,linenums]
@@ -147,7 +147,7 @@ $ java -jar mule-migration-assistant-runner-1.0.0.jar \
  -destinationProjectBasePath /Users/me/my-dir/my-migrated-domain-project
 ----
 +
-. For each application that belongs to that domain run the migrator with the additional parameter `parentDomainBasePath` pointing to the unmigrated parent domain:
+. For each application that belongs to that domain run MMA with the additional parameter `parentDomainBasePath` pointing to the unmigrated parent domain:
 +
 .Command-line Invocation
 [source,console,linenums]
@@ -255,7 +255,7 @@ migrating them, you then need to:
 == Migrating from Unsupported Runtime Versions
 
 If you want to migrate apps that are currently running on unsupported
-runtime versions such as 3.7.x, 3.6.x or before, you can still use the migrator.
+runtime versions such as 3.7.x, 3.6.x or before, you can still use MMA.
 However, a greater ratio of migration errors, unsupported patterns, or
 incorrect code generation is to be expected.
 
