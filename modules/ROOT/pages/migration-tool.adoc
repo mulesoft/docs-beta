@@ -11,7 +11,7 @@ The migration process is a multi-part procedure, where you:
 . Perform any pre-migration steps, such as migrating from the DataMapper to DataWeave.
 . Run MMA on a Mule 3 project.
 . Import the Mule 4 application that MMA produced into a supported version of Studio 7.
-. Review the MMA Migration report.
+. Review the Migration report that MMA produced.
 . Perform a manual migration on what MMA cannot migrate.
 . Remove uses of Compatibility module components.
 . Run any migrated MUnit tests.
