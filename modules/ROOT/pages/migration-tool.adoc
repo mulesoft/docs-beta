@@ -10,9 +10,9 @@ The migration process is a multi-part procedure, where you:
 
 . Perform any pre-migration steps, such as migrating from the DataMapper to DataWeave.
 . Run MMA on a Mule 3 project.
-. Import the MMA output into a supported version of Studio 7.
-. Review the Migration report.
-. Perform a manual migration on what MMA does not migrate.
+. Import the Mule 4 application that MMA produced into a supported version of Studio 7.
+. Review the Migration report that MMA produced.
+. Perform a manual migration on what MMA cannot migrate.
 . Remove uses of Compatibility module components.
 . Run any migrated MUnit tests.
 
@@ -40,8 +40,8 @@ deliver a fully functional app. Some additional steps are required.
 Those steps include testing and can also include:
 
 * Manual migration of unsupported components.
-* Manual migration of complex MEL expressions to DataWeave.
-* Manual migration of complex DataWeave transformations.
+* Manual migration of complex MEL expressions to DataWeave that cannot be automatically converted by MMA.
+* Manual migration of complex DataWeave transformations that cannot be automatically converted by MMA.
 * Prior migration of the DataMapper with the _DataWeave_ Migration tool,
 _before_ running the MMA.
 
@@ -58,7 +58,7 @@ enables some Mule 3 components to work in Mule 4.
 
 *Important:* MuleSoft recommends that you migrate to a point where the
 Compatibility module can be dropped from your app and that you simply use the
-module as a bridge until the manual steps of the migration are complete.
+module as a bridge until the manual steps of the migration are complete and your app is 100% compliant with Mule 4.
 
 The Compatibility module does not cover every migration gap. Instead, it
 complements MMA:
