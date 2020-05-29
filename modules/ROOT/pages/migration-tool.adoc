@@ -58,7 +58,7 @@ enables some Mule 3 components to work in Mule 4.
 
 *Important:* MuleSoft recommends that you migrate to a point where the
 Compatibility module can be dropped from your app and that you simply use the
-module as a bridge until the manual steps of the migration are complete and it is 100% compliant with Mule 4.
+module as a bridge until the manual steps of the migration are complete and your app is 100% compliant with Mule 4.
 
 The Compatibility module does not cover every migration gap. Instead, it
 complements MMA:
