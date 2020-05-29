@@ -12,7 +12,7 @@ The migration process is a multi-part procedure, where you:
 . Run MMA on a Mule 3 project.
 . Import the Mule 4 application that MMA produced into a supported version of Studio 7.
 . Review the Migration report that MMA produced.
-. Perform a manual migration on what MMA cannot migrate.
+. Perform a manual migration on what MMA could not migrate.
 . Remove uses of Compatibility module components.
 . Run any migrated MUnit tests.
 
@@ -72,9 +72,7 @@ You or your team will need to handle other migration gaps that are covered in th
 [[supported_migrations]]
 == Supported Components
 
-//TODO: FOR GA, REMOVE NOTE AND REVISE CONTENT, AS NEEDED
-*Note on the Beta release*: This list applies to the Beta and will expand over
-time.
+*Note* : This list can be enhanced during time adding the support of new components
 
 The Mule Migration Assistant (MMA) supports the following migrations:
 
@@ -197,10 +195,6 @@ additional items from Mule 3.x until you can migrate them:
 [[unsupported_migrations]]
 == Unsupported Components
 
-//TODO: FOR GA, REMOVE NOTE AND REVISE CONTENT, AS NEEDED
-*Note on the Beta release*: This list applies to the Beta and will change over
-time.
-
 The MMA does not currently support the following components:
 
 * Custom Java code, either used directly or through any of the following:
@@ -215,6 +209,7 @@ The MMA does not currently support the following components:
 xref:migration-tool-procedure#datamapper[Migrating from the DataMapper to DataWeave].
 * Custom types defined in Studio
 * `<expression-component>`
+* Any other connectors or module not mentioned before.
 
 See also:
 
