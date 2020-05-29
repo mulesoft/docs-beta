@@ -19,22 +19,27 @@ Studio 6 is compatible with Mule 3.x runtime versions. Studio 7 is compatible
 with Mule 4.x runtimes.
 
 ////
-If you do not have them already, you can download the MMA and Anypoint Studio
+If you do not have them already, you can download MMA and Anypoint Studio
 applications from these links:
 
 * https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/0.5.1/mule-migration-assistant-runner-0.5.1.zip[Mule Migration Assistant (Zip file)]
 
-You will unzip this file to a folder. All runs of the MMA in this docs must be run from inside this folder.
+You will unzip this file to a folder. All runs of MMA in this docs must be run from inside this folder.
 ////
 
-* MMA: Currently unavailable.  
+//TODO: ADD URI TO MMA WHEN AVAILABLE.
+* MMA: Currently unavailable.
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
+* Maven installation: http://maven.apache.org/install.html
+
+This tutorial uses Studio version 6.6.4 for the Mule 3 app and Studio 7.5.0 for
+the migrated Mule 4 app.
 
 [[step_1]]
 == Download and Import a Mule 3 App
 
-You start by downloading a Mule 3 app from Anypoint Exchange, then importing it
+Start by downloading a Mule 3 app from Anypoint Exchange, then importing it
 into Studio 6. In subsequent sections, you will migrate this app to Mule 4.
 
 image::mmt-exchange.png[Exchange: Querying a MySQL Database]
@@ -45,8 +50,8 @@ asset from Exchange.
 Note that the 1.4.0 asset is a Mule 3 app that runs on Mule Runtime 3.x. Its
 filename is `querying-a-mysql-database-1.4.0-mule-application-example.zip`.
 . In Studio 6, import the downloaded zip file by going to *File* -> *Import* ->
-*Anypoint Studio/Anypoint Studio deployable archive (zip)*, selecting the zip, and
-then clicking *Finish*.
+*Anypoint Studio generated Deployable Archive (zip)*, navigating
+to the zip file, and then clicking *Finish*.
 +
 This process loads the app into a project in Studio 6. By default, the name of
 the project matches the zip filename (minus the file extension).
@@ -56,25 +61,27 @@ the project matches the zip filename (minus the file extension).
 [[step_2]]
 == Create a Mule 4 App from the Mule 3 App
 
-Now you run the MMA on the Mule 3 app and import
-the migrated app into Studio 7. In subsequent sections, you will perform the
-manual steps needed to complete the migration to Mule 4.
+Run MMA on the Mule 3 app, and import the migrated app into Studio 7. In
+subsequent sections, you will perform the manual steps needed to complete
+the migration to Mule 4.
 
-. Unzip the MMA `mule-migration-assistant-runner-0.5.1.zip` file you downloaded
+. Unzip MMA `mule-migration-assistant-runner-1.0.0.zip` file you downloaded
 in <<prereqs>>.
 +
-The Zip file contains `mule-migration-assistant-runner-0.5.1.jar` and a `libs`
+The Zip file contains `mule-migration-assistant-runner-1.0.0.jar` and a `/libs`
 subdirectory with a number of MMA-related JAR files that provide MMA resources.
 +
-. In a command console:
-+
-Run the MMA, making sure to _revise the sample directory paths_ set by the
+. In a command console, run MMA from the directory unzipped directory, and set
 `-projectBasePath` and `-destinationProjectBasePath` options.
 +
+.Example:
 [source,console,linenums]
 ----
-$ java -jar mule-migration-assistant-runner-0.5.1.jar -muleVersion 4.1.5 -projectBasePath /Users/home/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
+$ java -jar mule-migration-assistant-runner-1.0.0.jar -muleVersion 4.5.0 -projectBasePath /Users/me/AnypointStudio/workspace-studio6/querying-a-mysql-database-1.4.0-mule-application-example -destinationProjectBasePath /Users/me/Downloads/querying-a-mysql-database-mule4
 ----
++
+Note that you must _revise the directory paths_ in the command line example above
+to specify your local directories.
 +
 To discover the `-projectBasePath` to the Studio 6 project, you can navigate
 to *File* -> *Switch Workspace* -> *Other* in Studio. To that path, you also
@@ -82,19 +89,20 @@ need to append the name of the project, as shown in the example above. The
 `-destinationProjectBasePath` can be any local path. For details, see
 xref:migration-tool-procedure.adoc#options[Command-line Options].
 +
-//WORKAROUND FOR 0.5.1:
+//WORKAROUND FOR 0.5.1: TODO (IS THIS STILL AN ISSUE?)
+.Windows only:
 Note that if you are on a Windows machine and receive the message
 `Exception: Cannot read mule project.`, try using forward slashes (`/`)
 for paths set in the `projectBasePath` and `destinationProjectBasePath`
 options. You should also try running the command through a standard Windows
 console.
 +
-When the MMA runs successfully, the console output looks something like this:
+When MMA runs successfully, the console output looks something like this:
 +
 [souce,console,linenums]
 ----
 $ ...
-Executing migrator 0.5.1...
+Executing migrator 1.0.0...
 ===============================================================================
 MIGRATION ASSISTANT RUN SUCCESSFULLY
 ===============================================================================
@@ -112,7 +120,7 @@ Migration report: /Users/me/Downloads/querying-a-mysql-database-mule4/report/sum
 Import the generated Mule 4 app as a Studio project by going to
 *File* -> *Import* ->
 *Anypoint Studio/Anypoint Studio project from File System*, loading the
-*Project Root* directory that contains the Mule 4 app, and then clicking *Finish*.
+*Project Root* directory that contains the Mule 4 app, and then clicking *Open*.
 +
 You can now find the imported app in Studio 7. Its flow looks like this:
 +
@@ -123,21 +131,22 @@ image::mmt-migrated-app.png[Imported App]
 [[step_3]]
 == Perform Manual Migration Procedures
 
-Now you review the xref:migration-report.adoc[Mule Migration report], fix the
-issues it finds, and remove any unnecessary complexity that the MMA adds to
-the app. For the sample app, the report looks like this:
+Now you open and review the MMA-generated xref:migration-report.adoc[Mule Migration report],
+fix the issues it finds, and remove any unnecessary complexity that MMA adds to
+the app.
+
+A migration report identifies items that remain to complete the migration to
+Mule 4. For the sample app, the migration report looks like this:
 
 image::mmt-report.png[Mule Migration Assistant Report]
 
-
-Note that the report identifies items that remain to complete the migration to
-Mule 4. The warnings (WARN messages) in this report are associated with
+The warnings (WARN messages) in this report are associated with
 components in the
 xref:migration-tool.adoc#compatibility_module[Compatibility module] that you
 need to migrate manually before using the app in a production environment.
-Reports can also contain errors (ERROR messages) that must be migrated manually
-before the app will work. Additionally, a report can contain INFO messages
-about Mule 3 components that were replaced by Mule 4 improvements or removed.
+A report can also contain errors (ERROR messages) that must be migrated manually
+before the app will work and INFO messages about Mule 3 components that were
+replaced by Mule 4 improvements or removed.
 
 . In a web browser, open the Migration report (`summary.html`) produced by the
 MMA.
@@ -148,6 +157,7 @@ for example:
 +
 . Address warnings and other messages in the report by performing these tasks:
 +
+//IN REPORT: 1, 2, 3,
 * <<warning_1>>
 * <<warning_2>>
 * <<warning_3>>
@@ -161,14 +171,15 @@ When you complete the modifications, the flow will look like this:
 image::mmt-resulting-flow.png[Flow: Database To JSON]
 
 [[warning_1]]
-== Migrate HTTP Listener Components
+== MMA Warning: Migrate HTTP Listener Components
 
-In Mule 3, connectors and transports that need to send outbound data must explicitly specify outbound properties, such as outgoing status code responses
+In Mule 3, connectors and transports that send outbound data must explicitly specify outbound properties, such as outgoing status code responses
 or headers for an HTTP listener.
 
 The Migration report produces this warning twice within the *HTTP listener*
 component:
 
+//IN REPORT
 [source,txt,linenums]
 ----
 Migration WARN:
@@ -198,24 +209,25 @@ migrated app:
 </http:response>
 ----
 +
-. To set up a working connection for the listener, specify an
-`http:listener-connection` element as a child of `http`, something like this:
+. Notice that MMA provided an HTTP Listener configuration above the `<flow/>`
+element in the XML configuration:
 +
 [source,xml,linenums]
 ----
 <http:listener-config doc:name="HTTP Listener Configuration"
   name="HTTP_Listener_Configuration">
-    <http:listener-connection host="localhost" port="8080" />
+    <http:listener-connection host="localhost" port="${http.port}" />
 </http:listener-config>
 ----
 +
-If you want to make use of the `{http.port}` placeholder instead, see
-xref:mule-app-properties-to-configure.adoc[Configure Property Placeholders for Mule Apps].
+You can define the property placeholder for the port in your project or (see
+https://docs.mulesoft.com/mule-runtime/4.3/mule-app-properties-to-configure.html[Configure Property Placeholders])
+or use a port number (for example, `port="8080"`).
 +
 . Proceed to <<warning_2>>.
 
 [[warning_2]]
-== Migrate the Attributes to Inbound Properties Component
+== MMA Warning: Migrate the Attributes to Inbound Properties Component
 
 This component reads attributes of the Mule message and generates a Mule 3.x
 equivalent of inbound properties as a variable. Any use of an Inbound property
@@ -256,7 +268,7 @@ query the message 'attributes'. Remove this component if there are no uses of
 . Proceed to <<warning_3>>.
 
 [[warning_3]]
-== Migrate Outbound Properties to var Component
+== MMA Warning: Migrate Outbound Properties to var Component
 
 The migration report produces this warning for the two
 *Outbound Properties to var* components in the flow:
@@ -285,8 +297,9 @@ The XML element for the *Outbound Properties to var* component looks like this:
 </compatibility:outbound-properties-to-var>
 ----
 
+//TODO: I JUST SEE A BUNCH OF UNKNOWN ICONS. CHECK IF NEED TO ACTIVATE THE COMPATIBILITY MODULE SOMEHOW TO SEE STUFF.
 . To understand this issue, double-click the *Outbound Properties to var* icon
-in the Message Flow view, and go to the *Help* tab in the configuration area.
+in the *Message Flow* view, and go to the *Help* tab in the configuration area.
 +
 image::mmt-outbound-properties-to-var.png[Outbound Properties to var]
 +
@@ -298,7 +311,7 @@ in the flow, it is safe to remove the components.
 . Proceed to <<warning_4>>.
 
 [[warning_4]]
-== Migrate the Global Database Connection
+== MMA Info: Migrate the Global Database Connection
 
 The Migration report produces this warning for the global connector
 configuration element within *Perform a query in MySQL* component:
@@ -311,7 +324,7 @@ The config in Mule 3 is specific for an engine, but it contained an 'url'
 attribute. It will be made generic in order to keep the URL.
 ----
 
-The MMA sets the global connector configuration to a *Generic* type
+MMA sets the global connector configuration to a *Generic* type
 to preserve the `url` attribute used in the Mule 3 app. However, because
 the app is using a MySQL database, you can change the global connection type
 and its settings to a *MySQL Connection*.
@@ -324,8 +337,10 @@ configuration tab.
 +
 image::mmt-db-mysql.png[Database Configuration: MySQL Connection]
 +
+//TODO: ?ADD RECOMMENDED LIBRARY OR ADD MAVEN DEPENDENCY OR EITHER?????
 . To add the recommended JDBC driver for this database, click the *Configure*
-button and use *Add recommended library* to replace the existing driver.
+button and use *Add Maven Dependency* (or *Add recommended library*) to replace the existing driver.
+//TODO: IS THIS STEP NEEDED, AND IF SO, HOW TO ACCOMPLISH IT?
 . If you have access to a MySQL server into which you can import a database, specify your *Connection* settings, and use `company` for the *Database*
 setting, for example:
 +
@@ -336,7 +351,7 @@ You can skip this step if you do not have access to a MySQL database server.
 . Proceed to <<warning_5>>, also for the *Perform a query in MySQL* component.
 
 [[warning_5]]
-== Migrate the Database Query to Mule 4
+== MMA Warning: Migrate the Database Query to Mule 4
 
 The Migration report produces this warning regarding `inboundProperties`
 settings within *Perform a query in MySQL* component:
