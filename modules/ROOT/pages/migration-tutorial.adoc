@@ -32,7 +32,7 @@ You will unzip this file to a folder. All runs of MMA in this docs must be run f
 * MMA: Coming soon.
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
-* <<maven_install, Maven installation>>: Maven version 3.3.9 or later supports manual steps in Studio 7, after running MMA.
+* <<maven_install, Maven>>: Maven version 3.3.9 or later supports manual steps in Studio 7, after running MMA.
 
 This tutorial uses Studio version 6.6.4 for the Mule 3 app and Studio 7.5.0 for
 the migrated Mule 4 app.
@@ -533,11 +533,13 @@ After migrating a Mule 3 app to Mule 4 with MMA, you need to perform manual migr
 [[step_maven]]
 === Configure a Connection to the `releases-ee` Repository
 
-If your migrated Mule 4 app contains *Unknown* components in Studio 7, make sure that Maven is installed and configured properly. A proper configuration enables the Studio 7 project for your migrated app to find and connect to the `releases-ee` repository. Once Studio establishes that connection and Studio loads the repository settings, the components will have the proper names and appearance (shown in <<step_3>>).
+If your migrated Mule 4 app contains *Unknown* components in Studio 7, make sure that Maven is installed and configured properly. A proper configuration enables the Studio 7 project for your migrated app to find and connect to the `releases-ee` repository.
 
 image::mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
 
-. Make sure that Maven installed. See <<maven_install>> for details.
+Note that after Studio establishes the connection to the `releases-ee` repository and loads the settings, the components will have the proper names and appearance (as shown in <<step_3>>).
+
+. Make sure that Maven is installed. See <<maven_install>> for details.
 . Provide your Studio 7 project with credentials to the `releases-ee` repository.
 +
 You can provide the credentials directly to Studio 7 UI, or you can add XML with the credentials to your Maven `settings.xml` file:
