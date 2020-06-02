@@ -62,9 +62,7 @@ the project matches the zip filename (minus the file extension).
 [[step_2]]
 == Step 2: Create a Mule 4 App from the Mule 3 App
 
-Run MMA on the Mule 3 app, and import the migrated app into Studio 7. In
-subsequent sections, you will perform the manual steps needed to complete
-the migration to Mule 4.
+Run MMA on the Mule 3 app. In subsequent sections, you will import the migrated app into Studio 7 and perform the manual steps needed to complete the migration to Mule 4.
 
 . Unzip MMA `mule-migration-assistant-runner-1.0.0.zip` file you downloaded
 in <<prereqs>>.
@@ -116,6 +114,8 @@ Migration report: /Users/me/Downloads/querying-a-mysql-database-mule4/report/sum
 [[step_3]]
 == Step 3: Import the Migrated App to Studio 7
 
+Import the migrated app into Studio 7. In subsequent steps, you will perform the manual procedure needed to complete the migration to Mule 4
+
 . In Studio 7:
 +
 Import the generated Mule 4 app as a Studio project by going to
@@ -136,7 +136,7 @@ image::mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Mav
 [[step_4]]
 == Step 4: Perform Manual Migration Procedures
 
-Now you open and review the MMA-generated xref:migration-report.adoc[Mule Migration report],
+Open and review the MMA-generated xref:migration-report.adoc[Mule Migration report],
 fix the issues it finds, and remove any unnecessary complexity that MMA adds to
 the app.
 
