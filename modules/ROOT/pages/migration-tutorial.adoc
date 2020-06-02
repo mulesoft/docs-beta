@@ -526,9 +526,11 @@ After migrating a Mule 3 app to Mule 4 with MMA, you need to perform manual migr
 [[step_maven]]
 === Configure a Connection to the `releases-ee` Repository
 
-To avoid or fix a migrated Mule 4 app that displays *Unknown* components in Studio 7, make sure that Maven is installed and configured properly. A proper configuration enables the Studio 7 project for your migrated app to find and connect to the `releases-ee` repository. After Studio establishes the connection to the `releases-ee` repository and loads the appropriate resources, the components will display the proper names and appearance (as shown in <<step_3>>).
+To address *Unknown* components in a migrated Mule 4 app that you import to Studio 7, make sure that Maven 3.3.9 or later is installed that the Studio 7 project for your migrated app can find and connect to the `releases-ee` repository. After Studio establishes the connection to the `releases-ee` repository and loads the appropriate resources, the components will display the proper names and appearance.
 
 image::mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
+
+After the connection to the repository is established, the imported app will no longer contain the *Unknown* components (see <<step_3>> for the fix). 
 
 . Make sure that Maven is installed. See <<maven_install>> for details.
 . Provide the Studio 7 project with your credentials to the `releases-ee` repository.
