@@ -345,7 +345,7 @@ image::mmt-db-add-recommended-lib.png[Database Configuration: Add Recommended Li
 . If you have access to a MySQL server into which you can import a database, specify your *Connection* settings, and use `company` for the *Database*
 setting, for example:
 +
-image::mmt-db-set-properties.png[Database Configuration: Set Properties]
+image::mmt-db-set-props.png[Database Configuration: Set Properties]
 +
 You can skip this step if you do not have access to a MySQL database server.
 +
