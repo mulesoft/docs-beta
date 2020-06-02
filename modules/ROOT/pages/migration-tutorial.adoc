@@ -32,7 +32,7 @@ You will unzip this file to a folder. All runs of MMA in this docs must be run f
 * MMA: Coming soon.
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
-* Maven installation: Maven version 3.3.9 or later (see <<maven_install>>) is for manual, post-migration steps.
+* <<maven_install, Maven installation>>: Maven version 3.3.9 or later supports manual steps in Studio 7, after running MMA.
 
 This tutorial uses Studio version 6.6.4 for the Mule 3 app and Studio 7.5.0 for
 the migrated Mule 4 app.
@@ -528,7 +528,7 @@ https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-databa
 
 == Maven Configuration
 
-To complete manual migration tasks that remain to do on a migrated Mule 4 app, you need to configure a local installation of Maven.
+After migrating a Mule 3 app to Mule 4 with MMA, you need to perform manual migration tasks that replace compatibility modules in the migrated app with Mule 4 components. It is easier to perform these tasks if you install Maven locally and apply a Maven configuration to the Studio 7 project for your migrated Mule 4 app.
 
 [[step_maven]]
 === Configure a Connection to the `releases-ee` Repository
