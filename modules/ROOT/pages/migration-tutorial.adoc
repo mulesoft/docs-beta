@@ -329,20 +329,23 @@ and its settings to a *MySQL Connection*.
 
 . Double-click the *Perform a query in MySQL* component to open its
 configuration tab.
-. In the *General* tab, click to edit the *Connector configuration*.
-. In the *Connection* field, change the value from *Generic Connection* to
-*MySQL Connection*.
+. In the *General* tab, click the green plus sign (*&#43;*) located to the right of the *Connector configuration* text field. (If you mouse over the *&#43;*, you see the word *Add*.)
++
+image::mmt-db-open-db-config.png[Database Configuration: Opening Database Config Window]
++
+. In the *Database Config* window that opens, click the *Connection* field, and change the value from *Data Source Reference Connection* to *MySQL Connection*.
 +
 image::mmt-db-mysql.png[Database Configuration: MySQL Connection]
 +
-//TODO: ?ADD RECOMMENDED LIBRARY OR ADD MAVEN DEPENDENCY OR EITHER?????
 . To add the recommended JDBC driver for this database, click the *Configure*
-button and use *Add Maven Dependency* (or *Add recommended library*) to replace the existing driver.
-//TODO: IS THIS STEP NEEDED, AND IF SO, HOW TO ACCOMPLISH IT?
+button and select *Add recommended library* to replace any existing driver.
++
+image::mmt-db-add-recommended-lib.png[Database Configuration: Add Recommended Libraries]
++
 . If you have access to a MySQL server into which you can import a database, specify your *Connection* settings, and use `company` for the *Database*
 setting, for example:
 +
-image::mmt-db-add-recommended-lib.png[Database Configuration: Add Recommended Libraries]
+image::mmt-db-set-props.png[Database Configuration: Set Properties]
 +
 You can skip this step if you do not have access to a MySQL database server.
 +
@@ -526,9 +529,11 @@ After migrating a Mule 3 app to Mule 4 with MMA, you need to perform manual migr
 [[step_maven]]
 === Configure a Connection to the `releases-ee` Repository
 
-To avoid or fix a migrated Mule 4 app that displays *Unknown* components in Studio 7, make sure that Maven is installed and configured properly. A proper configuration enables the Studio 7 project for your migrated app to find and connect to the `releases-ee` repository. After Studio establishes the connection to the `releases-ee` repository and loads the appropriate resources, the components will display the proper names and appearance (as shown in <<step_3>>).
+To address *Unknown* components in a migrated Mule 4 app that you import to Studio 7, make sure that Maven 3.3.9 or later is installed that the Studio 7 project for your migrated app can find and connect to the `releases-ee` repository. After Studio establishes the connection to the `releases-ee` repository and loads the appropriate resources, the components will display the proper names and appearance.
 
 image::mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
+
+After the connection to the repository is established, the imported app will no longer contain the *Unknown* components (see <<step_3>> for the fix).
 
 . Make sure that Maven is installed. See <<maven_install>> for details.
 . Provide the Studio 7 project with your credentials to the `releases-ee` repository.
