@@ -140,15 +140,25 @@ SOAP Router
 ** First Successful router
 // (`<foreach/>`)
 ** For Each scope
-// (`<map-splitter/>`)
+// (`<logger/>`)
+** Logger component migrates its value expression to DataWeave
+//(`<enricher/>`)
 ** Message Enricher scope (`<enricher>`) migrates to Target Variables (sometimes called Target Parameters) in Mule 4
 // (`<poll/>` )
 ** Poll scope migrates to the Scheduler component for Mule 4
+// (`<processor-chain />`)
+** Processor chain scope migrates to flow reference component
+// (`<remove-attachment/>`)
+** Remove attachment migrates to remove variable component
+// (`<set-attachment/>`)
+** Set attachmeent migrates to set variable component
+// (`<set-payload/>`)
+** Set payload component migrates its value expression to DataWeave
 //(`<scatter-gather/>`)
 ** Scatter-Gather router
 // (`<splitter/>`)
+// (`<map-splitter/>`)
 ** Splitters: Splitter, Collection Splitter, and Map Splitter (`<map-splitter/>`) to a Mule 4 For Each collection `<foreach collection="#[]"/>`, where the `collection` contains a DataWeave expression, _but not_ Message Chunk Splitter `<message-chunk-splitter/>`
-//(`<enricher/>`)
 // (`<transactional/>`) TODO: RELATED TO ERROR HANDLING?
 ** Transactional scope
 // (`<until-successful/>`)
