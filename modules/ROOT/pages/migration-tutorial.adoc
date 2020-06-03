@@ -333,7 +333,7 @@ configuration tab.
 +
 image::mmt-db-open-db-config.png[Database Configuration: Opening Database Config Window]
 +
-. In the *Database Config* window that opens, click the *Connection* field, and change the value from *Data Source Reference Connection* to *MySQL Connection*.
+. In the *Database Config* window that opens, click the *Connection* field, and change the value from *Generic Connection* to *MySQL Connection*.
 +
 image::mmt-db-mysql.png[Database Configuration: MySQL Connection]
 +
@@ -345,7 +345,7 @@ image::mmt-db-add-recommended-lib.png[Database Configuration: Add Recommended Li
 . If you have access to a MySQL server into which you can import a database, specify your *Connection* settings, and use `company` for the *Database*
 setting, for example:
 +
-image::mmt-db-set-props.png[Database Configuration: Set Properties]
+image::mmt-db-set-properties.png[Database Configuration: Set Properties]
 +
 You can skip this step if you do not have access to a MySQL database server.
 +
@@ -389,7 +389,7 @@ SELECT first_name FROM employees WHERE last_name = :lastName
 +
 Be sure to _remove_ the hash mark and square brackets (`#[]`).
 +
-. Specify the following *Input Parameters*:
+. On the *Input Parameters* field, click the *fx* button, and specify the following in the text field:
 +
 [source,sql,linenums]
 ----
