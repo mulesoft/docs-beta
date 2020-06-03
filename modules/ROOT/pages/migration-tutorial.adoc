@@ -387,6 +387,8 @@ reference to `attributes.queryParams.lastName`.
 SELECT first_name FROM employees WHERE last_name = :lastName
 ----
 +
+Be sure to _remove_ the hash mark and square brackets (`#[]`).
++
 . Specify the following *Input Parameters*:
 +
 [source,sql,linenums]
@@ -529,7 +531,7 @@ After migrating a Mule 3 app to Mule 4 with MMA, you need to perform manual migr
 [[step_maven]]
 === Configure a Connection to the `releases-ee` Repository
 
-To address *Unknown* components in a migrated Mule 4 app that you import to Studio 7, make sure that Maven 3.3.9 or later is installed that the Studio 7 project for your migrated app can find and connect to the `releases-ee` repository. After Studio establishes the connection to the `releases-ee` repository and loads the appropriate resources, the components will display the proper names and appearance.
+To address any *Unknown* components in a migrated Mule 4 app that you import to Studio 7, make sure that Maven 3.3.9 or later is installed that the Studio 7 project for your migrated app can find and connect to the `releases-ee` repository. After Studio establishes the connection to the `releases-ee` repository and loads the appropriate resources, the components will display the proper names and appearance.
 
 image::mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
 
