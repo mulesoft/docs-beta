@@ -333,7 +333,7 @@ configuration tab.
 +
 image::mmt-db-open-db-config.png[Database Configuration: Opening Database Config Window]
 +
-. In the *Database Config* window that opens, click the *Connection* field, and change the value from *Data Source Reference Connection* to *MySQL Connection*.
+. In the *Database Config* window that opens, click the *Connection* field, and change the value from *Generic Connection* to *MySQL Connection*.
 +
 image::mmt-db-mysql.png[Database Configuration: MySQL Connection]
 +
@@ -389,7 +389,7 @@ SELECT first_name FROM employees WHERE last_name = :lastName
 +
 Be sure to _remove_ the hash mark and square brackets (`#[]`).
 +
-. Specify the following *Input Parameters*:
+. On the *Input Parameters* field, click the *fx* button, and specify the following in the text field:
 +
 [source,sql,linenums]
 ----
