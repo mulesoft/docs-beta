@@ -14,9 +14,8 @@ MuleSoft recommends that you develop all *new* projects on Mule 4, provided that
 
 * You and your team have updated your skills for Mule 4 through the documentation or formal training.
 * You have the <<prepare_dev_environ, proper deployment environment>>.
-* You do not require all applications to be on a single version of Mule (see below).
 
-For projects that are deployed on Mule 3, you can use the Mule Migration Assistant (MMA) to save the time and effort of re-creating the application from scratch in Mule 4.
+For projects deployed on Mule 3, use the Mule Migration Assistant (MMA) to avoid re-creating the application in Mule 4.
 
 Migrate your applications if any one of the following conditions is met:
 
@@ -43,13 +42,16 @@ Next, you need to make sure your deployment environment is ready. Depending on w
 |CloudHub is Mule 4 ready.
 
 |Hybrid Deployment
-|You must install the standalone version of Mule 4 your servers.
+|Install the standalone version of Mule 4 on your servers.
+
+|Anypoint Runtime Fabric
+|Runtime Fabric supports Mule 4.
 
 |Anypoint Platform Private Cloud Edition (PCE)
-| PCE supports Mule runtime, version 4.
+| PCE supports Mule 4.
 
 |Anypoint Platform for Pivotal Cloud Foundry (PCF)
-| PCF does not support Mule runtime, version 4.
+| PCF does not support Mule 4.
 |===
 
 [[write_code]]
