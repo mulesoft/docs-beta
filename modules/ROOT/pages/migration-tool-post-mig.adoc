@@ -13,10 +13,6 @@ using the MMA, incorporating the Compatibility module (see
 xref:migration-tool.adoc[Migration to Mule 4]) as needed, and
 performing any manual migration steps indicated in the Migration report.
 
-//TODO: REMOVE WHEN BETA IS OVER.
-*Note on the Beta Release:* This page might be augmented periodically during the
-Beta period based on feedback and recommendations.
-
 [[mel_expressions]]
 == MEL Expressions (Manual Post-Migration Steps)
 
