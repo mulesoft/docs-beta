@@ -45,7 +45,7 @@ Next, you need to make sure your deployment environment is ready. Depending on w
 |Install the standalone version of Mule 4 on your servers.
 
 |Anypoint Runtime Fabric
-|Runtime Fabric is Mule 4 ready.
+|Runtime Fabric supports Mule 4.
 
 |Anypoint Platform Private Cloud Edition (PCE)
 | PCE supports Mule Runtime 4
