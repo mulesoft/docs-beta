@@ -42,7 +42,7 @@ Next, you need to make sure your deployment environment is ready. Depending on w
 |CloudHub is Mule 4 ready.
 
 |Hybrid Deployment
-|You must install the standalone version of Mule 4 your servers.
+|Install the standalone version of Mule 4 on your servers.
 
 |Anypoint Runtime Fabric
 |Runtime Fabric is Mule 4 ready.
