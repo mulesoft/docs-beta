@@ -12,7 +12,7 @@ The migration process is a multi-part procedure, where you:
 . Run MMA on a Mule 3 project.
 . Import the Mule 4 application that MMA produced into a supported version of Studio 7.
 . Review the Migration report that MMA produced.
-. Perform a manual migration of what MMA cannot migrate.
+. Manually migrate what MMA cannot migrate automatically.
 . Remove uses of Compatibility module components.
 . Run any migrated MUnit tests.
 
