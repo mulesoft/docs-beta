@@ -231,7 +231,7 @@ generate the following ERROR in the Migration report:
 
 Such connectors require manual migration.
 
-To manually migrate them, see xref:migration-tool-procedure#unsupported_projects[Migrating Unsupported Connectors].
+To manually migrate them, see xref:migration-tool-procedure#migrating_unsupported_connectors[Migrating Unsupported Connectors].
 
 ////
 TODO: ARE WE GOING TO SUPPORT THESE IN THE FUTURE?
