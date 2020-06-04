@@ -51,7 +51,7 @@ Next, you need to make sure your deployment environment is ready. Depending on w
 | PCE supports Mule 4.
 
 |Anypoint Platform for Pivotal Cloud Foundry (PCF)
-| PCF does not support Mule Runtime 4
+| PCF does not support Mule 4.
 |===
 
 [[write_code]]
