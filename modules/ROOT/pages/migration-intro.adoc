@@ -16,6 +16,7 @@ concepts to learn than Mule 3, including:
 For your existing Mule 3 applications to take advantage of these and other benefits, you can migrate your apps to Mule through one of these processes:
 
 * A fully manual migration
+//TODO: PROVIDE LINK TO MMA BINARY ONCE IT'S AVAILABLE
 * A partially automated migration with the Mule Migration Assistant (MMA), which
 is available as an open source project on https://github.com/mulesoft/mule-migration-assistant[GitHub].
 
