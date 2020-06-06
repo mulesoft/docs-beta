@@ -1,4 +1,4 @@
-= Migration to Mule 4
+= Using the Mule Migration Assistant to Support Migration to Mule 4
 ifndef::env-site,env-github[]
 include::_attributes[]
 endif::[]
@@ -24,7 +24,7 @@ These steps are detailed in xref:migration-tool-procedure.adoc[Perform a Migrati
 [[migration_tool]]
 == Mule Migration Assistant
 
-The Mule Migration Assistant (MMA) automates the migration of Mule 3
+The Mule Migration Assistant (MMA) automates part of the migration of Mule 3
 apps to Mule 4. Though the MMA does not migrate the app entirely,
 it provides significant help with these tasks:
 
