@@ -1,0 +1,46 @@
+= Migration to Mule 4
+ifndef::env-site,env-github[]
+include::_attributes[]
+endif::[]
+
+// Introductory content extracted from
+// https://blogs.mulesoft.com/dev/news-dev/mule-4-release-studio7/
+Mule 4 expedites development of integration apps with up to 50% fewer steps and
+concepts to learn than Mule 3, including:
+
+* a simplified language for connectivity
+* clear access to data
+* automatic tuning
+* easier upgrade processes
+
+For your existing Mule 3 applications to take advantage of these and other benefits, you can migrate your apps to Mule through one of these processes:
+
+* A fully manual migration
+* A partially automated migration with the Mule Migration Assistant (MMA), which
+is available as an open source project on https://github.com/mulesoft/mule-migration-assistant[GitHub].
+
+Both migration scenarios require the same xref:migration-prep.adoc[preparation].
+
+A benefit of using MMA is that it automates part of the migration of Mule 3 apps to Mule 4. Though the MMA does not migrate the app entirely, it provides significant help with these tasks:
+
+* Migrating the project structure.
+* Automatically creating descriptor files, such as pom.xml or mule-artifact.json.
+* Automatically performing many adaptations of the app’s code.
+* Providing guidance on how to manually migrate components and patterns that cannot be migrated automatically.
+
+MMA helps with such tasks, but it is not to be expected to deliver a fully functional app. Some additional steps are required. Those steps include testing and can also include:
+
+* Manual migration of unsupported components.
+* Manual migration of complex MEL expressions to DataWeave that cannot be automatically converted by MMA.
+* Manual migration of complex DataWeave transformations that cannot be automatically converted by MMA.
+* Prior migration of the DataMapper with the DataWeave Migration tool, before running the MMA.
+
+It is also important to note that the MMA does not support incremental migrations.
+
+////
+== See Also
+
+* xref:migration-tutorial.adoc[Mule Migration Tool Tutorial]
+* xref:migration-report.adoc[Mule Migration Report]
+* xref:migration-tool-post-mig.adoc[Post-Migration Tasks]
+////
