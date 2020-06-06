@@ -36,8 +36,6 @@ MMA helps with such tasks, but it is not to be expected to deliver a fully funct
 * Manual migration of complex DataWeave transformations that cannot be automatically converted by MMA.
 * Prior migration of the DataMapper with the DataWeave Migration tool, before running the MMA.
 
-It is also important to note that the MMA does not support incremental migrations.
-
 ////
 == See Also
 
