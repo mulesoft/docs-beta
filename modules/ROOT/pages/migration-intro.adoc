@@ -32,6 +32,8 @@ is available as an open source project on https://github.com/mulesoft/mule-migra
 Both migration scenarios require the same xref:migration-prep.adoc[preparation].
 
 //BENEFITS OF MMA
+== MMA 
+
 A benefit of using MMA is that it automates part of the migration of Mule 3 apps to Mule 4. Though the MMA does not migrate the app entirely, it provides significant help with these tasks:
 
 * Migrating the project structure.
@@ -45,6 +47,11 @@ MMA helps with such tasks, but it is not to be expected to deliver a fully funct
 * Manual migration of complex MEL expressions to DataWeave that cannot be automatically converted by MMA.
 * Manual migration of complex DataWeave transformations that cannot be automatically converted by MMA.
 * Prior migration of the DataMapper with the DataWeave Migration tool, before running the MMA.
+
+//MANUAL MIGRATION
+
+== Manual Migration
+//TODO
 
 
 ////
