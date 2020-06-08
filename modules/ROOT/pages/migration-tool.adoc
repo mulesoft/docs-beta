@@ -228,7 +228,7 @@ See also:
 [[unsupported_connectors]]
 == Unsupported Connectors
 
-Connectors that are used in an app but not currently supported by MMA
+Connectors that are used in an application but not currently supported by MMA
 generate the following ERROR in the Migration report:
 
 `The migration of some-connector is not supported`
