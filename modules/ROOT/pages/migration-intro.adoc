@@ -20,13 +20,6 @@ For existing Mule 3 apps to take advantage of these and other benefits, you can 
 * A partially automated migration with the Mule Migration Assistant (MMA), which
 is available as an open source project on https://github.com/mulesoft/mule-migration-assistant[GitHub].
 
-//TODO: GUIDANCE ON WHEN TO USE MMA VS DOING A FULLY MANUAL MIGRATION, NEED SOME GUIDANCE
-// What are the considerations?
-// Do we recommend they consider using the tool if MMA migrates some part of their app?
-// Do we recommend that they try MMA on their app to see if it's worth using it?
-// Do we ever recommend NOT using MMA
-//  (for ex, are there cases where MMA can't migrate anything or MMA makes the migration more complex?
-
 == Understand the Migration Process
 
 Before beginning the migration process, review documentation on how to
@@ -34,7 +27,7 @@ prepare for the migration and understand the basic steps of the migration.
 
 * xref:migration-prep.doc[Preparing for a Migration to Mule 4]: Both migration scenarios require the same preparation.
 * MMA migration process +
-//TODO: GITHUB LOCATION + MAYBE POINT TO TUTORIAL OR SUGGEST TRYING TO MIGRATE AN APP.
+//TODO: GITHUB LOCATION 
 * xref:migration-process.adoc[Manual Migration Process]
 
 A benefit of using MMA is that it automates part of the migration of Mule 3 apps to Mule 4. Though the MMA does not migrate the app entirely, it provides significant help with these tasks:
@@ -52,6 +45,13 @@ MMA helps with such tasks, but it is not to be expected to deliver a fully funct
 * Prior migration of the DataMapper with the DataWeave Migration tool, before running the MMA.
 
 It is also important to note that the MMA does not support incremental migrations.
+
+//TODO: GUIDANCE ON WHEN TO USE MMA VS DOING A FULLY MANUAL MIGRATION, NEED SOME GUIDANCE
+// Any other considerations?
+// Do we recommend they consider using the tool if MMA migrates some part of their app?
+// Do we recommend that they try MMA on their app to see if it's worth using it?
+// Do we ever recommend NOT using MMA
+//  (for ex, are there cases where MMA can't migrate anything or MMA makes the migration more complex?
 
 ////
 == See Also
