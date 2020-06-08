@@ -171,11 +171,10 @@ xref:api-manager::custom-policy-uploading-to-exchange.adoc[Uploading a Custom Po
 === POM Migration
 
 The POM file migration modifies the file to include the elements necessary for
-uploading the custom policy to Exchange:
+uploading the custom policy to Exchange. 
 
-* `{orgId}` must be replaced both in `<groupId>`
-* `<exchange.url>` with the organization ID found in Anypoint Platform.
-+
+Replace `{orgId}` in `<groupId>` and `<exchange.url>` with the the organization ID found in Anypoint Platform.  
+
 For more information on how to obtain the organization ID, see
 xref:api-manager::custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange].
 
