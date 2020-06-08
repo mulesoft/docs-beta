@@ -1,0 +1,46 @@
+= Migrating Test Structure (MUnit)
+ifndef::env-site,env-github[]
+include::_attributes.adoc[]
+endif::[]
+
+The MUnit test is divided in three scopes. All of them are optional:
+
+[%header,cols="20,80"]
+|===
+|Scope |Description
+
+| Behavior
+| The behavior scope is meant to set all the preconditions before executing the test logic. +
+Mocks and Spies should go in this section.
+
+| Execution
+| The execution scope is meant to have the testing logic which will wait for all processes to finish before executing the next scope.
+
+| Validation
+| The validation scope is meant to have all the validations regarding the result of the execution scope. +
+Assertions and Verifications should go here.
+|===
+
+
+.Test in MUnit 1.x
+[source,xml,linenums]
+----
+<munit:test name="sampleTest" description="Test">
+    <flow-ref name="sampleFlow"/>
+</munit:test>
+----
+
+.Test in MUnit 2.x
+[source,xml,linenums]
+----
+<munit:test name="sampleTest" description="Test">
+    <munit:execution >
+        <flow-ref name="sampleFlow"/>
+    </munit:execution>
+</munit:test>
+----
+
+
+== See Also
+
+* xref:https://docs.mulesoft.com/munit/2.2/munit-test-concept[MUnit 2 Test structure]
