@@ -71,6 +71,9 @@ You or your team need to handle other migration gaps that are covered in the xre
 [[supported_migrations]]
 == Supported Components
 
+*Note*: This list is subject to change and grow over time with the development of new MMA tasks for migrating additional connectors or components.
+
+
 The Mule Migration Assistant (MMA) supports the following migrations:
 
 // (`<mule/>`)
@@ -215,6 +218,7 @@ The MMA does not currently support the following components:
 xref:migration-tool-procedure#datamapper[Migrating from the DataMapper to DataWeave].
 * Custom types defined in Studio
 * `<expression-component>`
+* Any unlisted connectors or modules.
 
 See also:
 
