@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes[]
 endif::[]
 
-// Introductory content extracted from
+// Introductory info extracted from
 // https://blogs.mulesoft.com/dev/news-dev/mule-4-release-studio7/
 Mule 4 expedites development of integration apps with up to 50% fewer steps and
 concepts to learn than Mule 3, including:
@@ -12,25 +12,30 @@ concepts to learn than Mule 3, including:
 * clear access to data
 * automatic tuning
 * easier upgrade processes
+//TODO: OTHER BENEFITS ORDERED, WITH HIGHEST IMPACT LISTED BEFORE LOWER IMPACT BENEFITS
 
-For your existing Mule 3 applications to take advantage of these and other benefits, you can migrate your apps to Mule through one of these processes:
+For existing Mule 3 apps to take advantage of these and other benefits, you can migrate your apps to Mule through one of these processes:
 
-//TODO: PROVIDE LINK TO MMA LANDING PAGE ON GITHUB WHEN IT IS AVAILABLE
-* A partially automated migration with the Mule Migration Assistant (MMA)
-//TODO: NEED TO BE CLEAR ABOUT MMA LIMITATIONS: POINT OUT TO THE LIST OF WHAT'S MIGRATED AND WHAT'S NOT.
-* A fully manual migration in which you build a Mule 4 version of the Mule 3 application from scratch.
+* A fully manual migration of connectors, modules, transports, expressions, and API gateways to their Mule 4 counterparts.
+* A partially automated migration with the Mule Migration Assistant (MMA), which
+is available as an open source project on https://github.com/mulesoft/mule-migration-assistant[GitHub].
 
 //TODO: GUIDANCE ON WHEN TO USE MMA VS DOING A FULLY MANUAL MIGRATION, NEED SOME GUIDANCE
-// What are the considerations? 
-// Do we recommend they consider using the tool if MMA migrates some part of their app? 
-// Do we recommend that they try MMA on their app to see if it's worth using it? 
-// Do we ever recommend NOT using MMA 
-//  (for ex, are there cases where MMA can't migrate anything or MMA makes the migration more complex? 
+// What are the considerations?
+// Do we recommend they consider using the tool if MMA migrates some part of their app?
+// Do we recommend that they try MMA on their app to see if it's worth using it?
+// Do we ever recommend NOT using MMA
+//  (for ex, are there cases where MMA can't migrate anything or MMA makes the migration more complex?
 
-//BENEFITS OF MMA
-== Mule Migration Assistant (MMA)
+== Understand the Migration Process
 
-MMA is an open source project on https://github.com/mulesoft/mule-migration-assistant[GitHub]. 
+Before beginning the migration process, review documentation on how to
+prepare for the migration and understand the basic steps of the migration.
+
+* xref:migration-prep.doc[Preparing for a Migration to Mule 4]: Both migration scenarios require the same preparation.
+* MMA migration process +
+//TODO: GITHUB LOCATION + MAYBE POINT TO TUTORIAL OR SUGGEST TRYING TO MIGRATE AN APP.
+* xref:migration-process.adoc[Manual Migration Process]
 
 A benefit of using MMA is that it automates part of the migration of Mule 3 apps to Mule 4. Though the MMA does not migrate the app entirely, it provides significant help with these tasks:
 
@@ -46,16 +51,7 @@ MMA helps with such tasks, but it is not to be expected to deliver a fully funct
 * Manual migration of complex DataWeave transformations that cannot be automatically converted by MMA.
 * Prior migration of the DataMapper with the DataWeave Migration tool, before running the MMA.
 
-//MANUAL MIGRATION
-
-== Manual Migration
-//TODO
-// A completely manual migration involves building a Mule 4 application from scratch. 
-
-== Migration Resources
-
-//TODO: MORE DETAIL ON RESOURCES FOR MANUAL MIGRATION VS. MMA
-Both migration scenarios require the same xref:migration-prep.adoc[preparation].
+It is also important to note that the MMA does not support incremental migrations.
 
 ////
 == See Also
