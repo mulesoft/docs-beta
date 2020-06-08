@@ -72,7 +72,7 @@ You or your team will need to handle other migration gaps that are covered in th
 [[supported_migrations]]
 == Supported Components
 
-*Note* : This list can be enhanced during time adding the support of new components
+*Note* : This list is subject to change and grow over time with the development of new MMA tasks for migrating additional connectors or components.
 
 The Mule Migration Assistant (MMA) supports the following migrations:
 
