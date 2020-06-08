@@ -23,7 +23,7 @@ Migrate your applications if any one of the following conditions is met:
 * The 3.x version you are using reaches end of life.
 * You want to make significant updates to the existing applications.
 * You want to take advantage of key Mule 4 capabilities.
-* You decide to upgrade all their apps to Mule 4 because you require all apps to be on one version (some on-prem customers).
+* You decide to upgrade all your apps to Mule 4 because your organization requires all apps to be on one version (for some on-prem scenarios).
 
 [[prepare_dev_environ]]
 == Setting up Your Local Development Environment
