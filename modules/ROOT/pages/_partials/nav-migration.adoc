@@ -54,7 +54,6 @@
 **** xref:migration-module-spring.adoc[Migrate the Spring Module]
 **** xref:migration-module-validation.adoc[Migrate the Validation Module]
 **** xref:migration-module-vm.adoc[Migrate the VM Module]
-**** xref:migration-patterns-watermark.adoc[Migrate Watermarks]
 **** xref:migration-module-wsc.adoc[Migrate the Web Service Consumer Module]
 **** xref:migration-connectors-xml.adoc[Migrate the XML Module]
 *** xref:migration-example-complex.adoc[Migrating an APIkit Application]
