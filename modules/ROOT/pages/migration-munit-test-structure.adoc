@@ -18,7 +18,7 @@ Mocks and Spies go in this section.
 
 | Validation
 | The validation scope is meant to have all the validations regarding the result of the execution scope. +
-Assertions and Verifications should go here.
+Assertions and Verifications go in the validation scope.
 |===
 
 
