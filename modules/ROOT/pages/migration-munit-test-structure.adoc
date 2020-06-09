@@ -10,7 +10,7 @@ The MUnit test is divided into three scopes. All of them are optional:
 |Scope |Description
 
 | Behavior
-| The behavior scope is meant to set all the preconditions before executing the test logic. +
+| The behavior scope (`<munit:behavior/>`) is intended for setting the preconditions before executing the test logic. +
 Mocks and Spies should go in this section.
 
 | Execution
