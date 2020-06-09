@@ -3,7 +3,7 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-The MUnit test is divided in three scopes. All of them are optional:
+The MUnit test is divided into three scopes. All of them are optional:
 
 [%header,cols="20,80"]
 |===
