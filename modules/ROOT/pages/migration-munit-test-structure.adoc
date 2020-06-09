@@ -21,7 +21,7 @@ Mocks and Spies go in this section.
 Assertions and Verifications go in the validation scope.
 |===
 
-
+The following examples compare MUnit tests in 1.x to 2.x.
 .Test in MUnit 1.x
 [source,xml,linenums]
 ----
