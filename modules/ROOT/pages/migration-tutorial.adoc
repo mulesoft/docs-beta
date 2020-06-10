@@ -17,6 +17,7 @@ with Mule 4.x runtimes.
 
 //TODO: Esteban confirms this URI for MMA when we release:
 //* MMA: https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/1.0.0/mule-migration-assistant-runner-1.0.0.zip[Mule Migration Assistant (Zip file)] image::../assets/images/external-link-icon.png[external link, width=5%]
+image::../assets/images/mmt-exchange.png[Exchange: Querying a MySQL Database]
 * MMA: Coming soon.
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6] image::../assets/images/external-link-icon.png[external link, width=5%]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7] (external link): The minimum requirement is version 7.3.0.
