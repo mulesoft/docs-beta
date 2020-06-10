@@ -16,7 +16,7 @@ Studio 6 is compatible with Mule 3.x runtime versions. Studio 7 is compatible
 with Mule 4.x runtimes.
 
 //TODO: Esteban confirms this URI for MMA when we release:
-//* MMA: https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/1.0.0/mule-migration-assistant-runner-1.0.0.zip[Mule Migration Assistant (Zip file)]
+//* MMA: https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/1.0.0/mule-migration-assistant-runner-1.0.0.zip[Mule Migration Assistant (Zip file)] (external link)
 * MMA: Coming soon.
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
@@ -35,7 +35,7 @@ into Studio 6. In subsequent sections, you will migrate this app to Mule 4.
 
 image::../assets/images/mmt-exchange.png[Exchange: Querying a MySQL Database]
 
-. Download version 1.4.0 of the https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-database/1.4.0/[Querying a MySQL Database]
+. Download version 1.4.0 of the https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-database/1.4.0/[Querying a MySQL Database] (external link)
 asset from Exchange.
 +
 Note that the 1.4.0 asset is a Mule 3 app that runs on Mule Runtime 3.x. Its
@@ -522,7 +522,7 @@ Notice that the URL includes query parameters defined in the HTTP listener
 configuration.
 
 Note that you can also download and import the Mule 4 version of
-https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-database/2.1.4/[Querying a MySQL Database app for Mule 4] from Exchange and compare your results.
+https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-database/2.1.4/[Querying a MySQL Database app for Mule 4] (external link) from Exchange and compare your results.
 
 == Maven Configuration
 
@@ -594,7 +594,7 @@ Maven version 3.3.9 or later is required to complete the migration process.
 +
 `mvn --version`
 +
-If you receive a response such as `-bash: mvn: command not found` or if you version is lower than version 3.3.9, download the *Link* to the latest version of Maven at http://maven.apache.org/download.cgi[Maven `zip` file], and install Maven by following the instructions on the Maven site: http://maven.apache.org/install.html[Maven (version 3.3.9 or later)]
+If you receive a response such as `-bash: mvn: command not found` or if you version is lower than version 3.3.9, download the *Link* to the latest version of Maven at http://maven.apache.org/download.cgi[Maven `zip` file] (external link), and install Maven by following the instructions on the Maven site: http://maven.apache.org/install.html[Maven (version 3.3.9 or later)]  (external link)
 +
 . Set the PATH environment variable to the Maven installation, for example, if Maven is in your `Downloads` directory:
 +
