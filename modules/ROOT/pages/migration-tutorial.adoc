@@ -617,4 +617,4 @@ OS name: "mac os x", version: "10.14.6", arch: "x86_64", family: "mac"
 == See Also
 
 * xref:migration-tool.adoc[Migration to Mule 4]
-* xref:7.2@studio::import-export-packages.adoc#importing-projects-to-studio[Importing and Exporting Projects]
+* https://docs.mulesoft.com/studio/7.5/import-export-packages[Importing and Exporting Projects] (external link)
