@@ -18,11 +18,12 @@ with Mule 4.x runtimes.
 //TODO: Esteban confirms this URI for MMA when we release:
 //* MMA: https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/1.0.0/mule-migration-assistant-runner-1.0.0.zip[Mule Migration Assistant (Zip file)] (external link)
 * MMA: Coming soon.
-* https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6]
-* https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7]: The minimum requirement is version 7.3.0.
+* https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6] (external link)
+* https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7] (external link): The minimum requirement is version 7.3.0.
 * <<maven_install, Maven>>: Maven version 3.3.9 or later supports manual steps in Studio 7, after running MMA.
+//TODO: ESTEBAN SAYS PROB NOT NEEDED BC COMPAT MODULES WILL BE AVAILABLE AT GA. TBD:
 * `releases-ee` repository credentials: You will set these credentials so that Studio 7 can properly display compatibility components in your migrated Mule 4 app.
-//TODO: If you do not know your credentials, contact your TODO_TODO.
+//TODO (MIGHT NOT BE NEEDED): If you do not know your credentials, contact your CSM. 
 
 This tutorial uses Studio version 6.6.4 for the Mule 3 app and Studio 7.5.0 for
 the migrated Mule 4 app.
@@ -528,6 +529,7 @@ https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-databa
 
 After migrating a Mule 3 app to Mule 4 with MMA, you need to perform manual migration tasks that replace compatibility modules in the migrated app with Mule 4 components. It is easier to perform these tasks if you install Maven locally and apply a Maven configuration to the Studio 7 project for your migrated Mule 4 app.
 
+// TODO: DETERMINE IF THIS IS NEEDED, SEE NOTE ABOVE RE ESTEBAN'S COMMENTS
 [[step_maven]]
 === Configure a Connection to the `releases-ee` Repository
 
