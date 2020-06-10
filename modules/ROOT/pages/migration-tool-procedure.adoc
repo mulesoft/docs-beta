@@ -3,9 +3,6 @@ ifndef::env-site,env-github[]
 include::_attributes.adoc[]
 endif::[]
 
-//TODO: FOR GA, REMOVE *Beta* FROM GA VERSION
-*Beta Release: Mule Migration Assistant (MMA) and Compatibility Module*
-
 MuleSoft recommends that you follow this migration path from Mule 3 to Mule 4.
 
 [[min_reqs]]
@@ -18,7 +15,7 @@ Minimum requirements for a migrated app:
 You can check your Studio version by navigating to
 *Anypoint Studio -> About Anypoint Studio*.
 
-The Mule Migration Assistant helps migrate Mule apps that use these versions
+The Mule Migration Assistant (MMA) helps migrate Mule apps that use these versions
 of the Mule runtime:
 
 * 3.9.x
@@ -31,22 +28,19 @@ See also, <<unsupported_projects>>.
 == Pre-Migration Tasks
 
 If your app is using DataMapper, MuleSoft recommends that you migrate to DataWeave
-_before_ running the Mule Migration Assistant. See <<datamapper>>.
+_before_ running the Mule Migration Assistant (MMA). See <<datamapper>>.
 
 [[run_tool]]
 == Running the Mule Migration Assistant
 
-//TODO: FOR GA, REMOVE NOTE AND REVISE CONTENT TO DESCRIBE STUDIO WORKFLOW
-*Note on the Beta release*: For the Beta release, the migrator is a command-line
-utility (packaged as an executable JAR file). After the Beta program, the
-Mule Migration Assistant (MMA) will be released as part of Studio. You will then
+Mule Migration Assistant (MMA) is a command-line
+utility (packaged as an executable JAR file). After the Beta program, 
+MMA will be released as part of Studio. You will then
 be able to perform migrations through Studio, rather than from the command line.
 
 Note that the xref:migration-tutorial.adoc[Mule Migration Tutorial] covers the
 use of the MMA, as well as post-migration tasks, on a sample Mule 3 application.
 
-//TODO: GET A JAR NAME THAT IS MORE LIKE WHAT CUSTOMERS WILL SEE
-//TODO: LINK OUT TO STUDIO IMPORT STEPS.
 To run the Mule Migration Assistant:
 
 . Make sure that the required software is installed
@@ -209,7 +203,7 @@ can use the DataWeave Migrator _prior to running MMA_.
 
 . Before migrating to Mule 4, migrate your DataMapper transformations to
 DataWeave using the
-xref:3.8@mule-runtime::dataweave-migrator.adoc[DataWeave Migrator]
+https://docs.mulesoft.com/mule-runtime/3.9/dataweave-migrator[DataWeave Migrator] (external link)
 (available for Mule 3.7, 3.8, and 3.9).
 . Run the MMA following instructions in <<run_tool>>.
 
@@ -223,7 +217,7 @@ migrate the connector manually:
 
 To manually migrate such a connector:
 
-. xref:connectors::common/common-add-module-task.adoc[Add the equivalent connector] for
+. https://docs.mulesoft.com/studio/7.5/add-modules-in-studio-to[Add the equivalent connector] (external link) for
 Mule 4 to the app.
 . Refer to the connector documentation for both Mule 3 and Mule 4 to determine
 the correct mappings for the connector:
@@ -244,7 +238,7 @@ For custom connectors built with DevKit, see <<devkit, Migrating Custom DevKit C
 
 Mule apps might contain custom-made DevKit connectors. Though the Mule Migration
 Assistant (MMA) cannot migrate them, the
-xref:1.1@mule-sdk::dmt.adoc[DevKit Migrator]
+https://docs.mulesoft.com/mule-sdk/1.1/dmt[DevKit Migrator] (external link)
 is available to convert DevKit projects to Mule 4 SDK projects. After
 migrating them, you then need to:
 
