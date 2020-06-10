@@ -3,9 +3,6 @@ ifndef::env-site,env-github[]
 include::_attributes[]
 endif::[]
 
-//TODO: FOR GA, REMOVE *Beta* FROM GA VERSION
-//*Beta Release: Mule Migration Assistant (MMA) and Compatibility Module*
-
 This tutorial walks you through the main steps for migrating a Mule 3 app to
 Mule 4. It covers use of the MMA, the Migration report, and the Compatibility
 module.
@@ -120,11 +117,11 @@ You can now find the imported app in Studio 7.
 +
 . If migrated app looks like this one, proceed to <<step_4>>:
 +
-image::mmt-migrated-app.png[Imported App]
+image::../assets/images/mmt-migrated-app.png[Imported App]
 +
 . If the migrated app contains *Unknown* components, go to <<step_maven>> to adjust the configuration for your Studio project _before_ proceeding to <<step_4>>.
 +
-image::mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
+image::../assets/images/mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
 
 [[step_4]]
 == Step 4: Perform Manual Migration Procedures
@@ -136,7 +133,7 @@ the app.
 A migration report identifies items that remain to complete the migration to
 Mule 4. For the sample app, the migration report looks like this:
 
-image::mmt-report.png[Mule Migration Assistant Report]
+image::../assets/images/mmt-report.png[Mule Migration Assistant Report]
 
 The warnings (WARN messages) in this report are associated with
 components in the
@@ -166,7 +163,7 @@ for example:
 
 When you complete the modifications, the flow will look like this:
 
-image::mmt-resulting-flow.png[Flow: Database To JSON]
+image::../assets/images/mmt-resulting-flow.png[Flow: Database To JSON]
 
 [[warning_1]]
 === Migrate HTTP Listener Components
@@ -299,7 +296,7 @@ The XML element for the *Outbound Properties to var* component looks like this:
 . To understand this issue, double-click the *Outbound Properties to var* icon
 in the *Message Flow* view, and go to the *Help* tab in the configuration area.
 +
-image::mmt-outbound-properties-to-var.png[Outbound Properties to var]
+image::../assets/images/mmt-outbound-properties-to-var.png[Outbound Properties to var]
 +
 This note indicates that the component is intended to emulate the use of
 outbound properties in a Mule 3 App. Because there are no outbound properties
@@ -331,21 +328,21 @@ and its settings to a *MySQL Connection*.
 configuration tab.
 . In the *General* tab, click the green plus sign (*&#43;*) located to the right of the *Connector configuration* text field. (If you mouse over the *&#43;*, you see the word *Add*.)
 +
-image::mmt-db-open-db-config.png[Database Configuration: Opening Database Config Window]
+image::../assets/images/mmt-db-open-db-config.png[Database Configuration: Opening Database Config Window]
 +
 . In the *Database Config* window that opens, click the *Connection* field, and change the value from *Generic Connection* to *MySQL Connection*.
 +
-image::mmt-db-mysql.png[Database Configuration: MySQL Connection]
+image::../assets/images/mmt-db-mysql.png[Database Configuration: MySQL Connection]
 +
 . To add the recommended JDBC driver for this database, click the *Configure*
 button and select *Add recommended library* to replace any existing driver.
 +
-image::mmt-db-add-recommended-lib.png[Database Configuration: Add Recommended Libraries]
+image::../assets/images/mmt-db-add-recommended-lib.png[Database Configuration: Add Recommended Libraries]
 +
 . If you have access to a MySQL server into which you can import a database, specify your *Connection* settings, and use `company` for the *Database*
 setting, for example:
 +
-image::mmt-db-set-properties.png[Database Configuration: Set Properties]
+image::../assets/images/mmt-db-set-properties.png[Database Configuration: Set Properties]
 +
 You can skip this step if you do not have access to a MySQL database server.
 +
@@ -397,7 +394,7 @@ Be sure to _remove_ the hash mark and square brackets (`#[]`).
 {'lastName' : attributes.queryParams.lastname}
 ----
 +
-image::mmt-db-query.png[Perform A Query in MySQL]
+image::../assets/images/mmt-db-query.png[Perform A Query in MySQL]
 +
 . Proceed to <<warning_6>>, also for the *Perform a query in MySQL* component.
 
@@ -452,13 +449,13 @@ payload
 +
 The configuration should look like this:
 +
-image::mmt-dataweave.png[Transform Message]
+image::../assets/images/mmt-dataweave.png[Transform Message]
 +
 . Go to the Configuration XML view in Studio to verify that there are no
 remaining comments that contain WARN messages.
 . By the end of the migration, the flow should look like this:
 +
-image::mmt-resulting-flow.png[Flow: Database To JSON]
+image::../assets/images/mmt-resulting-flow.png[Flow: Database To JSON]
 +
 . Proceed to <<test_app>>.
 
@@ -536,7 +533,7 @@ After migrating a Mule 3 app to Mule 4 with MMA, you need to perform manual migr
 
 To address any *Unknown* components in a migrated Mule 4 app that you import to Studio 7, make sure that Maven 3.3.9 or later is installed that the Studio 7 project for your migrated app can find and connect to the `releases-ee` repository. After Studio establishes the connection to the `releases-ee` repository and loads the appropriate resources, the components will display the proper names and appearance.
 
-image::mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
+image::../assets/images/mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
 
 After the connection to the repository is established, the imported app will no longer contain the *Unknown* components (see <<step_3>> for the fix).
 
@@ -548,7 +545,7 @@ You can provide the credentials directly to Studio 7 UI, or you can add XML with
 * Option 1: In Studio 7, navigate from the main *Anypoint Studio* menu to  *Preferences* -> *Anypoint Studio* -> *Maven* -> *User Settings*, and in
 the *User Settings* window, click edit to add the *Server Id* `releases-ee` with your credentials to the repository, for example:
 +
-images:mmt-maven-repo-credentials.png[Configure Maven Repository Credentials]
+images:../assets/images/mmt-maven-repo-credentials.png[Configure Maven Repository Credentials]
 +
 //If you do not know your *User Id* or *Password*, contact your TODO
 +
@@ -584,7 +581,7 @@ replacing the `user` and `password` values with your credentials:
 +
 After Studio processes the configuration, the compatibility components replace the *Unknown* components:
 +
-image::mmt-migrated-app.png[Imported App]
+image::../assets/images/mmt-migrated-app.png[Imported App]
 +
 . To complete the manual portion of the Mule 4 migration, proceed to <<step_4>>.
 
