@@ -203,8 +203,7 @@ can use the DataWeave Migrator _prior to running MMA_.
 
 . Before migrating to Mule 4, migrate your DataMapper transformations to
 DataWeave using the
-https://docs.mulesoft.com/mule-runtime/3.9/dataweave-migrator[DataWeave Migrator] (external link)
-(available for Mule 3.7, 3.8, and 3.9).
+https://docs.mulesoft.com/mule-runtime/3.9/dataweave-migrator[DataWeave Migrator] (external link), which is available for Mule 3.7, 3.8, and 3.9.
 . Run the MMA following instructions in <<run_tool>>.
 
 [[migrating_unsupported_connectors]]
