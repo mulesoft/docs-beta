@@ -18,7 +18,7 @@ with Mule 4.x runtimes.
 //TODO: Esteban confirms this URI for MMA when we release:
 //* MMA: https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/1.0.0/mule-migration-assistant-runner-1.0.0.zip[Mule Migration Assistant (Zip file)] image::../assets/images/external-link-icon.png[]
 * MMA: Coming soon.
-* https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6] 
+* https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6] (external link)
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7] (external link): The minimum requirement is version 7.3.0.
 * <<maven_install, Maven>>: Maven version 3.3.9 or later supports manual steps in Studio 7, after running MMA.
 //TODO: ESTEBAN SAYS PROB NOT NEEDED BC COMPAT MODULES WILL BE AVAILABLE AT GA. TBD:
