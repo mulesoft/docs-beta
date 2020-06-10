@@ -36,7 +36,7 @@ the migrated Mule 4 app.
 Start by downloading a Mule 3 app from Anypoint Exchange, then importing it
 into Studio 6. In subsequent sections, you will migrate this app to Mule 4.
 
-!(../assets/images/mmt-exchange.png[Exchange: Querying a MySQL Database])
+(../assets/images/mmt-exchange.png "Exchange: Querying a MySQL Database")
 
 . Download version 1.4.0 of the https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-database/1.4.0/[Querying a MySQL Database]
 asset from Exchange.
