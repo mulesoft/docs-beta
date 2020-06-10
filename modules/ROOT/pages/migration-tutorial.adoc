@@ -217,7 +217,7 @@ element in the XML configuration:
 ----
 +
 You can define the property placeholder for the port in your project or (see
-https://docs.mulesoft.com/mule-runtime/4.3/mule-app-properties-to-configure.html[Configure Property Placeholders])
+https://docs.mulesoft.com/mule-runtime/4.3/mule-app-properties-to-configure.html[Configure Property Placeholders], an external link)
 or use a port number (for example, `port="8080"`).
 +
 . Proceed to <<warning_2>>.
