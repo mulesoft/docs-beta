@@ -17,7 +17,7 @@ Mocks and Spies go in this section.
 | The execution scope (`<munit:execution/>`) is meant to have the testing logic which will wait for all processes to finish before executing the next scope.
 
 | Validation
-| The validation scope is meant to have all the validations regarding the result of the execution scope. +
+| The validation scope (`<munit:validation/>`) is meant to have all the validations regarding the result of the execution scope. +
 Assertions and Verifications go in the validation scope.
 |===
 
