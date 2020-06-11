@@ -14,7 +14,7 @@ The MUnit test is divided into three scopes. All of them are optional:
 Mocks and Spies go in this section.
 
 | Execution
-| The execution scope is meant to have the testing logic which will wait for all processes to finish before executing the next scope.
+| The execution scope (`<munit:execution/>`) is meant to have the testing logic which will wait for all processes to finish before executing the next scope.
 
 | Validation
 | The validation scope is meant to have all the validations regarding the result of the execution scope. +
