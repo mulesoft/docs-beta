@@ -18,7 +18,7 @@ with Mule 4.x runtimes.
 * MMA: https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/1.0.0/mule-migration-assistant-runner-1.0.0.zip[Mule Migration Assistant (Zip file)]
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6] (external link)
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7] (external link): The minimum requirement is version 7.3.0.
-* <<maven_install, Maven>>: Maven version 3.3.9 or later supports manual steps in Studio 7, after running MMA.
+//* <<maven_install, Maven>>: Maven version 3.3.9 or later supports manual steps in Studio 7, after running MMA.
 //NOT NEEDED FOR GA: ESTEBAN SAYS PROB NOT NEEDED BC COMPAT MODULES WILL BE AVAILABLE AT GA. TBD:
 //* `releases-ee` repository credentials: You will set these credentials so that Studio 7 can properly display compatibility components in your migrated Mule 4 app.
 //NOT NEEDED FOR GA: If you do not know your credentials, contact your CSM. 
@@ -106,19 +106,14 @@ Migration report: /Users/me/Downloads/querying-a-mysql-database-mule4/report/sum
 Import the migrated app into Studio 7. In subsequent steps, you will perform the manual procedure needed to complete the migration to Mule 4
 
 . In Studio 7, import the generated Mule 4 app as a Studio project:
-+
 .. Navigate to *File* -> *Import* -> *Anypoint Studio/Anypoint Studio project from File System*.
 .. Load the *Project Root* directory that contains the Mule 4 app.
 .. Click *Open*.
+. Open the imported app in Studio 7.
 +
-.Open the imported app in Studio 7.
-+
-The app is in the *querying-a-mysql-database-mule4* project.
-. View the migrated app in Studio 7.
+The app is in the *querying-a-mysql-database-mule4* project. All the app's components are in a single flow called *database-to-jsonFlow*.
 +
 image::../assets/images/mmt-migrated-app.png[Imported App]
-+
-All the app's components are in a single flow called *database-to-jsonFlow*.
 +
 // If the migrated app contains *Unknown* components, go to <<step_maven>> to adjust the configuration for your Studio project _before_ proceeding to <<step_4>>.
 //+
@@ -527,6 +522,8 @@ configuration.
 Note that you can also download and import the Mule 4 version of
 https://anypoint.mulesoft.com/exchange/org.mule.examples/querying-a-mysql-database/2.1.4/[Querying a MySQL Database app for Mule 4] (external link) from Exchange and compare your results.
 
+////
+REMOVES MAVEN CONFIGURATION, NOT NEEDED FOR GA 1.0.0
 == Maven Configuration
 
 After migrating a Mule 3 app to Mule 4 with MMA, you need to perform manual migration tasks that replace compatibility modules in the migrated app with Mule 4 components. It is easier to perform these tasks if you install Maven locally and apply a Maven configuration to the Studio 7 project for your migrated Mule 4 app.
@@ -588,9 +585,9 @@ After Studio processes the configuration, the compatibility components replace t
 image::../assets/images/mmt-migrated-app.png[Imported App]
 +
 . To complete the manual portion of the Mule 4 migration, proceed to <<step_4>>.
-
 ////
-REMOVING MAVEN INSTALLATION STEPS. NOT NEEDED FOR GA. 
+////
+REMOVES MAVEN INSTALLATION STEPS. NOT NEEDED FOR GA. 
 [[maven_install]]
 === Download and Install Maven
 
