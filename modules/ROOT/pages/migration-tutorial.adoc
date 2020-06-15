@@ -114,7 +114,6 @@ Import the migrated app into Studio 7. In subsequent steps, you will perform the
 .Open the imported app in Studio 7.
 +
 The app is in the *querying-a-mysql-database-mule4* project.
-+
 . View the migrated app in Studio 7.
 +
 image::../assets/images/mmt-migrated-app.png[Imported App]
