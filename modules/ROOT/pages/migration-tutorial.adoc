@@ -15,15 +15,13 @@ migration to Mule 4, you also need to use two versions of Anypoint Studio.
 Studio 6 is compatible with Mule 3.x runtime versions. Studio 7 is compatible
 with Mule 4.x runtimes.
 
-//TODO: Esteban confirms this URI for MMA when we release:
-//* MMA: https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/1.0.0/mule-migration-assistant-runner-1.0.0.zip[Mule Migration Assistant (Zip file)] image::../assets/images/external-link-icon.png[]
-* MMA: Coming soon.
+* MMA: https://repository.mulesoft.org/nexus/service/local/repositories/releases/content/com/mulesoft/tools/mule-migration-assistant-runner/1.0.0/mule-migration-assistant-runner-1.0.0.zip[Mule Migration Assistant (Zip file)]
 * https://www.mulesoft.com/lp/dl/studio/previous[Anypoint Studio 6] (external link)
 * https://www.mulesoft.com/lp/dl/studio[Anypoint Studio 7] (external link): The minimum requirement is version 7.3.0.
 * <<maven_install, Maven>>: Maven version 3.3.9 or later supports manual steps in Studio 7, after running MMA.
-//TODO: ESTEBAN SAYS PROB NOT NEEDED BC COMPAT MODULES WILL BE AVAILABLE AT GA. TBD:
-* `releases-ee` repository credentials: You will set these credentials so that Studio 7 can properly display compatibility components in your migrated Mule 4 app.
-//TODO (MIGHT NOT BE NEEDED): If you do not know your credentials, contact your CSM. 
+//NOT NEEDED FOR GA: ESTEBAN SAYS PROB NOT NEEDED BC COMPAT MODULES WILL BE AVAILABLE AT GA. TBD:
+//* `releases-ee` repository credentials: You will set these credentials so that Studio 7 can properly display compatibility components in your migrated Mule 4 app.
+//NOT NEEDED FOR GA: If you do not know your credentials, contact your CSM. 
 
 This tutorial uses Studio version 6.6.4 for the Mule 3 app and Studio 7.5.0 for
 the migrated Mule 4 app.
@@ -55,7 +53,7 @@ the project matches the zip filename (minus the file extension).
 
 Run MMA on the Mule 3 app. In subsequent sections, you will import the migrated app into Studio 7 and perform the manual steps needed to complete the migration to Mule 4.
 
-. Unzip MMA `mule-migration-assistant-runner-1.0.0.zip` file you downloaded
+. Unzip MMA `mule-migration-assistant-runner-1.0.0.zip` file that you downloaded
 in <<prereqs>>.
 +
 The Zip file contains `mule-migration-assistant-runner-1.0.0.jar` and a `/libs`
@@ -79,7 +77,7 @@ need to append the name of the project, as shown in the example above. The
 `-destinationProjectBasePath` can be any local path. For details, see
 xref:migration-tool-procedure.adoc#options[Command-line Options].
 +
-//WORKAROUND FOR 0.5.1: TODO (IS THIS STILL AN ISSUE?)
+//WORKAROUND FOR 0.5.1 (TODO: TBD IF VALID)
 .Windows only:
 Note that if you are on a Windows machine and receive the message
 `Exception: Cannot read mule project.`, try using forward slashes (`/`)
@@ -114,15 +112,18 @@ Import the generated Mule 4 app as a Studio project by going to
 *Anypoint Studio/Anypoint Studio project from File System*, loading the
 *Project Root* directory that contains the Mule 4 app, and then clicking *Open*.
 +
-You can now find the imported app in Studio 7.
+.Open the imported app in Studio 7.
 +
-. If migrated app looks like this one, proceed to <<step_4>>:
+. The migrated app looks like this:
 +
 image::../assets/images/mmt-migrated-app.png[Imported App]
 +
-. If the migrated app contains *Unknown* components, go to <<step_maven>> to adjust the configuration for your Studio project _before_ proceeding to <<step_4>>.
+// If the migrated app contains *Unknown* components, go to <<step_maven>> to adjust the configuration for your Studio project _before_ proceeding to <<step_4>>.
+//+
+//image::../assets/images/mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
 +
-image::../assets/images/mmt-migrated-app-mvn-config-issue.png[Imported App][Imported App with Maven Configuration Issue]
+. Proceed to <<step_4>>
+
 
 [[step_4]]
 == Step 4: Perform Manual Migration Procedures
@@ -153,7 +154,7 @@ for example:
 +
 . Address warnings and other messages in the report by performing these tasks:
 +
-//IN REPORT: 1, 2, 3,
+//FROM REPORT
 * <<warning_1>>
 * <<warning_2>>
 * <<warning_3>>
@@ -175,7 +176,7 @@ or headers for an HTTP listener.
 The Migration report produces this warning twice within the *HTTP listener*
 component:
 
-//IN REPORT
+//FROM REPORT
 [source,txt,linenums]
 ----
 Migration WARN:
@@ -293,7 +294,6 @@ The XML element for the *Outbound Properties to var* component looks like this:
 </compatibility:outbound-properties-to-var>
 ----
 
-//TODO: I JUST SEE A BUNCH OF UNKNOWN ICONS. CHECK IF NEED TO ACTIVATE THE COMPATIBILITY MODULE SOMEHOW TO SEE STUFF.
 . To understand this issue, double-click the *Outbound Properties to var* icon
 in the *Message Flow* view, and go to the *Help* tab in the configuration area.
 +
@@ -587,6 +587,8 @@ image::../assets/images/mmt-migrated-app.png[Imported App]
 +
 . To complete the manual portion of the Mule 4 migration, proceed to <<step_4>>.
 
+////
+REMOVING MAVEN INSTALLATION STEPS. NOT NEEDED FOR GA. 
 [[maven_install]]
 === Download and Install Maven
 
@@ -615,6 +617,7 @@ Java version: 1.8.0_232, vendor: AdoptOpenJDK, runtime: /Library/Java/JavaVirtua
 Default locale: en_US, platform encoding: UTF-8
 OS name: "mac os x", version: "10.14.6", arch: "x86_64", family: "mac"
 ----
+////
 
 == See Also
 
