@@ -105,12 +105,11 @@ Migration report: /Users/me/Downloads/querying-a-mysql-database-mule4/report/sum
 
 Import the migrated app into Studio 7. In subsequent steps, you will perform the manual procedure needed to complete the migration to Mule 4
 
-. In Studio 7:
+. In Studio 7, import the generated Mule 4 app as a Studio project:
 +
-Import the generated Mule 4 app as a Studio project by going to
-*File* -> *Import* ->
-*Anypoint Studio/Anypoint Studio project from File System*, loading the
-*Project Root* directory that contains the Mule 4 app, and then clicking *Open*.
+.. Navigate to *File* -> *Import* -> *Anypoint Studio/Anypoint Studio project from File System*.
+.. Load the *Project Root* directory that contains the Mule 4 app.
+.. Click *Open*.
 +
 .Open the imported app in Studio 7.
 +
