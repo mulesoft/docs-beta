@@ -113,9 +113,13 @@ Import the migrated app into Studio 7. In subsequent steps, you will perform the
 +
 .Open the imported app in Studio 7.
 +
-. The migrated app looks like this:
+The app is in the *querying-a-mysql-database-mule4* project.
++
+. View the migrated app in Studio 7.
 +
 image::../assets/images/mmt-migrated-app.png[Imported App]
++
+All the app's components are in a single flow called *database-to-jsonFlow*.
 +
 // If the migrated app contains *Unknown* components, go to <<step_maven>> to adjust the configuration for your Studio project _before_ proceeding to <<step_4>>.
 //+
