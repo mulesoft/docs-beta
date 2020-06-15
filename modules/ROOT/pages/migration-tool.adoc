@@ -46,6 +46,8 @@ _before_ running the MMA.
 
 It is important to note that the MMA does not support incremental migrations.
 
+Note that you can try out MMA by following the steps in the xref:migration-tutorial.adoc[Mule Migration Assistant Tutorial] and running MMA on one of your Mule 3 apps. MMA outputs a partially migrated Mule 4 app and migration report but does not modify the input Mule 3 app.
+
 [[compatibility_module]]
 == Compatibility Module
 
