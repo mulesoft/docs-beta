@@ -46,12 +46,13 @@ _before_ running the MMA.
 
 It is important to note that the MMA does not support incremental migrations.
 
-Note that you can try out MMA by following the steps in the xref:migration-tutorial.adoc[Mule Migration Assistant Tutorial]. 
+Note that you can try out MMA by following the steps in the xref:migration-tutorial.adoc[Mule Migration Assistant Tutorial].
 
 [[compatibility_module]]
 == Compatibility Module
 
-*Important! The Compatibility module is subject to conditions described for https://www.mulesoft.com/legal/versioning-back-support-policy#community[Community] connectors.*
+Important::
+The Compatibility module is subject to conditions described for https://www.mulesoft.com/legal/versioning-back-support-policy#community[Community] connectors.
 
 Some components or patterns cannot be migrated automatically by transforming
 the app's XML. For such cases, MMA adds the Compatibility
