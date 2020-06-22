@@ -196,8 +196,27 @@ by the Mule Migration Assistant.
 [[wsdl_proxy_migration]]
 === WSDL Proxy Migration
 
-Currently, WSDL proxy migration is not supported.
+WSDL Proxy migration consists on migrating the attribute values for WSDL properties. In Mule 3, most values where extracted using the function defined as attribute value. In Mule 4 there is no equivalent for doing so, therefore most properties are migrated to a default value and require manual configuration from the user with values taken from the WSDL file. These are the ones starting with the `service` keyword.
 
+Some properties are just renamed in order to extract in a more transparent way the value, such as:
+
+[cols="2,5",options="header"]
+|===
+|Mule 3                                  | Mule 4
+
+| `![wsdl(p['wsdl.uri']).services[0].preferredPort.name]`	| `${service.port}`
+| `![wsdl(p['wsdl.uri']).targetNamespace]` 					| `${service.namespace}`
+| `![wsdl(p['wsdl.uri']).services[0].name]`					| `${service.name}`
+|===
+
+However, other properties such as the following are migrated to a DataWeave expression which uses the WSDL Functions Extension dependency, provided by MMA, to extract the expected values:
+[cols="2,5",options="header"]
+|===
+|Mule 3                                  | Mule 4
+| `![wsdl(p['wsdl.uri']).services[0].preferredPort.addresses[0].port]` | `#[Wsdl::getPort('${wsdl.uri}','${service.name}','${service.port}')]` 
+| `![wsdl(p['wsdl.uri']).services[0].preferredPort.addresses[0].host]` | `#[Wsdl::getHost('${wsdl.uri}','${service.name}','${service.port}')]` 
+| `![wsdl(p['wsdl.uri']).services[0].preferredPort.addresses[0].path]` |`#[Wsdl::getPath('${wsdl.uri}','${service.name}','${service.port}')]` 
+|===
 
 == See Also
 
