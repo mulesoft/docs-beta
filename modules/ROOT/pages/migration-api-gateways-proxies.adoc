@@ -77,7 +77,7 @@ uploading the custom proxy to Exchange.
 
 _After_ the migration:
 
-Replace the `{orgId}` value in the `<groupId/>` and `<exchange.url/>` elements with the organization ID found in Anypoint Platform.
+* Replace the `{orgId}` value in the `<groupId/>` and `<exchange.url/>` elements with the organization ID found in Anypoint Platform.
 
 For more information on how to obtain the organization ID, see
 xref:api-manager::custom-policy-uploading-to-exchange.adoc[Uploading a Custom Policy to Exchange].
