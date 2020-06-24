@@ -197,7 +197,7 @@ by the Mule Migration Assistant.
 [[wsdl_proxy_migration]]
 === WSDL Proxy Migration
 
-WSDL Proxy migration consists on migrating the attribute values for WSDL properties. In Mule 3, most values where extracted using the function defined as attribute value. In Mule 4 there is no equivalent for doing so, therefore most properties are migrated to a default value and require manual configuration from the user with values taken from the WSDL file. These are the ones starting with the `service` keyword.
+WSDL proxy migration consists of migrating the attribute values for WSDL properties. In Mule 3, most values are extracted using the function defined as attribute value. In Mule 4, there is no equivalent process, so most properties are migrated to a default value and require manual configuration with values from the WSDL file, which start with the `service` keyword.
 
 Some properties are renamed to extract the value in a more transparent way, for example:
 
