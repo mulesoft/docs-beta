@@ -210,7 +210,7 @@ Some properties are renamed to extract the value in a more transparent way, for 
 | `![wsdl(p['wsdl.uri']).services[0].name]`					| `${service.name}`
 |===
 
-However, other properties such as the following are migrated to a DataWeave expression which uses the WSDL Functions Extension dependency, provided by MMA, to extract the expected values:
+Other properties, such as the following, are migrated to a DataWeave expression that uses the WSDL Functions Extension dependency, provided by MMA, to extract the expected values:
 [cols="2,5",options="header"]
 |===
 |Mule 3                                  | Mule 4
