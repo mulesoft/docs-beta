@@ -75,7 +75,7 @@ xref:https://docs.mulesoft.com/exchange/to-publish-assets-maven[Publish and Depl
 The POM file migration modifies the file to include the elements necessary for
 uploading the custom proxy to Exchange.
 
-After the migration:
+_After_ the migration:
 
 Replace the `{orgId}` value in the `<groupId/>` and `<exchange.url/>` elements with the organization ID found in Anypoint Platform.
 
